@@ -30,7 +30,6 @@ namespace FlowerTitan
             About a = new About();
             a.ShowDialog();
             ///-
-            ///
         }
 
         private void loadTemplateToolStripMenuItem_Click(object sender, EventArgs e)
