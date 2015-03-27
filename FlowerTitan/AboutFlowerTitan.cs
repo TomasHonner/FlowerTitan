@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace FlowerTitan
 {
-    partial class About : Form
+    partial class AboutFlowerTitan : Form
     {
-        public About()
+        public AboutFlowerTitan()
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
