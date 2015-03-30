@@ -125,6 +125,8 @@ namespace FlowerTitan
             addHandlersToImage(imageBox);
             //set color picker color
             buttonColor.BackColor = Color.Black;
+            linesSender = alllines[0];
+            imageSender = allImages[0];
         }
 
         /// <summary>
@@ -184,7 +186,7 @@ namespace FlowerTitan
         private void textBoxLine_TextChanged(object sender, EventArgs e)
         {
             //prevents exception during renaming
-            if (!indexMove)
+            if (!indexMove && isSelected)
             {
                 //allows projection of line's name changes to list box
                 indexMove = true;

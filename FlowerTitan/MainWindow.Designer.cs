@@ -86,6 +86,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.newTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
@@ -359,6 +361,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newTemplateToolStripMenuItem,
+            this.toolStripSeparator3,
             this.importTemplateToolStripMenuItem,
             this.toolStripSeparator2,
             this.loadTemplateToolStripMenuItem,
@@ -660,6 +664,18 @@
             this.panel6.Size = new System.Drawing.Size(295, 612);
             this.panel6.TabIndex = 1;
             // 
+            // newTemplateToolStripMenuItem
+            // 
+            this.newTemplateToolStripMenuItem.Name = "newTemplateToolStripMenuItem";
+            this.newTemplateToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.newTemplateToolStripMenuItem.Text = "New template";
+            this.newTemplateToolStripMenuItem.Click += new System.EventHandler(this.newTemplateToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(157, 6);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,6 +786,8 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TrackBar trackBarPointSize;
         private System.Windows.Forms.TrackBar trackBarThickness;
+        private System.Windows.Forms.ToolStripMenuItem newTemplateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

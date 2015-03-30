@@ -64,5 +64,15 @@ namespace FlowerTitan
             _tp.loadTemplate();
             MessageBox.Show("Template loaded");
         }
+
+        /// <summary>
+        /// Generate a new template for print.
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">click event</param>
+        private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TemplateGeneration.TemplateGenerator.GenerateTemplate(this);
+        }
     }
 }
