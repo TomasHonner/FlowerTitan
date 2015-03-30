@@ -21,30 +21,29 @@ namespace FlowerTitan.MeasurementLines
         /// <summary>
         /// Line's and point's thickness.
         /// </summary>
-        private float thickness;
-        public float Thickness { get { return this.thickness; } }
+        public float Thickness { get; set; }
 
         /// <summary>
         /// Pointer's size, size of an ellipse,circle which is used for line's moving.
         /// </summary>
-        private Size size;
-        public Size Size { get { return this.size; } }
+        public Size Size { get; set; }
 
         /// <summary>
         /// Counts how many lines were created. It is used for an intial line's name.
         /// </summary>
         public int LinesCounter { get; set; }
 
-        /// <summary>
-        /// Initialization.
-        /// </summary>
-        public AllLines()
+       /// <summary>
+       /// Initializtion.
+       /// </summary>
+       /// <param name="thickness">Lines' thickness.</param>
+       /// <param name="pointSize">Draging points' size.</param>
+        public AllLines(float thickness, int pointSize)
         {
             Lines = new List<Line>();
             LinesCounter = 0;
-            //default values
-            thickness = 3f;
-            size = new Size(7, 7);
+            Thickness = thickness;
+            Size = new Size(pointSize, pointSize);
         }
     }
 }

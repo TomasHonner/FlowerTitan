@@ -44,7 +44,7 @@ namespace FlowerTitan
         /// <returns>Deep copy of the very first image's lines.</returns>
         private AllLines getMeasuringLines()
         {
-            AllLines deepCopy = new AllLines();
+            AllLines deepCopy = new AllLines(alllines[0].Thickness, alllines[0].Size.Width);
             //copy line's counter
             deepCopy.LinesCounter = alllines[0].LinesCounter;
             int i = 0;
@@ -64,6 +64,29 @@ namespace FlowerTitan
                 i++;
             }
             return deepCopy;
+        }
+        
+        /// <summary>
+        /// Changes lines' thickness.
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">change event</param>
+        private void trackBarThickness_ValueChanged(object sender, EventArgs e)
+        {
+
+            linesSender.Thickness = (trackBarThickness.Value / 10f);
+            imageSender.Refresh();
+        }
+
+        /// <summary>
+        /// Changes point's size.
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">change event</param>
+        private void trackBarPointSize_ValueChanged(object sender, EventArgs e)
+        {
+            linesSender.Size = new System.Drawing.Size(trackBarPointSize.Value, trackBarPointSize.Value);
+            imageSender.Refresh();
         }
 
         /// <summary>
@@ -98,7 +121,7 @@ namespace FlowerTitan
             listBoxLines.SelectedIndexChanged += listBoxLines_SelectedIndexChanged;
             textBoxLine.TextChanged += textBoxLine_TextChanged;
             //addition of the very first image
-            imageBox.Tag = new AllLines();
+            imageBox.Tag = new AllLines((trackBarThickness.Value/10f), trackBarPointSize.Value);
             addHandlersToImage(imageBox);
             //set color picker color
             buttonColor.BackColor = Color.Black;
@@ -130,7 +153,9 @@ namespace FlowerTitan
             allImages.Clear();
             alllines.Clear();
             //recreating settings for the first image
-            imageSender.Tag = new AllLines();
+            trackBarThickness.Value = 20;
+            trackBarPointSize.Value = 5;
+            imageSender.Tag = new AllLines((trackBarThickness.Value / 10f), trackBarPointSize.Value);
             addHandlersToImage(imageSender);
             //reseting settings to default
             buttonColor.BackColor = Color.Black;

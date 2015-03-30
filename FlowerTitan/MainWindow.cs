@@ -35,11 +35,7 @@ namespace FlowerTitan
 
         private void loadTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //clean all old measuring lines and prepare for a new template
-            prepareForNewTemplate();
-            // TODO: dialog result - close button
-            _tp.loadTemplate();
-            MessageBox.Show("Template loaded");
+
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -58,6 +54,15 @@ namespace FlowerTitan
             addHandlersToImage(iB2);
             addHandlersToImage(iB3);
             addHandlersToImage(iB4);
+        }
+
+        private void importTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //clean all old measuring lines and prepare for a new template
+            prepareForNewTemplate();
+            // TODO: dialog result - close button
+            _tp.loadTemplate();
+            MessageBox.Show("Template loaded");
         }
     }
 }
