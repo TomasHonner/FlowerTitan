@@ -54,6 +54,8 @@
             this.buttonExport = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.importTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.loadTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,8 +88,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.newTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
@@ -135,10 +135,12 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(885, 612);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             // 
             // iB6
             // 
             this.iB6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB6.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB6.Location = new System.Drawing.Point(586, 227);
             this.iB6.Name = "iB6";
             this.iB6.Size = new System.Drawing.Size(250, 217);
@@ -148,6 +150,7 @@
             // iB5
             // 
             this.iB5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB5.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB5.Location = new System.Drawing.Point(300, 227);
             this.iB5.Name = "iB5";
             this.iB5.Size = new System.Drawing.Size(250, 217);
@@ -157,6 +160,7 @@
             // iB8
             // 
             this.iB8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB8.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB8.Location = new System.Drawing.Point(300, 450);
             this.iB8.Name = "iB8";
             this.iB8.Size = new System.Drawing.Size(250, 217);
@@ -166,7 +170,8 @@
             // iB9
             // 
             this.iB9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB9.Location = new System.Drawing.Point(588, 450);
+            this.iB9.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB9.Location = new System.Drawing.Point(586, 450);
             this.iB9.Name = "iB9";
             this.iB9.Size = new System.Drawing.Size(250, 217);
             this.iB9.TabIndex = 11;
@@ -175,7 +180,8 @@
             // iB12
             // 
             this.iB12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB12.Location = new System.Drawing.Point(588, 673);
+            this.iB12.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB12.Location = new System.Drawing.Point(586, 673);
             this.iB12.Name = "iB12";
             this.iB12.Size = new System.Drawing.Size(250, 217);
             this.iB12.TabIndex = 10;
@@ -184,6 +190,7 @@
             // iB11
             // 
             this.iB11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB11.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB11.Location = new System.Drawing.Point(300, 673);
             this.iB11.Name = "iB11";
             this.iB11.Size = new System.Drawing.Size(250, 217);
@@ -193,6 +200,7 @@
             // iB10
             // 
             this.iB10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB10.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB10.Location = new System.Drawing.Point(3, 673);
             this.iB10.Name = "iB10";
             this.iB10.Size = new System.Drawing.Size(250, 217);
@@ -202,6 +210,7 @@
             // iB7
             // 
             this.iB7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB7.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB7.Location = new System.Drawing.Point(3, 450);
             this.iB7.Name = "iB7";
             this.iB7.Size = new System.Drawing.Size(250, 217);
@@ -211,6 +220,7 @@
             // iB4
             // 
             this.iB4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB4.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB4.Location = new System.Drawing.Point(3, 227);
             this.iB4.Name = "iB4";
             this.iB4.Size = new System.Drawing.Size(250, 217);
@@ -220,6 +230,7 @@
             // iB3
             // 
             this.iB3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB3.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB3.Location = new System.Drawing.Point(586, 3);
             this.iB3.Name = "iB3";
             this.iB3.Size = new System.Drawing.Size(250, 217);
@@ -229,6 +240,7 @@
             // iB2
             // 
             this.iB2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB2.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB2.Location = new System.Drawing.Point(300, 3);
             this.iB2.Name = "iB2";
             this.iB2.Size = new System.Drawing.Size(250, 217);
@@ -238,6 +250,7 @@
             // iB1
             // 
             this.iB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB1.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.iB1.Location = new System.Drawing.Point(3, 3);
             this.iB1.Name = "iB1";
             this.iB1.Size = new System.Drawing.Size(250, 217);
@@ -373,40 +386,58 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // newTemplateToolStripMenuItem
+            // 
+            this.newTemplateToolStripMenuItem.Name = "newTemplateToolStripMenuItem";
+            this.newTemplateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newTemplateToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.newTemplateToolStripMenuItem.Text = "New template";
+            this.newTemplateToolStripMenuItem.Click += new System.EventHandler(this.newTemplateToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(194, 6);
+            // 
             // importTemplateToolStripMenuItem
             // 
             this.importTemplateToolStripMenuItem.Name = "importTemplateToolStripMenuItem";
-            this.importTemplateToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.importTemplateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.importTemplateToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.importTemplateToolStripMenuItem.Text = "Import template";
             this.importTemplateToolStripMenuItem.Click += new System.EventHandler(this.importTemplateToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(194, 6);
             // 
             // loadTemplateToolStripMenuItem
             // 
             this.loadTemplateToolStripMenuItem.Name = "loadTemplateToolStripMenuItem";
-            this.loadTemplateToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.loadTemplateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.loadTemplateToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.loadTemplateToolStripMenuItem.Text = "Load template";
             this.loadTemplateToolStripMenuItem.Click += new System.EventHandler(this.loadTemplateToolStripMenuItem_Click);
             // 
             // saveTemplateToolStripMenuItem
             // 
             this.saveTemplateToolStripMenuItem.Name = "saveTemplateToolStripMenuItem";
-            this.saveTemplateToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.saveTemplateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveTemplateToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.saveTemplateToolStripMenuItem.Text = "Save template";
+            this.saveTemplateToolStripMenuItem.Click += new System.EventHandler(this.saveTemplateToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(194, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -433,8 +464,8 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.aboutToolStripMenuItem.Text = "About Flower Titan";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // imageToolTip
@@ -448,13 +479,13 @@
             // 
             // buttonColor
             // 
+            this.buttonColor.BackColor = System.Drawing.Color.Black;
             this.buttonColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonColor.Location = new System.Drawing.Point(97, 36);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(25, 25);
             this.buttonColor.TabIndex = 8;
-            this.buttonColor.UseVisualStyleBackColor = true;
-            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            this.buttonColor.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -506,7 +537,6 @@
             this.trackBarPointSize.TabIndex = 17;
             this.trackBarPointSize.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBarPointSize.Value = 5;
-            this.trackBarPointSize.ValueChanged += new System.EventHandler(this.trackBarPointSize_ValueChanged);
             // 
             // trackBarThickness
             // 
@@ -518,7 +548,6 @@
             this.trackBarThickness.TabIndex = 16;
             this.trackBarThickness.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBarThickness.Value = 20;
-            this.trackBarThickness.ValueChanged += new System.EventHandler(this.trackBarThickness_ValueChanged);
             // 
             // label7
             // 
@@ -594,12 +623,12 @@
             // toolStripStatusLabelInfo
             // 
             this.toolStripStatusLabelInfo.Name = "toolStripStatusLabelInfo";
-            this.toolStripStatusLabelInfo.Size = new System.Drawing.Size(99, 15);
-            this.toolStripStatusLabelInfo.Text = "Template loaded.";
+            this.toolStripStatusLabelInfo.Size = new System.Drawing.Size(42, 15);
+            this.toolStripStatusLabelInfo.Text = "Ready.";
             // 
             // toolStripProgressBar
             // 
-            this.toolStripProgressBar.Margin = new System.Windows.Forms.Padding(980, 3, 1, 3);
+            this.toolStripProgressBar.Margin = new System.Windows.Forms.Padding(3);
             this.toolStripProgressBar.Name = "toolStripProgressBar";
             this.toolStripProgressBar.Size = new System.Drawing.Size(100, 14);
             this.toolStripProgressBar.Step = 1;
@@ -664,18 +693,6 @@
             this.panel6.Size = new System.Drawing.Size(295, 612);
             this.panel6.TabIndex = 1;
             // 
-            // newTemplateToolStripMenuItem
-            // 
-            this.newTemplateToolStripMenuItem.Name = "newTemplateToolStripMenuItem";
-            this.newTemplateToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.newTemplateToolStripMenuItem.Text = "New template";
-            this.newTemplateToolStripMenuItem.Click += new System.EventHandler(this.newTemplateToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(157, 6);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,6 +708,7 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.Text = "FlowerTitan";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).EndInit();
@@ -753,12 +771,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolTip imageToolTip;
-        private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.Button buttonColor;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBoxLines;
-        private System.Windows.Forms.TextBox textBoxLine;
         private Emgu.CV.UI.ImageBox iB6;
         private Emgu.CV.UI.ImageBox iB5;
         private Emgu.CV.UI.ImageBox iB8;
@@ -784,10 +797,15 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TrackBar trackBarPointSize;
-        private System.Windows.Forms.TrackBar trackBarThickness;
         private System.Windows.Forms.ToolStripMenuItem newTemplateToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        public System.Windows.Forms.TrackBar trackBarThickness;
+        public System.Windows.Forms.Button buttonColor;
+        public System.Windows.Forms.ListBox listBoxLines;
+        public System.Windows.Forms.TextBox textBoxLine;
+        public System.Windows.Forms.TrackBar trackBarPointSize;
+        public System.Windows.Forms.ToolTip imageToolTip;
+        public System.Windows.Forms.ColorDialog colorDialog;
     }
 }
 

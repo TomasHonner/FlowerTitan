@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Drawing;
 
-namespace FlowerTitan.MeasurementLines
+namespace FlowerTitan.MeasuringLines
 {
     /// <summary>
     /// Particular line with its points.
@@ -19,22 +19,11 @@ namespace FlowerTitan.MeasurementLines
         public List<Point> Points { get; set; }
 
         /// <summary>
-        /// Line's color.
-        /// </summary>
-        public Color Color { get; set; }
-
-        /// <summary>
-        /// Line's name.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Initialization.
         /// </summary>
-        public Line(Color color)
+        public Line()
         {
             Points = new List<Point>();
-            Color = color;
         }
     }
 }

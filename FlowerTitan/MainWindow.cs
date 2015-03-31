@@ -13,13 +13,12 @@ namespace FlowerTitan
     public partial class MainWindow : Form
     {
         Controllers.TemplateProcessor _tp;
+        MeasuringLines.MeasuringLines measuringLines;
 
         public MainWindow()
         {
             _tp = new Controllers.TemplateProcessor();
             InitializeComponent();
-            //calls function in partial class MeasurementLines.cs
-            prepareMeasuringLines(iB1);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,44 +34,76 @@ namespace FlowerTitan
 
         private void loadTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //clean all old measuring lines and prepare for a new template
+            measuringLines.NewTemplate();
+            // TODO: load template from DB, enabling images, lines, dialog result
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            _tp.startProcessing();
-            //mock start - get measuring lines and do image processing
-            //for every image getMeasuring lines again - it returns deep copy of object
-            //every image has to have the same count of lines and points as the very first one
-            iB2.Tag = getMeasuringLines();//currently it is the same as on the first image
-            iB3.Tag = getMeasuringLines();
-            iB4.Tag = getMeasuringLines();
-            //mock end
-            //add event handlers to the other images
-            //call ONLY after adding measuring lines to image tag
-            //it has to be called only once
-            addHandlersToImage(iB2);
-            addHandlersToImage(iB3);
-            addHandlersToImage(iB4);
+            if (measuringLines.IsEnabled)
+            {
+                //get reference measuring lines, call only once
+                MeasuringLines.Line[] referenceLines = measuringLines.GetReferenceMeasuringLines();
+
+                _tp.startProcessing();
+                // MOCK: add processed lines to image (for every image with its processed lines)
+                //every array has to have the same count of lines and line's points as the reference one
+                measuringLines.AddMeasuringLinesToImage(iB2, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB3, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB4, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB5, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB6, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB7, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB8, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB9, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB10, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB11, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB12, referenceLines);
+            }
         }
 
         private void importTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //clean all old measuring lines and prepare for a new template
-            prepareForNewTemplate();
+            measuringLines.NewTemplate();
+
             // TODO: dialog result - close button
             _tp.loadTemplate();
-            MessageBox.Show("Template loaded");
+            toolStripStatusLabelInfo.Text = "Template loaded.";
+
+            //enabling measuring lines on the first image
+            measuringLines.EnableMeasuringLinesOnFirstImage(iB1);
         }
 
         /// <summary>
-        /// Generate a new template for print.
+        /// Open form with generation's options.
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">click event</param>
         private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TemplateGeneration.TemplateGenerator.GenerateTemplate(this);
+            TemplateGenerator.TemplateGeneratorWindow tGW = new TemplateGenerator.TemplateGeneratorWindow();
+            tGW.ShowDialog();
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            measuringLines = MeasuringLines.MeasuringLines.GetInstance(this);
+        }
+
+        private void saveTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (measuringLines.IsEnabled)
+            {
+                // TODO: save template to DB,test null measuringLines
+            }
+        }
+
+        private void panel1_MouseEnter(object sender, EventArgs e)
+        {
+            //enables mouse wheel scrolling
+            panel1.Focus();
         }
     }
 }
