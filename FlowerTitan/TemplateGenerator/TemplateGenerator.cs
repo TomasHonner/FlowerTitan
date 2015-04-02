@@ -29,9 +29,10 @@ namespace FlowerTitan.TemplateGenerator
             return templateGenerator;
         }
 
-        public void GenerateTemplate()
+        public void GenerateTemplate(int templatesCount)
         {
-            
+            Database.Database db = Database.Database.GetInstance();
+            long num = db.GetLastGeneratorNumber(templatesCount);
         }
     }
 }

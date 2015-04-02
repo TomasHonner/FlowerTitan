@@ -507,6 +507,7 @@
             // textBoxLine
             // 
             this.textBoxLine.Location = new System.Drawing.Point(97, 6);
+            this.textBoxLine.MaxLength = 100;
             this.textBoxLine.Name = "textBoxLine";
             this.textBoxLine.Size = new System.Drawing.Size(162, 20);
             this.textBoxLine.TabIndex = 11;

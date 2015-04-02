@@ -18,5 +18,15 @@ namespace FlowerTitan.TemplateGenerator
         {
             InitializeComponent();
         }
+
+        private void TemplateGeneratorWindow_Load(object sender, EventArgs e)
+        {
+            templateGenerator = TemplateGenerator.GetInstance(this);
+        }
+
+        private void buttonGenerate_Click(object sender, EventArgs e)
+        {
+            templateGenerator.GenerateTemplate(10);
+        }
     }
 }

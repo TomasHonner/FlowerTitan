@@ -78,7 +78,7 @@ namespace FlowerTitan.MeasuringLines
         /// <param name="mW">Instance of MainWindow which has needed UI elements.</param>
         /// <returns>MeasuringLines instance.</returns>
         public static MeasuringLines GetInstance(MainWindow mW)
-        {
+        {            
             if (measuringLines == null)
             {
                 measuringLines = new MeasuringLines();
@@ -189,10 +189,11 @@ namespace FlowerTitan.MeasuringLines
         public void NewTemplate()
         {
             //reseting listBoxe's items
-            isMoving = true;
+            indexMove = true;
             mainWindow.listBoxLines.Items.Clear();
             mainWindow.listBoxLines.ClearSelected();
-            isMoving = false;
+            mainWindow.textBoxLine.Text = "";
+            indexMove = false;
             //removing all added event handlers and measuring lines
             foreach (Emgu.CV.UI.ImageBox iB in allImages)
             {
