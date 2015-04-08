@@ -35,12 +35,28 @@ namespace FlowerTitan.Database
             if (database == null)
             {
                 database = new Database();
-                //get connection string from app.config file
-                connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
-                //create a new connection
-                connection = new SQLiteConnection(connectionString);
+                try
+                {
+                    //get connection string from app.config file
+                    connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+                    //create a new connection
+                    connection = new SQLiteConnection(connectionString);
+                }
+                catch (Exception e)
+                {
+                    showError(e);
+                }
             }
             return database;
+        }
+
+        /// <summary>
+        /// Shows occured exception.
+        /// </summary>
+        /// <param name="e">occured exception</param>
+        private static void showError(Exception e)
+        {
+            System.Windows.Forms.MessageBox.Show("Error occured during database connection.\n" + e.Message, "Database error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
 
         /// <summary>
@@ -52,23 +68,30 @@ namespace FlowerTitan.Database
         {
             long num = 0;
             long id = 0;
-            openConnection();
-            SQLiteCommand command = connection.CreateCommand();
-            //get last number
-            command.CommandText = "SELECT id, generatedNumber FROM Properties LIMIT 1";
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                id = (long)reader["id"];
-                num = (long)reader["generatedNumber"];
+                openConnection();
+                SQLiteCommand command = connection.CreateCommand();
+                //get last number
+                command.CommandText = "SELECT id, generatedNumber FROM Properties LIMIT 1";
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    id = (long)reader["id"];
+                    num = (long)reader["generatedNumber"];
+                }
+                reader.Close();
+                //set new last number
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@nLN", num + increment);
+                command.CommandText = "UPDATE Properties SET generatedNumber = @nLN WHERE id = @id";
+                command.ExecuteNonQuery();
+                closeConnection();
             }
-            reader.Close();
-            //set new last number
-            command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@nLN", num + increment);
-            command.CommandText = "UPDATE Properties SET generatedNumber = @nLN WHERE id = @id";
-            command.ExecuteNonQuery();
-            closeConnection();
+            catch (Exception e)
+            {
+                showError(e);
+            }
             return num;
         }
 
@@ -79,17 +102,24 @@ namespace FlowerTitan.Database
         public string GetSaveFilePath()
         {
             string path = "";
-            openConnection();
-            SQLiteCommand command = connection.CreateCommand();
-            //get save file dialog path
-            command.CommandText = "SELECT saveFilePath FROM Properties LIMIT 1";
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                path = reader["saveFilePath"].ToString();
+                openConnection();
+                SQLiteCommand command = connection.CreateCommand();
+                //get save file dialog path
+                command.CommandText = "SELECT saveFilePath FROM Properties LIMIT 1";
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    path = reader["saveFilePath"].ToString();
+                }
+                reader.Close();
+                closeConnection();
             }
-            reader.Close();
-            closeConnection();
+            catch (Exception e)
+            {
+                showError(e);
+            }
             return path;
         }
 
@@ -99,13 +129,20 @@ namespace FlowerTitan.Database
         /// <param name="path">last used path</param>
         public void SetSaveFilePath(string path)
         {
-            openConnection();
-            SQLiteCommand command = connection.CreateCommand();
-            //set new last path
-            command.Parameters.AddWithValue("@nLP", path);
-            command.CommandText = "UPDATE Properties SET saveFilePath = @nLP WHERE id = 1";
-            command.ExecuteNonQuery();
-            closeConnection();
+            try
+            {
+                openConnection();
+                SQLiteCommand command = connection.CreateCommand();
+                //set new last path
+                command.Parameters.AddWithValue("@nLP", path);
+                command.CommandText = "UPDATE Properties SET saveFilePath = @nLP WHERE id = 1";
+                command.ExecuteNonQuery();
+                closeConnection();
+            }
+            catch (Exception e)
+            {
+                showError(e);
+            }
         }
 
         /// <summary>
@@ -115,14 +152,11 @@ namespace FlowerTitan.Database
         {
             if (connection.State != ConnectionState.Open)
             {
-                try
-                {
-                    connection.Open();
-                }
-                catch (Exception e)
-                {
-                    showError(e);
-                }
+                connection.Open();
+                SQLiteCommand command = connection.CreateCommand();
+                //enable foreign keys constraints
+                command.CommandText = "PRAGMA foreign_keys = ON";
+                command.ExecuteNonQuery();
             }
         }
 
@@ -133,24 +167,8 @@ namespace FlowerTitan.Database
         {
             if (connection.State == ConnectionState.Open)
             {
-                try
-                {
-                    connection.Close();
-                }
-                catch (Exception e)
-                {
-                    showError(e);
-                }
+                connection.Close();
             }
-        }
-
-        /// <summary>
-        /// Shows occured exception.
-        /// </summary>
-        /// <param name="e">occured exception</param>
-        private void showError(Exception e)
-        {
-            System.Windows.Forms.MessageBox.Show("Error occured during database connection.\n" + e.Message, "Database error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
     }
 }
