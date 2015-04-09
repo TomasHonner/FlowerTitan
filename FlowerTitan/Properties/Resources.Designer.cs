@@ -59,5 +59,137 @@ namespace FlowerTitan.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured during database connection.
+        ///.
+        /// </summary>
+        internal static string Database_error_text {
+            get {
+                return ResourceManager.GetString("Database_error_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database error.
+        /// </summary>
+        internal static string Database_error_title {
+            get {
+                return ResourceManager.GetString("Database_error_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aborted..
+        /// </summary>
+        internal static string MainWindow_status_abort {
+            get {
+                return ResourceManager.GetString("MainWindow_status_abort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Done..
+        /// </summary>
+        internal static string MainWindow_status_done {
+            get {
+                return ResourceManager.GetString("MainWindow_status_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exported..
+        /// </summary>
+        internal static string MainWindow_status_export {
+            get {
+                return ResourceManager.GetString("MainWindow_status_export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Imported..
+        /// </summary>
+        internal static string MainWindow_status_import {
+            get {
+                return ResourceManager.GetString("MainWindow_status_import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Importing....
+        /// </summary>
+        internal static string MainWindow_status_importing {
+            get {
+                return ResourceManager.GetString("MainWindow_status_importing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loaded..
+        /// </summary>
+        internal static string MainWindow_status_load {
+            get {
+                return ResourceManager.GetString("MainWindow_status_load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing....
+        /// </summary>
+        internal static string MainWindow_status_processing {
+            get {
+                return ResourceManager.GetString("MainWindow_status_processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready..
+        /// </summary>
+        internal static string MainWindow_status_ready {
+            get {
+                return ResourceManager.GetString("MainWindow_status_ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved..
+        /// </summary>
+        internal static string MainWindow_status_save {
+            get {
+                return ResourceManager.GetString("MainWindow_status_save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LMB - new point/new line/select point
+        ///RMB - end of line/deselect
+        ///LMB pressed - move point
+        ///DEL - delete current point
+        ///BACKSPACE - delete whole line.
+        /// </summary>
+        internal static string MeasuringLines_help {
+            get {
+                return ResourceManager.GetString("MeasuringLines_help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured during template generation.
+        ///.
+        /// </summary>
+        internal static string TemplateGenerator_error_text {
+            get {
+                return ResourceManager.GetString("TemplateGenerator_error_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generator error.
+        /// </summary>
+        internal static string TemplateGenerator_error_title {
+            get {
+                return ResourceManager.GetString("TemplateGenerator_error_title", resourceCulture);
+            }
+        }
     }
 }

@@ -597,7 +597,7 @@ namespace FlowerTitan.MeasuringLines
                         break;
                     default:
                         //show tool tip on MMB
-                        mainWindow.imageToolTip.Show("LMB - new point/new line/select point\nRMB - end of line/deselect\nLMB pressed - move point\nDEL - delete current point\nBACKSPACE - delete whole line", imageSender, e.X, e.Y, 6000);
+                        mainWindow.imageToolTip.Show(Properties.Resources.MeasuringLines_help, imageSender, e.X, e.Y, 6000);
                         break;
                 }
                 repaintAllImages();

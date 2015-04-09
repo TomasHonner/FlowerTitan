@@ -48,7 +48,7 @@ namespace FlowerTitan.TemplateGenerator
         {
             Database.Database db = Database.Database.GetInstance();
             //get lastly used number and set how many templates will be generated to compute a new last number
-            long lastNum = db.GetLastGeneratorNumber(templatesCount);
+            long lastNum = db.GetAndSetLastGeneratorNumber(templatesCount);
             templatesCountBackup = -templatesCount;
             PdfDocument pdf = new PdfDocument();
             //initial settings
@@ -180,10 +180,10 @@ namespace FlowerTitan.TemplateGenerator
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Error occured during template generation.\n" + e.Message, "Generator error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.TemplateGenerator_error_text + e.Message, Properties.Resources.TemplateGenerator_error_title, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 Database.Database db = Database.Database.GetInstance();
                 //rollback generator counter
-                db.GetLastGeneratorNumber(templatesCountBackup);
+                db.GetAndSetLastGeneratorNumber(templatesCountBackup);
             }
         }
 

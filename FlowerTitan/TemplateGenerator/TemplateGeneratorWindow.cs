@@ -37,7 +37,7 @@ namespace FlowerTitan.TemplateGenerator
             templateGenerator = TemplateGenerator.GetInstance();
             //save dialog settings
             saveFileDialog.DefaultExt = "pdf";
-            saveFileDialog.Filter = "PDF (*.pdf)|*.pdf";
+            saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
         }
 
         /// <summary>

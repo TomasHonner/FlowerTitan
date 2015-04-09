@@ -117,52 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Database_error_text" xml:space="preserve">
-    <value>Error occured during database connection.
-</value>
-  </data>
-  <data name="Database_error_title" xml:space="preserve">
-    <value>Database error</value>
-  </data>
-  <data name="MainWindow_status_abort" xml:space="preserve">
-    <value>Aborted.</value>
-  </data>
-  <data name="MainWindow_status_done" xml:space="preserve">
-    <value>Done.</value>
-  </data>
-  <data name="MainWindow_status_export" xml:space="preserve">
-    <value>Exported.</value>
-  </data>
-  <data name="MainWindow_status_import" xml:space="preserve">
-    <value>Imported.</value>
-  </data>
-  <data name="MainWindow_status_importing" xml:space="preserve">
-    <value>Importing...</value>
-  </data>
-  <data name="MainWindow_status_load" xml:space="preserve">
-    <value>Loaded.</value>
-  </data>
-  <data name="MainWindow_status_processing" xml:space="preserve">
-    <value>Processing...</value>
-  </data>
-  <data name="MainWindow_status_ready" xml:space="preserve">
-    <value>Ready.</value>
-  </data>
-  <data name="MainWindow_status_save" xml:space="preserve">
-    <value>Saved.</value>
-  </data>
-  <data name="MeasuringLines_help" xml:space="preserve">
-    <value>LMB - new point/new line/select point
-RMB - end of line/deselect
-LMB pressed - move point
-DEL - delete current point
-BACKSPACE - delete whole line</value>
-  </data>
-  <data name="TemplateGenerator_error_text" xml:space="preserve">
-    <value>Error occured during template generation.
-</value>
-  </data>
-  <data name="TemplateGenerator_error_title" xml:space="preserve">
-    <value>Generator error</value>
-  </data>
+  <metadata name="folderBrowserDialogXLSPath.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

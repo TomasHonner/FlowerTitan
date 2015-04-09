@@ -106,9 +106,9 @@ namespace FlowerTitan.Controllers
         /// <summary>
         /// Load template from file
         /// </summary>
-        public void loadTemplate()
+        public void loadTemplate(string file)
         {
-            _fc.loadTemplate();
+            _fc.loadTemplate(file);
             _template = _fc.STemplate;
         }
 

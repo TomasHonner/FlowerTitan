@@ -56,7 +56,7 @@ namespace FlowerTitan.Database
         /// <param name="e">occured exception</param>
         private static void showError(Exception e)
         {
-            System.Windows.Forms.MessageBox.Show("Error occured during database connection.\n" + e.Message, "Database error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            System.Windows.Forms.MessageBox.Show(Properties.Resources.Database_error_text + e.Message, Properties.Resources.Database_error_title, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace FlowerTitan.Database
         /// </summary>
         /// <param name="increment">increment to last generated number</param>
         /// <returns>last generated template's number</returns>
-        public long GetLastGeneratorNumber(long increment)
+        public long GetAndSetLastGeneratorNumber(long increment)
         {
             long num = 0;
             long id = 0;
@@ -101,17 +101,44 @@ namespace FlowerTitan.Database
         /// <returns>last path</returns>
         public string GetSaveFilePath()
         {
-            string path = "";
+            return getProperty("saveFilePath");
+        }
+
+        /// <summary>
+        /// Gets open file dialog's last path.
+        /// </summary>
+        /// <returns>last path</returns>
+        public string GetOpenFilePath()
+        {
+            return getProperty("openFilePath");
+        }
+
+        /// <summary>
+        /// Gets default XLS path.
+        /// </summary>
+        /// <returns>XLS path</returns>
+        public string GetXLSPath()
+        {
+            return getProperty("defaultXLSPath");
+        }
+
+        /// <summary>
+        /// Gets column value from table Properties
+        /// </summary>
+        /// <param name="column">column name</param>
+        /// <returns>column value</returns>
+        private string getProperty(string column)
+        {
+            string val = "";
             try
             {
                 openConnection();
                 SQLiteCommand command = connection.CreateCommand();
-                //get save file dialog path
-                command.CommandText = "SELECT saveFilePath FROM Properties LIMIT 1";
+                command.CommandText = String.Format("SELECT {0} FROM Properties LIMIT 1", column);
                 SQLiteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    path = reader["saveFilePath"].ToString();
+                    val = reader[column].ToString();
                 }
                 reader.Close();
                 closeConnection();
@@ -120,7 +147,7 @@ namespace FlowerTitan.Database
             {
                 showError(e);
             }
-            return path;
+            return val;
         }
 
         /// <summary>
@@ -129,13 +156,40 @@ namespace FlowerTitan.Database
         /// <param name="path">last used path</param>
         public void SetSaveFilePath(string path)
         {
+            setProperty("saveFilePath", path);
+        }
+
+        /// <summary>
+        /// Saves last used open file dialog's path.
+        /// </summary>
+        /// <param name="path">last used path</param>
+        public void SetOpenFilePath(string path)
+        {
+            setProperty("openFilePath", path);
+        }
+
+        /// <summary>
+        /// Saves default XLS path.
+        /// </summary>
+        /// <param name="path">new XLS path</param>
+        public void SetXLSPath(string path)
+        {
+            setProperty("defaultXLSPath", path);
+        }
+
+        /// <summary>
+        /// Sets column value in table Properties
+        /// </summary>
+        /// <param name="column">column name</param>
+        /// <param name="value">column value</param>
+        private void setProperty(string column, string value)
+        {
             try
             {
                 openConnection();
                 SQLiteCommand command = connection.CreateCommand();
-                //set new last path
-                command.Parameters.AddWithValue("@nLP", path);
-                command.CommandText = "UPDATE Properties SET saveFilePath = @nLP WHERE id = 1";
+                command.Parameters.AddWithValue("@val", value);
+                command.CommandText = String.Format("UPDATE Properties SET {0} = @val WHERE id = 1", column);
                 command.ExecuteNonQuery();
                 closeConnection();
             }

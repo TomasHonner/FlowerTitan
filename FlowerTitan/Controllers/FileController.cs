@@ -35,20 +35,12 @@ namespace FlowerTitan.Controllers
         /// <summary>
         /// Load template from file
         /// </summary>
-        public void loadTemplate()
+        public void loadTemplate(string file)
         {
             try
             {
-                OpenFileDialog d = new OpenFileDialog();
-                d.Title = "Open template file";
-                d.Filter = " jpg files (.jpg)| *.jpg|bmp files (.bmp)| *.bmp| png files (.png)| *.png";
-                d.Multiselect = false;
-
-                if(d.ShowDialog() == DialogResult.OK)
-                {
-                    Bitmap bmp = new Bitmap(d.FileName);
-                    STemplate = bmp;
-                }
+                Bitmap bmp = new Bitmap(file);
+                STemplate = bmp;
             }
             catch(Exception e)
             {
