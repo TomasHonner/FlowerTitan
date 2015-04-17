@@ -45,6 +45,8 @@ namespace FlowerTitan.MeasuringLines
         private int linesCounter = 0;
         //holds lines' line thickness
         private float thickness = 0f;
+        //holds images scale
+        private float scale = 0f;
         //holds sender's image
         private Emgu.CV.UI.ImageBox imageSender;
         //holds sender's image's lines
@@ -91,7 +93,8 @@ namespace FlowerTitan.MeasuringLines
         /// Enables measuring lines on one picture (usually the first one).
         /// </summary>
         /// <param name="image">first image</param>
-        public void EnableMeasuringLinesOnFirstImage(Emgu.CV.UI.ImageBox image)
+        /// <param name="scale">imported image's scale (e.g. 5.1 means 1 pixel on screen is 5.1mm in reality)</param>
+        public void EnableMeasuringLinesOnFirstImage(Emgu.CV.UI.ImageBox image, float scale)
         {
             //if it is called for the first time
             if (firstCall)
@@ -227,6 +230,7 @@ namespace FlowerTitan.MeasuringLines
             selectedPoint = 0;
             linesCounter = 0;
             firstProcessing = true;
+            scale = 0f;
             addedImages = 0;
             processingCount = 0;
         }

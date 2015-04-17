@@ -145,7 +145,7 @@ namespace FlowerTitan
 
                 changeStatus(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
-                measuringLines.EnableMeasuringLinesOnFirstImage(iB1);
+                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, 1);
                 tableLayoutPanel2.Enabled = true;
                 menuStrip.Enabled = true;
                 buttonStop.Enabled = false;
@@ -172,6 +172,11 @@ namespace FlowerTitan
             measuringLines = MeasuringLines.MeasuringLines.GetInstance(this);
             openFileDialogImage.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
             toolStripStatusLabelInfo.Text = Properties.Resources.MainWindow_status_ready;
+            // Set last window location
+            if (Properties.Settings.Default.MainWindowLocation != null)
+            {
+                this.Location = Properties.Settings.Default.MainWindowLocation;
+            }
         }
 
         private void loadTemplateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -277,6 +282,13 @@ namespace FlowerTitan
             toolStripStatusLabelInfo.Text = status;
             toolStripProgressBar.Value = 100;
             timerStatus.Start();
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //save window location
+            Properties.Settings.Default.MainWindowLocation = this.Location;
+            Properties.Settings.Default.Save();
         }
     }
 }
