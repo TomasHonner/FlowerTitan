@@ -70,6 +70,11 @@ namespace FlowerTitan.MeasuringLines
         public bool IsEnabled { get { return isEnabled; } }
 
         /// <summary>
+        /// Returns image's scale in DPI.
+        /// </summary>
+        public float Scale { get { return scale; } }
+
+        /// <summary>
         /// Private constructor.
         /// </summary>
         private MeasuringLines() {}
@@ -93,7 +98,7 @@ namespace FlowerTitan.MeasuringLines
         /// Enables measuring lines on one picture (usually the first one).
         /// </summary>
         /// <param name="image">first image</param>
-        /// <param name="scale">imported image's scale (e.g. 5.1 means 1 pixel on screen is 5.1mm in reality)</param>
+        /// <param name="scale">imported image's scale in DPI(e.g. 300 DPI means that 300 pixels are 25,4 mm in reality; if image is zoomed, e.g. from 1000 px to 100 px with DPI=200 to fit imagebox, then scale = 20 [DPI/(original size/new size)])</param>
         public void EnableMeasuringLinesOnFirstImage(Emgu.CV.UI.ImageBox image, float scale)
         {
             //if it is called for the first time
@@ -114,6 +119,7 @@ namespace FlowerTitan.MeasuringLines
             addHandlersToImage(image);
             linesSender = allLines[0];
             imageSender = allImages[0];
+            this.scale = scale;
         }
 
         /// <summary>

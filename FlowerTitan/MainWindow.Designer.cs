@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.iB6 = new Emgu.CV.UI.ImageBox();
             this.iB5 = new Emgu.CV.UI.ImageBox();
@@ -264,6 +265,7 @@
             // 
             this.iB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB1.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB1.InitialImage = ((System.Drawing.Image)(resources.GetObject("iB1.InitialImage")));
             this.iB1.Location = new System.Drawing.Point(3, 3);
             this.iB1.Name = "iB1";
             this.iB1.Size = new System.Drawing.Size(250, 217);

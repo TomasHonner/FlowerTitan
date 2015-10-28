@@ -145,7 +145,7 @@ namespace FlowerTitan
 
                 changeStatus(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
-                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, 1);
+                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, 100f);
                 tableLayoutPanel2.Enabled = true;
                 menuStrip.Enabled = true;
                 buttonStop.Enabled = false;
