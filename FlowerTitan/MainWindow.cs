@@ -16,6 +16,7 @@ namespace FlowerTitan
     {
         private Controllers.TemplateProcessor _tp;
         private MeasuringLines.MeasuringLines measuringLines;
+        private Database.Database database;
         //processing thread
         private Thread processingThread;
 
@@ -77,17 +78,17 @@ namespace FlowerTitan
             {
                 // MOCK: add processed lines to image (for every image with its processed lines)
                 //every array has to have the same count of lines and line's points as the reference one
-                measuringLines.AddMeasuringLinesToImage(iB2, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB3, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB4, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB5, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB6, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB7, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB8, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB9, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB10, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB11, referenceLines);
-                measuringLines.AddMeasuringLinesToImage(iB12, referenceLines);
+                measuringLines.AddMeasuringLinesToImage(iB2, referenceLines, 2);
+                measuringLines.AddMeasuringLinesToImage(iB3, referenceLines, 3);
+                measuringLines.AddMeasuringLinesToImage(iB4, referenceLines, 4);
+                measuringLines.AddMeasuringLinesToImage(iB5, referenceLines, 5);
+                measuringLines.AddMeasuringLinesToImage(iB6, referenceLines, 6);
+                measuringLines.AddMeasuringLinesToImage(iB7, referenceLines, 7);
+                measuringLines.AddMeasuringLinesToImage(iB8, referenceLines, 8);
+                measuringLines.AddMeasuringLinesToImage(iB9, referenceLines, 9);
+                measuringLines.AddMeasuringLinesToImage(iB10, referenceLines, 10);
+                measuringLines.AddMeasuringLinesToImage(iB11, referenceLines, 11);
+                measuringLines.AddMeasuringLinesToImage(iB12, referenceLines, 12);
                 //MOCK end
 
                 changeStatus(Properties.Resources.MainWindow_status_done);
@@ -142,6 +143,8 @@ namespace FlowerTitan
             Action importingDone = new Action(() =>
             {
                 //TODO: put images into boxes
+                tID.Text = new Random().Next().ToString();
+                iB1.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100);
 
                 changeStatus(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
@@ -170,6 +173,7 @@ namespace FlowerTitan
         {
             _tp = new Controllers.TemplateProcessor();
             measuringLines = MeasuringLines.MeasuringLines.GetInstance(this);
+            database = Database.Database.GetInstance();
             openFileDialogImage.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
             toolStripStatusLabelInfo.Text = Properties.Resources.MainWindow_status_ready;
             // Set last window location
@@ -192,7 +196,7 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                //save lines from first image to db
+                database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, true, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names);
                 changeStatus(Properties.Resources.MainWindow_status_save);
             }
         }
@@ -215,7 +219,7 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                // TODO: save template to DB
+                database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, false, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names);
                 changeStatus(Properties.Resources.MainWindow_status_save);
             }
         }

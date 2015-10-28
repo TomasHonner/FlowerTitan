@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel1 = new System.Windows.Forms.Panel();
             this.iB6 = new Emgu.CV.UI.ImageBox();
             this.iB5 = new Emgu.CV.UI.ImageBox();
@@ -102,6 +101,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.tBtemplateName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
@@ -265,7 +266,6 @@
             // 
             this.iB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB1.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB1.InitialImage = ((System.Drawing.Image)(resources.GetObject("iB1.InitialImage")));
             this.iB1.Location = new System.Drawing.Point(3, 3);
             this.iB1.Name = "iB1";
             this.iB1.Size = new System.Drawing.Size(250, 217);
@@ -274,8 +274,9 @@
             // 
             // tID
             // 
-            this.tID.Location = new System.Drawing.Point(99, 4);
+            this.tID.Location = new System.Drawing.Point(147, 4);
             this.tID.Name = "tID";
+            this.tID.ReadOnly = true;
             this.tID.Size = new System.Drawing.Size(100, 20);
             this.tID.TabIndex = 1;
             // 
@@ -296,15 +297,15 @@
             this.panel2.Controls.Add(this.checkboxFilter2);
             this.panel2.Controls.Add(this.checkboxFilter1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(9, 30);
+            this.panel2.Location = new System.Drawing.Point(9, 71);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(277, 115);
+            this.panel2.Size = new System.Drawing.Size(277, 74);
             this.panel2.TabIndex = 3;
             // 
             // checkboxFilter3
             // 
             this.checkboxFilter3.AutoSize = true;
-            this.checkboxFilter3.Location = new System.Drawing.Point(17, 92);
+            this.checkboxFilter3.Location = new System.Drawing.Point(193, 46);
             this.checkboxFilter3.Name = "checkboxFilter3";
             this.checkboxFilter3.Size = new System.Drawing.Size(54, 17);
             this.checkboxFilter3.TabIndex = 7;
@@ -314,7 +315,7 @@
             // checkboxFilter2
             // 
             this.checkboxFilter2.AutoSize = true;
-            this.checkboxFilter2.Location = new System.Drawing.Point(17, 69);
+            this.checkboxFilter2.Location = new System.Drawing.Point(106, 46);
             this.checkboxFilter2.Name = "checkboxFilter2";
             this.checkboxFilter2.Size = new System.Drawing.Size(54, 17);
             this.checkboxFilter2.TabIndex = 6;
@@ -788,6 +789,8 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.tBtemplateName);
+            this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Controls.Add(this.tID);
             this.panel6.Controls.Add(this.panel2);
@@ -807,6 +810,23 @@
             // 
             this.timerStatus.Interval = 5000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(15, 39);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 17);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Template name";
+            // 
+            // tBtemplateName
+            // 
+            this.tBtemplateName.Location = new System.Drawing.Point(147, 37);
+            this.tBtemplateName.Name = "tBtemplateName";
+            this.tBtemplateName.Size = new System.Drawing.Size(100, 20);
+            this.tBtemplateName.TabIndex = 14;
             // 
             // MainWindow
             // 
@@ -935,6 +955,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogImage;
         private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TextBox tBtemplateName;
+        private System.Windows.Forms.Label label9;
     }
 }
 

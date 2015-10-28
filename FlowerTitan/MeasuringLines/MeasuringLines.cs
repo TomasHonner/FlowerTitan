@@ -41,7 +41,7 @@ namespace FlowerTitan.MeasuringLines
         private int selectedLine = 0;
         //holds reference to the selected point
         private int selectedPoint = 0;
-        //counts lines' count for naming purpos
+        //counts lines' count for naming purpose
         private int linesCounter = 0;
         //holds lines' line thickness
         private float thickness = 0f;
@@ -69,10 +69,43 @@ namespace FlowerTitan.MeasuringLines
         /// </summary>
         public bool IsEnabled { get { return isEnabled; } }
 
+        public Color[] Colors { get { return lineColors.ToArray(); } }
+
+        public string[] Names { get { return lineNames.ToArray(); } }
+
         /// <summary>
         /// Returns image's scale in DPI.
         /// </summary>
         public float Scale { get { return scale; } }
+
+        /// <summary>
+        /// Returns all lines of all active images.
+        /// </summary>
+        public AllLines[] ActiveImagesLines
+        {
+            get
+            {
+                List<AllLines> al = new List<AllLines>();
+                foreach (Emgu.CV.UI.ImageBox image in allImages)
+                {
+                    al.Add((AllLines)image.Tag);
+                }
+                return al.ToArray();
+            }
+        }
+
+        public Bitmap[] ActiveImagesImages
+        {
+            get
+            {
+                List<Bitmap> img = new List<Bitmap>();
+                foreach (Emgu.CV.UI.ImageBox image in allImages)
+                {
+                    img.Add(image.Image.Bitmap);
+                }
+                return img.ToArray();
+            }
+        }
 
         /// <summary>
         /// Private constructor.
@@ -115,7 +148,7 @@ namespace FlowerTitan.MeasuringLines
                 isEnabled = true;
             }
             //addition of the very first image
-            image.Tag = new AllLines();
+            image.Tag = new AllLines(1);
             addHandlersToImage(image);
             linesSender = allLines[0];
             imageSender = allImages[0];
@@ -127,7 +160,7 @@ namespace FlowerTitan.MeasuringLines
         /// </summary>
         /// <param name="image">Image to which measuring lines are added.</param>
         /// <param name="lines">Array of lines for the particular image.</param>
-        public void AddMeasuringLinesToImage(Emgu.CV.UI.ImageBox image, Line[] lines)
+        public void AddMeasuringLinesToImage(Emgu.CV.UI.ImageBox image, Line[] lines, int imageBoxID)
         {
             addedImages++;
             //creates deep copy of added lines
@@ -155,6 +188,7 @@ namespace FlowerTitan.MeasuringLines
                 //handlers are already added, just change of image's lines reference
                 allLines[addedImages] = al;
             }
+            al.ImageBoxID = imageBoxID;
             //force line drawing
             image.Refresh();
         }

@@ -18,12 +18,26 @@ namespace FlowerTitan.MeasuringLines
         /// </summary>
         public List<Line> Lines { get; set; }
 
+        /// <summary>
+        /// Holds image box id which owns these lines.
+        /// </summary>
+        public int ImageBoxID { get; set; }
+
        /// <summary>
        /// Initializtion.
        /// </summary>
         public AllLines()
         {
             Lines = new List<Line>();
+        }
+
+        /// <summary>
+        /// Initializtion with image box ID.
+        /// </summary>
+        public AllLines(int imageBoxID)
+        {
+            Lines = new List<Line>();
+            ImageBoxID = imageBoxID;
         }
     }
 }
