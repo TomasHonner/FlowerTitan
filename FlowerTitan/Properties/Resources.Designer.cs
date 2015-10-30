@@ -174,6 +174,24 @@ namespace FlowerTitan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load template.
+        /// </summary>
+        internal static string Open_load {
+            get {
+                return ResourceManager.GetString("Open_load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load lines from template.
+        /// </summary>
+        internal static string Open_load_template {
+            get {
+                return ResourceManager.GetString("Open_load_template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured during template generation.
         ///.
         /// </summary>

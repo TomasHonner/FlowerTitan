@@ -99,10 +99,10 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.tBtemplateName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.label9 = new System.Windows.Forms.Label();
-            this.tBtemplateName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
@@ -159,6 +159,7 @@
             this.iB6.Location = new System.Drawing.Point(586, 227);
             this.iB6.Name = "iB6";
             this.iB6.Size = new System.Drawing.Size(250, 217);
+            this.iB6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB6.TabIndex = 14;
             this.iB6.TabStop = false;
             // 
@@ -169,6 +170,7 @@
             this.iB5.Location = new System.Drawing.Point(300, 227);
             this.iB5.Name = "iB5";
             this.iB5.Size = new System.Drawing.Size(250, 217);
+            this.iB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB5.TabIndex = 13;
             this.iB5.TabStop = false;
             // 
@@ -179,6 +181,7 @@
             this.iB8.Location = new System.Drawing.Point(300, 450);
             this.iB8.Name = "iB8";
             this.iB8.Size = new System.Drawing.Size(250, 217);
+            this.iB8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB8.TabIndex = 12;
             this.iB8.TabStop = false;
             // 
@@ -189,6 +192,7 @@
             this.iB9.Location = new System.Drawing.Point(586, 450);
             this.iB9.Name = "iB9";
             this.iB9.Size = new System.Drawing.Size(250, 217);
+            this.iB9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB9.TabIndex = 11;
             this.iB9.TabStop = false;
             // 
@@ -199,6 +203,7 @@
             this.iB12.Location = new System.Drawing.Point(586, 673);
             this.iB12.Name = "iB12";
             this.iB12.Size = new System.Drawing.Size(250, 217);
+            this.iB12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB12.TabIndex = 10;
             this.iB12.TabStop = false;
             // 
@@ -209,6 +214,7 @@
             this.iB11.Location = new System.Drawing.Point(300, 673);
             this.iB11.Name = "iB11";
             this.iB11.Size = new System.Drawing.Size(250, 217);
+            this.iB11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB11.TabIndex = 9;
             this.iB11.TabStop = false;
             // 
@@ -219,6 +225,7 @@
             this.iB10.Location = new System.Drawing.Point(3, 673);
             this.iB10.Name = "iB10";
             this.iB10.Size = new System.Drawing.Size(250, 217);
+            this.iB10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB10.TabIndex = 8;
             this.iB10.TabStop = false;
             // 
@@ -229,6 +236,7 @@
             this.iB7.Location = new System.Drawing.Point(3, 450);
             this.iB7.Name = "iB7";
             this.iB7.Size = new System.Drawing.Size(250, 217);
+            this.iB7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB7.TabIndex = 7;
             this.iB7.TabStop = false;
             // 
@@ -239,6 +247,7 @@
             this.iB4.Location = new System.Drawing.Point(3, 227);
             this.iB4.Name = "iB4";
             this.iB4.Size = new System.Drawing.Size(250, 217);
+            this.iB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB4.TabIndex = 6;
             this.iB4.TabStop = false;
             // 
@@ -249,6 +258,7 @@
             this.iB3.Location = new System.Drawing.Point(586, 3);
             this.iB3.Name = "iB3";
             this.iB3.Size = new System.Drawing.Size(250, 217);
+            this.iB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB3.TabIndex = 5;
             this.iB3.TabStop = false;
             // 
@@ -259,6 +269,7 @@
             this.iB2.Location = new System.Drawing.Point(300, 3);
             this.iB2.Name = "iB2";
             this.iB2.Size = new System.Drawing.Size(250, 217);
+            this.iB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB2.TabIndex = 3;
             this.iB2.TabStop = false;
             // 
@@ -269,6 +280,7 @@
             this.iB1.Location = new System.Drawing.Point(3, 3);
             this.iB1.Name = "iB1";
             this.iB1.Size = new System.Drawing.Size(250, 217);
+            this.iB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iB1.TabIndex = 2;
             this.iB1.TabStop = false;
             // 
@@ -802,14 +814,12 @@
             this.panel6.Size = new System.Drawing.Size(295, 612);
             this.panel6.TabIndex = 1;
             // 
-            // openFileDialogImage
+            // tBtemplateName
             // 
-            this.openFileDialogImage.Title = "Open template image";
-            // 
-            // timerStatus
-            // 
-            this.timerStatus.Interval = 5000;
-            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
+            this.tBtemplateName.Location = new System.Drawing.Point(147, 37);
+            this.tBtemplateName.Name = "tBtemplateName";
+            this.tBtemplateName.Size = new System.Drawing.Size(100, 20);
+            this.tBtemplateName.TabIndex = 14;
             // 
             // label9
             // 
@@ -821,12 +831,14 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Template name";
             // 
-            // tBtemplateName
+            // openFileDialogImage
             // 
-            this.tBtemplateName.Location = new System.Drawing.Point(147, 37);
-            this.tBtemplateName.Name = "tBtemplateName";
-            this.tBtemplateName.Size = new System.Drawing.Size(100, 20);
-            this.tBtemplateName.TabIndex = 14;
+            this.openFileDialogImage.Title = "Open template image";
+            // 
+            // timerStatus
+            // 
+            this.timerStatus.Interval = 5000;
+            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
             // MainWindow
             // 
@@ -884,11 +896,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Emgu.CV.UI.ImageBox iB2;
-        private Emgu.CV.UI.ImageBox iB1;
-        private Emgu.CV.UI.ImageBox iB4;
-        private Emgu.CV.UI.ImageBox iB3;
-        private System.Windows.Forms.TextBox tID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
@@ -908,14 +915,6 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.Label label4;
-        private Emgu.CV.UI.ImageBox iB6;
-        private Emgu.CV.UI.ImageBox iB5;
-        private Emgu.CV.UI.ImageBox iB8;
-        private Emgu.CV.UI.ImageBox iB9;
-        private Emgu.CV.UI.ImageBox iB12;
-        private Emgu.CV.UI.ImageBox iB11;
-        private Emgu.CV.UI.ImageBox iB10;
-        private Emgu.CV.UI.ImageBox iB7;
         private System.Windows.Forms.ToolStripMenuItem importTemplateToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -955,8 +954,21 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogImage;
         private System.Windows.Forms.Timer timerStatus;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.TextBox tBtemplateName;
         private System.Windows.Forms.Label label9;
+        public Emgu.CV.UI.ImageBox iB2;
+        public Emgu.CV.UI.ImageBox iB1;
+        public Emgu.CV.UI.ImageBox iB4;
+        public Emgu.CV.UI.ImageBox iB3;
+        public Emgu.CV.UI.ImageBox iB6;
+        public Emgu.CV.UI.ImageBox iB5;
+        public Emgu.CV.UI.ImageBox iB8;
+        public Emgu.CV.UI.ImageBox iB9;
+        public Emgu.CV.UI.ImageBox iB12;
+        public Emgu.CV.UI.ImageBox iB11;
+        public Emgu.CV.UI.ImageBox iB10;
+        public Emgu.CV.UI.ImageBox iB7;
+        public System.Windows.Forms.TextBox tID;
+        public System.Windows.Forms.TextBox tBtemplateName;
     }
 }
 

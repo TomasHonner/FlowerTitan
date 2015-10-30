@@ -108,14 +108,14 @@ namespace FlowerTitan.Database
         /// <param name="scale">Template scale.</param>
         /// <param name="linesColors">Lines colors.</param>
         /// <param name="linesNames">Lines names.</param>
-        public void SaveTemplate(AllLines[] allLines, Bitmap[] allImages, bool isTemplate, string temp_id, string name, float scale, Color[] linesColors, string[] linesNames)
+        public long SaveTemplate(AllLines[] allLines, Bitmap[] allImages, bool isTemplate, string temp_id, string name, double scale, Color[] linesColors, string[] linesNames)
         {
             try
             {
                 openConnection();
                 bool exists = false;
                 long id = 0;
-                templateExists(temp_id, ref exists, ref id);
+                templateExists(temp_id, ref exists, ref id, isTemplate);
                 SQLiteCommand command = connection.CreateCommand();
                 command.Parameters.AddWithValue("@date", DateTime.Now.ToUniversalTime());
                 command.Parameters.AddWithValue("@name", name);
@@ -123,12 +123,29 @@ namespace FlowerTitan.Database
                 command.Parameters.AddWithValue("@temp_id", temp_id);
                 command.Parameters.AddWithValue("@isTemplate", isTemplate);
                 command.CommandText = "INSERT INTO Templates (date, name, scale, temp_id, isTemplate) VALUES (@date, @name, @scale, @temp_id, @isTemplate);";
-                int a =command.ExecuteNonQuery();
-                saveAllLines(allLines, allImages, getLastID(), linesColors, linesNames);
+                command.ExecuteNonQuery();
+                long newID = getLastID();
+                saveAllLines(allLines, allImages, newID, linesColors, linesNames, isTemplate);
                 if (exists)
                 {
                     deleteOldTemplate(id);
                 }
+                closeConnection();
+                return newID;
+            }
+            catch (Exception e)
+            {
+                showError(e);
+            }
+            return -1L;
+        }
+
+        public void DeleteTemplate(long id)
+        {
+            try
+            {
+                openConnection();
+                deleteOldTemplate(id);
                 closeConnection();
             }
             catch (Exception e)
@@ -145,7 +162,7 @@ namespace FlowerTitan.Database
                 long[] lines = getChildren(image, "Lines", "image");
                 foreach (long line in lines)
                 {
-                    deleteChildren(image, "Points", "line");
+                    deleteChildren(line, "Points", "line");
                 }
                 deleteChildren(image, "Lines", "image");
             }
@@ -180,13 +197,14 @@ namespace FlowerTitan.Database
             return cildren.ToArray();
         }
 
-        private void saveAllLines(AllLines[] allLines, Bitmap[] allImages, long id, Color[] colors, string[] names)
+        private void saveAllLines(AllLines[] allLines, Bitmap[] allImages, long id, Color[] colors, string[] names, bool isTemplate)
         {
             int i = 0;
             foreach (AllLines al in allLines)
             {
                 saveImage(al, allImages[i], id, colors, names);
                 i++;
+                if (isTemplate) break;
             }
         }
 
@@ -234,11 +252,12 @@ namespace FlowerTitan.Database
             command.ExecuteNonQuery();
         }
 
-        private void templateExists(string temp_id, ref bool exists, ref long id)
+        private void templateExists(string temp_id, ref bool exists, ref long id, bool isTemplate)
         {
             SQLiteCommand command = connection.CreateCommand();
             command.Parameters.AddWithValue("@temp_id", temp_id);
-            command.CommandText = "SELECT id, temp_id FROM Templates WHERE temp_id=@temp_id LIMIT 1;";
+            command.Parameters.AddWithValue("@isTemplate", isTemplate);
+            command.CommandText = "SELECT id, temp_id FROM Templates WHERE temp_id=@temp_id AND isTemplate=@isTemplate LIMIT 1;";
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -383,6 +402,151 @@ namespace FlowerTitan.Database
             {
                 connection.Close();
             }
+        }
+
+        public void LoadTemplates(List<long> ids, List<DateTime> dates, List<string> names, List<long> tempIDs, bool isTemplate)
+        {
+            try
+            {
+                openConnection();
+                SQLiteCommand command = connection.CreateCommand();
+                command.Parameters.AddWithValue("@isTemplate", isTemplate);
+                command.CommandText = "SELECT * FROM Templates WHERE isTemplate=@isTemplate;";
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    ids.Add((long)reader["id"]);
+                    dates.Add((DateTime)reader["date"]);
+                    names.Add((string)reader["name"]);
+                    tempIDs.Add((long)reader["temp_id"]);
+                }
+                reader.Close();
+                closeConnection();
+            }
+            catch (Exception e)
+            {
+                showError(e);
+            }
+        }
+
+        public Line[] LoadAsTemplate(long id, List<int> colors, List<string> names)
+        {
+            try
+            {
+                openConnection();
+                SQLiteCommand command = connection.CreateCommand();
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@isTemplate", true);
+                command.CommandText = "SELECT id, template FROM Images WHERE template=@id;";
+                SQLiteDataReader reader = command.ExecuteReader();
+                long imageID = 0;
+                while (reader.Read())
+                {
+                    imageID = (long)reader["id"];
+                }
+                reader.Close();
+                Line[] lines = getLines(imageID, colors, names);
+                closeConnection();
+                return lines;
+            }
+            catch (Exception e)
+            {
+                showError(e);
+            }
+            return null;
+        }
+
+        private Line[] getLines(long imageID, List<int> colors, List<string> names)
+        {
+            List<Line> lines = new List<Line>();
+            List<long> linesIDs = new List<long>();
+            SQLiteCommand command = connection.CreateCommand();
+            command.Parameters.AddWithValue("@id", imageID);
+            command.CommandText = "SELECT * FROM Lines WHERE image=@id;";
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                linesIDs.Add((long)reader["id"]);
+                names.Add((string)reader["name"]);
+                colors.Add((int)((long)reader["color"]));
+            }
+            reader.Close();
+            foreach (long lID in linesIDs){
+                lines.Add(getLine(lID));
+            }
+            return lines.ToArray();
+        }
+
+        private Line getLine(long lineID)
+        {
+            List<Point> linePoints = new List<Point>();
+            SQLiteCommand command = connection.CreateCommand();
+            command.Parameters.AddWithValue("@id", lineID);
+            command.CommandText = "SELECT * FROM Points WHERE line=@id;";
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                linePoints.Add(new Point((int)((long)reader["x"]), (int)((long)reader["y"])));
+            }
+            reader.Close();
+            Line l = new Line();
+            l.Points = linePoints;
+            return l;
+        }
+
+        public AllLines[] LoadTemplate(long id, List<int> colors, List<string> names, ref string name, ref double scale, ref long temp_id, List<byte[]> images)
+        {
+            //try
+            {
+                openConnection();
+                SQLiteCommand command = connection.CreateCommand();
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@isTemplate", false);
+                command.CommandText = "SELECT * FROM Templates WHERE id=@id;";
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    name = (string)reader["name"];
+                    scale = (double)reader["scale"];
+                    temp_id = (long)reader["temp_id"];
+                }
+                reader.Close();
+                AllLines[] allLines = getImages(id, images, colors, names);
+                closeConnection();
+                return allLines;
+            }
+            //catch (Exception e)
+            {
+                //showError(e);
+            }
+            return null;
+        }
+
+        private AllLines[] getImages(long id, List<byte[]> images, List<int> colors, List<string> names)
+        {
+            SQLiteCommand command = connection.CreateCommand();
+            command.Parameters.AddWithValue("@id", id);
+            command.CommandText = "SELECT * FROM Images WHERE template=@id;";
+            SQLiteDataReader reader = command.ExecuteReader();
+            List<long> imageIDs = new List<long>();
+            List<long> imageBoxes = new List<long>();
+            while (reader.Read())
+            {
+                imageIDs.Add((long)reader["id"]);
+                images.Add((byte[])reader["image"]);
+                imageBoxes.Add((long)reader["imageBoxID"]);
+            }
+            reader.Close();
+            List<AllLines> allLines = new List<AllLines>();
+            int i = 0;
+            foreach (long imageID in imageIDs)
+            {
+                AllLines al = new AllLines(imageBoxes[i]);
+                al.Lines = getLines(imageID, colors, names).ToList<Line>();
+                allLines.Add(al);
+                i++;
+            }
+            return allLines.ToArray();
         }
     }
 }

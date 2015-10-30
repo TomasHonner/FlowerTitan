@@ -17,6 +17,7 @@ namespace FlowerTitan
         private Controllers.TemplateProcessor _tp;
         private MeasuringLines.MeasuringLines measuringLines;
         private Database.Database database;
+        private long autoSaveID = 0;
         //processing thread
         private Thread processingThread;
 
@@ -27,7 +28,6 @@ namespace FlowerTitan
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //test saved changes
             this.Close();
         }
 
@@ -41,7 +41,7 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                //save to db
+                autoSaveID = database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, false, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names);
                 tableLayoutPanel2.Enabled = false;
                 menuStrip.Enabled = false;
                 buttonExport.Enabled = false;
@@ -91,6 +91,7 @@ namespace FlowerTitan
                 measuringLines.AddMeasuringLinesToImage(iB12, referenceLines, 12);
                 //MOCK end
 
+                database.DeleteTemplate(autoSaveID);
                 changeStatus(Properties.Resources.MainWindow_status_done);
                 tableLayoutPanel2.Enabled = true;
                 menuStrip.Enabled = true;
@@ -103,8 +104,7 @@ namespace FlowerTitan
 
         private void importTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Database.Database db = Database.Database.GetInstance();
-            openFileDialogImage.InitialDirectory = db.GetOpenFilePath();
+            openFileDialogImage.InitialDirectory = database.GetOpenFilePath();
             openFileDialogImage.FileName = "";
             if (openFileDialogImage.ShowDialog() == DialogResult.OK)
             {
@@ -120,7 +120,7 @@ namespace FlowerTitan
                 toolStripProgressBar.Value = 0;
                 processingThread = new Thread(new ThreadStart(this.import));
                 processingThread.Start();
-                db.SetOpenFilePath(System.IO.Path.GetDirectoryName(openFileDialogImage.FileName));
+                database.SetOpenFilePath(System.IO.Path.GetDirectoryName(openFileDialogImage.FileName));
             }
         }
 
@@ -142,9 +142,21 @@ namespace FlowerTitan
 
             Action importingDone = new Action(() =>
             {
-                //TODO: put images into boxes
+                //MOCK
                 tID.Text = new Random().Next().ToString();
-                iB1.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100);
+                iB1.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Aqua));
+                iB2.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Blue));
+                iB3.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Brown));
+                iB4.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Coral));
+                iB5.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.DarkGreen));
+                iB6.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.DarkOrange));
+                iB7.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.DarkViolet));
+                iB8.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Firebrick));
+                iB9.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Gold));
+                iB10.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Honeydew));
+                iB11.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.LemonChiffon));
+                iB12.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.LightSeaGreen));
+                //MOCK end
 
                 changeStatus(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
@@ -158,11 +170,6 @@ namespace FlowerTitan
             this.Invoke(importingDone);
         }
 
-        /// <summary>
-        /// Open form with generation's options.
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">click event</param>
         private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TemplateGenerator.TemplateGeneratorWindow tGW = new TemplateGenerator.TemplateGeneratorWindow();
@@ -188,7 +195,15 @@ namespace FlowerTitan
             if (measuringLines.IsEnabled)
             {
                 //replace lines with lines from db
-                changeStatus(Properties.Resources.MainWindow_status_load);
+                Open o = new Open(Properties.Resources.Open_load_template, true);
+                if ((o.ShowDialog() == System.Windows.Forms.DialogResult.OK) && (o.Tag != null))
+                {
+                    List<int> colors = new List<int>();
+                    List<string> names = new List<string>();
+                    MeasuringLines.Line[] tempLines = database.LoadAsTemplate((long)o.Tag, colors, names);
+                    measuringLines.SetTemplateLines(iB1, tempLines, colors.ToArray(), names.ToArray());
+                    changeStatus(Properties.Resources.MainWindow_status_load);
+                }
             }
         }
 
@@ -209,10 +224,19 @@ namespace FlowerTitan
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //clean all old measuring lines and prepare for a new template
-            measuringLines.NewTemplate();
-            // TODO: load template from DB, enabling images, lines, dialog result, enable measuring lines
-            changeStatus(Properties.Resources.MainWindow_status_load);
+            Open o = new Open(Properties.Resources.Open_load_template, false);
+            if ((o.ShowDialog() == System.Windows.Forms.DialogResult.OK) && (o.Tag != null))
+            {
+                List<int> colors = new List<int>();
+                List<string> names = new List<string>();
+                List<byte[]> images = new List<byte[]>();
+                string name = "";
+                double scale = 0;
+                long tempID = 0L;
+                MeasuringLines.AllLines[] allLines = database.LoadTemplate((long)o.Tag, colors, names, ref name, ref scale, ref tempID, images);
+                measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID);
+                changeStatus(Properties.Resources.MainWindow_status_load);
+            }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -259,8 +283,15 @@ namespace FlowerTitan
         private void buttonStop_Click(object sender, EventArgs e)
         {
             processingThread.Abort();
-            //load from db
             changeStatus(Properties.Resources.MainWindow_status_abort);
+            List<int> colors = new List<int>();
+            List<string> names = new List<string>();
+            List<byte[]> images = new List<byte[]>();
+            string name = "";
+            double scale = 0;
+            long tempID = 0L;
+            MeasuringLines.AllLines[] allLines = database.LoadTemplate(autoSaveID, colors, names, ref name, ref scale, ref tempID, images);
+            measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID);
             tableLayoutPanel2.Enabled = true;
             menuStrip.Enabled = true;
             buttonStop.Enabled = false;

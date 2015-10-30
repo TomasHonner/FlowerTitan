@@ -46,7 +46,7 @@ namespace FlowerTitan.MeasuringLines
         //holds lines' line thickness
         private float thickness = 0f;
         //holds images scale
-        private float scale = 0f;
+        private double scale = 0;
         //holds sender's image
         private Emgu.CV.UI.ImageBox imageSender;
         //holds sender's image's lines
@@ -76,7 +76,54 @@ namespace FlowerTitan.MeasuringLines
         /// <summary>
         /// Returns image's scale in DPI.
         /// </summary>
-        public float Scale { get { return scale; } }
+        public double Scale { get { return scale; } }
+
+        public void SetTemplateLines(Emgu.CV.UI.ImageBox image, Line[] tempLines, int[] colors, string[] names)
+        {
+            double oldScale = scale;
+            NewTemplate();
+            EnableMeasuringLinesOnFirstImage(image, oldScale);
+            addLines(image, tempLines, colors, names);
+        }
+
+        private void addLines(Emgu.CV.UI.ImageBox image, Line[] tempLines, int[] colors, string[] names)
+        {
+            int i = 0;
+            foreach (Line line in tempLines)
+            {
+                foreach (Point p in line.Points)
+                {
+                    image_MouseClick(image, new MouseEventArgs(MouseButtons.Left, 1, p.X, p.Y, 0));
+                }
+                image_MouseClick(image, new MouseEventArgs(MouseButtons.Right, 1, 0, 0, 0));
+                mainWindow.textBoxLine.Text = names[i];
+                mainWindow.listBoxLines.Items[i] = mainWindow.textBoxLine.Text;
+                lineNames[i] = mainWindow.textBoxLine.Text;
+                mainWindow.buttonColor.BackColor = Color.FromArgb(colors[i]);
+                lineColors[i] = mainWindow.buttonColor.BackColor;
+                i++;
+            }
+            repaintAllImages();
+        }
+
+        public void SetAllTemplateLines(AllLines[] allLines, int[] colors, string[] names, byte[][] images, string name, double scale, long tempID)
+        {
+            Emgu.CV.UI.ImageBox[] allBoxes = { mainWindow.iB1, mainWindow.iB2, mainWindow.iB3, mainWindow.iB4, mainWindow.iB5, mainWindow.iB6, mainWindow.iB7, mainWindow.iB8, mainWindow.iB9, mainWindow.iB10, mainWindow.iB11, mainWindow.iB12 };
+            NewTemplate();
+            mainWindow.tID.Text = tempID.ToString();
+            mainWindow.tBtemplateName.Text = name;
+            EnableMeasuringLinesOnFirstImage(allBoxes[0], scale);
+            addLines(allBoxes[0], allLines[0].Lines.ToArray(), colors, names);
+            ImageConverter converter = new ImageConverter();
+            int i = 0;
+            foreach (AllLines al in allLines)
+            {
+                long id = al.ImageBoxID - 1;
+                allBoxes[id].Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(new Bitmap((Image)converter.ConvertFrom(images[i])));
+                if (i > 0) AddMeasuringLinesToImage(allBoxes[id], al.Lines.ToArray(), al.ImageBoxID);
+                i++;
+            }
+        }
 
         /// <summary>
         /// Returns all lines of all active images.
@@ -132,7 +179,7 @@ namespace FlowerTitan.MeasuringLines
         /// </summary>
         /// <param name="image">first image</param>
         /// <param name="scale">imported image's scale in DPI(e.g. 300 DPI means that 300 pixels are 25,4 mm in reality; if image is zoomed, e.g. from 1000 px to 100 px with DPI=200 to fit imagebox, then scale = 20 [DPI/(original size/new size)])</param>
-        public void EnableMeasuringLinesOnFirstImage(Emgu.CV.UI.ImageBox image, float scale)
+        public void EnableMeasuringLinesOnFirstImage(Emgu.CV.UI.ImageBox image, double scale)
         {
             //if it is called for the first time
             if (firstCall)
@@ -160,7 +207,7 @@ namespace FlowerTitan.MeasuringLines
         /// </summary>
         /// <param name="image">Image to which measuring lines are added.</param>
         /// <param name="lines">Array of lines for the particular image.</param>
-        public void AddMeasuringLinesToImage(Emgu.CV.UI.ImageBox image, Line[] lines, int imageBoxID)
+        public void AddMeasuringLinesToImage(Emgu.CV.UI.ImageBox image, Line[] lines, long imageBoxID)
         {
             addedImages++;
             //creates deep copy of added lines
@@ -247,6 +294,7 @@ namespace FlowerTitan.MeasuringLines
                 iB.MouseUp -= image_MouseUp;
                 iB.Paint -= image_Paint;
                 iB.Tag = null;
+                iB.Image = null;
                 //delete lines from image
                 iB.Refresh();
             }
@@ -270,7 +318,7 @@ namespace FlowerTitan.MeasuringLines
             selectedPoint = 0;
             linesCounter = 0;
             firstProcessing = true;
-            scale = 0f;
+            scale = 0;
             addedImages = 0;
             processingCount = 0;
         }
