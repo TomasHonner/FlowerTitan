@@ -103,6 +103,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
@@ -127,6 +128,7 @@
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -358,7 +360,7 @@
             // 
             this.buttonStop.Enabled = false;
             this.buttonStop.ForeColor = System.Drawing.Color.Red;
-            this.buttonStop.Location = new System.Drawing.Point(924, 533);
+            this.buttonStop.Location = new System.Drawing.Point(28, 56);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(231, 40);
             this.buttonStop.TabIndex = 4;
@@ -369,7 +371,7 @@
             // buttonStart
             // 
             this.buttonStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonStart.Location = new System.Drawing.Point(924, 488);
+            this.buttonStart.Location = new System.Drawing.Point(28, 10);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(231, 40);
             this.buttonStart.TabIndex = 5;
@@ -379,7 +381,7 @@
             // 
             // buttonExport
             // 
-            this.buttonExport.Location = new System.Drawing.Point(924, 586);
+            this.buttonExport.Location = new System.Drawing.Point(28, 102);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(231, 40);
             this.buttonExport.TabIndex = 6;
@@ -743,7 +745,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1011, 15);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(980, 15);
             this.toolStripStatusLabel1.Spring = true;
             // 
             // toolStripProgressBar
@@ -801,6 +803,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.tBtemplateName);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label1);
@@ -840,14 +843,21 @@
             this.timerStatus.Interval = 5000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.buttonExport);
+            this.panel7.Controls.Add(this.buttonStart);
+            this.panel7.Controls.Add(this.buttonStop);
+            this.panel7.Location = new System.Drawing.Point(9, 450);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(277, 159);
+            this.panel7.TabIndex = 15;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 661);
-            this.Controls.Add(this.buttonExport);
-            this.Controls.Add(this.buttonStart);
-            this.Controls.Add(this.buttonStop);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
@@ -888,6 +898,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -927,7 +938,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelInfo;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -969,6 +979,8 @@
         public Emgu.CV.UI.ImageBox iB7;
         public System.Windows.Forms.TextBox tID;
         public System.Windows.Forms.TextBox tBtemplateName;
+        public System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
+        private System.Windows.Forms.Panel panel7;
     }
 }
 

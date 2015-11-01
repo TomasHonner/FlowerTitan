@@ -17,7 +17,6 @@ namespace FlowerTitan
         private Controllers.TemplateProcessor _tp;
         private MeasuringLines.MeasuringLines measuringLines;
         private Database.Database database;
-        private long autoSaveID = 0;
         //processing thread
         private Thread processingThread;
 
@@ -41,15 +40,10 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                autoSaveID = database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, false, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names);
-                tableLayoutPanel2.Enabled = false;
-                menuStrip.Enabled = false;
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = false;
                 buttonStop.Enabled = true;
-                timerStatus.Stop();
-                toolStripStatusLabelInfo.Text = Properties.Resources.MainWindow_status_processing;
-                toolStripProgressBar.Value = 0;
+                threadStart(Properties.Resources.MainWindow_status_processing);
                 processingThread = new Thread(new ThreadStart(this.process));
                 processingThread.Start();
             }
@@ -76,6 +70,9 @@ namespace FlowerTitan
 
             Action processingDone = new Action(() =>
             {
+                buttonStop.Enabled = false;
+                threadDone(Properties.Resources.MainWindow_status_done);
+
                 // MOCK: add processed lines to image (for every image with its processed lines)
                 //every array has to have the same count of lines and line's points as the reference one
                 measuringLines.AddMeasuringLinesToImage(iB2, referenceLines, 2);
@@ -91,13 +88,11 @@ namespace FlowerTitan
                 measuringLines.AddMeasuringLinesToImage(iB12, referenceLines, 12);
                 //MOCK end
 
-                database.DeleteTemplate(autoSaveID);
-                changeStatus(Properties.Resources.MainWindow_status_done);
-                tableLayoutPanel2.Enabled = true;
-                menuStrip.Enabled = true;
-                buttonStop.Enabled = false;
                 buttonExport.Enabled = true;
                 buttonStart.Enabled = true;
+                saveTemplateToolStripMenuItem.Enabled = true;
+                saveTemplateToolStripMenuItem1.Enabled = true;
+                loadTemplateToolStripMenuItem1.Enabled = false;
             });
             this.Invoke(processingDone);
         }
@@ -110,14 +105,11 @@ namespace FlowerTitan
             {
                 //clean all old measuring lines and prepare for a new template
                 measuringLines.NewTemplate();
-                tableLayoutPanel2.Enabled = false;
-                menuStrip.Enabled = false;
+                tBtemplateName.Text = "";
+                threadStart(Properties.Resources.MainWindow_status_importing);
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = false;
                 buttonStop.Enabled = false;
-                timerStatus.Stop();
-                toolStripStatusLabelInfo.Text = Properties.Resources.MainWindow_status_importing;
-                toolStripProgressBar.Value = 0;
                 processingThread = new Thread(new ThreadStart(this.import));
                 processingThread.Start();
                 database.SetOpenFilePath(System.IO.Path.GetDirectoryName(openFileDialogImage.FileName));
@@ -158,14 +150,15 @@ namespace FlowerTitan
                 iB12.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.LightSeaGreen));
                 //MOCK end
 
-                changeStatus(Properties.Resources.MainWindow_status_import);
+                threadDone(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
                 measuringLines.EnableMeasuringLinesOnFirstImage(iB1, 100f);
-                tableLayoutPanel2.Enabled = true;
-                menuStrip.Enabled = true;
                 buttonStop.Enabled = false;
                 buttonExport.Enabled = true;
                 buttonStart.Enabled = true;
+                loadTemplateToolStripMenuItem1.Enabled = true;
+                saveTemplateToolStripMenuItem.Enabled = false;
+                saveTemplateToolStripMenuItem1.Enabled = true;
             });
             this.Invoke(importingDone);
         }
@@ -183,10 +176,17 @@ namespace FlowerTitan
             database = Database.Database.GetInstance();
             openFileDialogImage.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
             toolStripStatusLabelInfo.Text = Properties.Resources.MainWindow_status_ready;
+            loadTemplateToolStripMenuItem1.Enabled = false;
+            saveTemplateToolStripMenuItem.Enabled = false;
+            saveTemplateToolStripMenuItem1.Enabled = false;
             // Set last window location
             if (Properties.Settings.Default.MainWindowLocation != null)
             {
                 this.Location = Properties.Settings.Default.MainWindowLocation;
+                trackBarThickness.Value = Properties.Settings.Default.LineThickness;
+                trackBarPointSize.Value = Properties.Settings.Default.PointSize;
+                buttonColor.BackColor = Properties.Settings.Default.LineColor;
+                measuringLines.UpdateSettings();
             }
         }
 
@@ -203,6 +203,9 @@ namespace FlowerTitan
                     MeasuringLines.Line[] tempLines = database.LoadAsTemplate((long)o.Tag, colors, names);
                     measuringLines.SetTemplateLines(iB1, tempLines, colors.ToArray(), names.ToArray());
                     changeStatus(Properties.Resources.MainWindow_status_load);
+                    saveTemplateToolStripMenuItem.Enabled = false;
+                    saveTemplateToolStripMenuItem1.Enabled = true;
+                    loadTemplateToolStripMenuItem1.Enabled = true;
                 }
             }
         }
@@ -211,8 +214,9 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, true, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names);
-                changeStatus(Properties.Resources.MainWindow_status_save);
+                threadStart(Properties.Resources.MainWindow_status_saving);
+                processingThread = new Thread(() => this.save(true));
+                processingThread.Start();
             }
         }
 
@@ -236,6 +240,9 @@ namespace FlowerTitan
                 MeasuringLines.AllLines[] allLines = database.LoadTemplate((long)o.Tag, colors, names, ref name, ref scale, ref tempID, images);
                 measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID);
                 changeStatus(Properties.Resources.MainWindow_status_load);
+                loadTemplateToolStripMenuItem1.Enabled = true;
+                saveTemplateToolStripMenuItem.Enabled = true;
+                saveTemplateToolStripMenuItem1.Enabled = true;
             }
         }
 
@@ -243,9 +250,37 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, false, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names);
-                changeStatus(Properties.Resources.MainWindow_status_save);
+                threadStart(Properties.Resources.MainWindow_status_saving);
+                processingThread = new Thread(() => this.save(false));
+                processingThread.Start();
             }
+        }
+
+        private void threadStart(string message)
+        {
+            timerStatus.Stop();
+            toolStripStatusLabelInfo.Text = message;
+            toolStripProgressBar.Value = 0;
+            tableLayoutPanel2.Enabled = false;
+            menuStrip.Enabled = false;
+        }
+
+        private void save(bool isTemplate)
+        {
+            database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, isTemplate, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names, this);
+
+            Action saveDone = new Action(() =>
+            {
+                threadDone(Properties.Resources.MainWindow_status_save);
+            });
+            this.Invoke(saveDone);
+        }
+
+        private void threadDone(string message)
+        {
+            changeStatus(message);
+            tableLayoutPanel2.Enabled = true;
+            menuStrip.Enabled = true;
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -283,15 +318,8 @@ namespace FlowerTitan
         private void buttonStop_Click(object sender, EventArgs e)
         {
             processingThread.Abort();
+            measuringLines.ProcessingAborted();
             changeStatus(Properties.Resources.MainWindow_status_abort);
-            List<int> colors = new List<int>();
-            List<string> names = new List<string>();
-            List<byte[]> images = new List<byte[]>();
-            string name = "";
-            double scale = 0;
-            long tempID = 0L;
-            MeasuringLines.AllLines[] allLines = database.LoadTemplate(autoSaveID, colors, names, ref name, ref scale, ref tempID, images);
-            measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID);
             tableLayoutPanel2.Enabled = true;
             menuStrip.Enabled = true;
             buttonStop.Enabled = false;
@@ -322,7 +350,14 @@ namespace FlowerTitan
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             //save window location
+            if (processingThread != null)
+            {
+                if (processingThread.IsAlive) e.Cancel = true;
+            }
             Properties.Settings.Default.MainWindowLocation = this.Location;
+            Properties.Settings.Default.LineColor = buttonColor.BackColor;
+            Properties.Settings.Default.LineThickness = trackBarThickness.Value;
+            Properties.Settings.Default.PointSize = trackBarPointSize.Value;
             Properties.Settings.Default.Save();
         }
     }

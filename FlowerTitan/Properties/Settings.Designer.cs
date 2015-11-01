@@ -34,5 +34,41 @@ namespace FlowerTitan.Properties {
                 this["MainWindowLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int LineThickness {
+            get {
+                return ((int)(this["LineThickness"]));
+            }
+            set {
+                this["LineThickness"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int PointSize {
+            get {
+                return ((int)(this["PointSize"]));
+            }
+            set {
+                this["PointSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color LineColor {
+            get {
+                return ((global::System.Drawing.Color)(this["LineColor"]));
+            }
+            set {
+                this["LineColor"] = value;
+            }
+        }
     }
 }

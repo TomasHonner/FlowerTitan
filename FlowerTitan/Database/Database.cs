@@ -108,7 +108,7 @@ namespace FlowerTitan.Database
         /// <param name="scale">Template scale.</param>
         /// <param name="linesColors">Lines colors.</param>
         /// <param name="linesNames">Lines names.</param>
-        public long SaveTemplate(AllLines[] allLines, Bitmap[] allImages, bool isTemplate, string temp_id, string name, double scale, Color[] linesColors, string[] linesNames)
+        public long SaveTemplate(AllLines[] allLines, Bitmap[] allImages, bool isTemplate, string temp_id, string name, double scale, Color[] linesColors, string[] linesNames, MainWindow mainWindow)
         {
             try
             {
@@ -125,11 +125,16 @@ namespace FlowerTitan.Database
                 command.CommandText = "INSERT INTO Templates (date, name, scale, temp_id, isTemplate) VALUES (@date, @name, @scale, @temp_id, @isTemplate);";
                 command.ExecuteNonQuery();
                 long newID = getLastID();
-                saveAllLines(allLines, allImages, newID, linesColors, linesNames, isTemplate);
+                saveAllLines(allLines, allImages, newID, linesColors, linesNames, isTemplate, mainWindow);
                 if (exists)
                 {
                     deleteOldTemplate(id);
                 }
+                Action stateChanged = new Action(() =>
+                {
+                    mainWindow.toolStripProgressBar.Value = 100;
+                });
+                mainWindow.Invoke(stateChanged);
                 closeConnection();
                 return newID;
             }
@@ -197,14 +202,27 @@ namespace FlowerTitan.Database
             return cildren.ToArray();
         }
 
-        private void saveAllLines(AllLines[] allLines, Bitmap[] allImages, long id, Color[] colors, string[] names, bool isTemplate)
+        private void saveAllLines(AllLines[] allLines, Bitmap[] allImages, long id, Color[] colors, string[] names, bool isTemplate, MainWindow mainWindow)
         {
             int i = 0;
             foreach (AllLines al in allLines)
             {
                 saveImage(al, allImages[i], id, colors, names);
                 i++;
-                if (isTemplate) break;
+                Action stateChanged = new Action(() =>
+                {
+                    mainWindow.toolStripProgressBar.Value = (96 / allLines.Length) * i;
+                });
+                mainWindow.Invoke(stateChanged);
+                if (isTemplate)
+                {
+                    Action stateChanged2 = new Action(() =>
+                    {
+                        mainWindow.toolStripProgressBar.Value = 75;
+                    });
+                    mainWindow.Invoke(stateChanged2);
+                    break;
+                }
             }
         }
 
@@ -496,7 +514,7 @@ namespace FlowerTitan.Database
 
         public AllLines[] LoadTemplate(long id, List<int> colors, List<string> names, ref string name, ref double scale, ref long temp_id, List<byte[]> images)
         {
-            //try
+            try
             {
                 openConnection();
                 SQLiteCommand command = connection.CreateCommand();
@@ -515,9 +533,9 @@ namespace FlowerTitan.Database
                 closeConnection();
                 return allLines;
             }
-            //catch (Exception e)
+            catch (Exception e)
             {
-                //showError(e);
+                showError(e);
             }
             return null;
         }

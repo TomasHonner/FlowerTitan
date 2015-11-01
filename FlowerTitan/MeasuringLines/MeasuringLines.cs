@@ -18,6 +18,8 @@ namespace FlowerTitan.MeasuringLines
         private static MeasuringLines measuringLines = null;
         //main window instance
         private static MainWindow mainWindow = null;
+        //holds all possible imageBoxes
+        private static Emgu.CV.UI.ImageBox[] allBoxes;
 
         //determines whether the process button was pressed for the first time
         private bool firstProcessing = true;
@@ -73,6 +75,8 @@ namespace FlowerTitan.MeasuringLines
 
         public string[] Names { get { return lineNames.ToArray(); } }
 
+        public MainWindow MainWindow { get { return mainWindow; } }
+
         /// <summary>
         /// Returns image's scale in DPI.
         /// </summary>
@@ -81,7 +85,7 @@ namespace FlowerTitan.MeasuringLines
         public void SetTemplateLines(Emgu.CV.UI.ImageBox image, Line[] tempLines, int[] colors, string[] names)
         {
             double oldScale = scale;
-            NewTemplate();
+            NewTemplate(true);
             EnableMeasuringLinesOnFirstImage(image, oldScale);
             addLines(image, tempLines, colors, names);
         }
@@ -108,7 +112,6 @@ namespace FlowerTitan.MeasuringLines
 
         public void SetAllTemplateLines(AllLines[] allLines, int[] colors, string[] names, byte[][] images, string name, double scale, long tempID)
         {
-            Emgu.CV.UI.ImageBox[] allBoxes = { mainWindow.iB1, mainWindow.iB2, mainWindow.iB3, mainWindow.iB4, mainWindow.iB5, mainWindow.iB6, mainWindow.iB7, mainWindow.iB8, mainWindow.iB9, mainWindow.iB10, mainWindow.iB11, mainWindow.iB12 };
             NewTemplate();
             mainWindow.tID.Text = tempID.ToString();
             mainWindow.tBtemplateName.Text = name;
@@ -123,6 +126,7 @@ namespace FlowerTitan.MeasuringLines
                 if (i > 0) AddMeasuringLinesToImage(allBoxes[id], al.Lines.ToArray(), al.ImageBoxID);
                 i++;
             }
+            firstProcessing = false;
         }
 
         /// <summary>
@@ -171,6 +175,7 @@ namespace FlowerTitan.MeasuringLines
                 measuringLines = new MeasuringLines();
             }
             mainWindow = mW;
+            allBoxes = new Emgu.CV.UI.ImageBox[] { mainWindow.iB1, mainWindow.iB2, mainWindow.iB3, mainWindow.iB4, mainWindow.iB5, mainWindow.iB6, mainWindow.iB7, mainWindow.iB8, mainWindow.iB9, mainWindow.iB10, mainWindow.iB11, mainWindow.iB12 };
             return measuringLines;
         }
 
@@ -240,6 +245,11 @@ namespace FlowerTitan.MeasuringLines
             image.Refresh();
         }
 
+        public void ProcessingAborted() {
+            firstProcessing = true;
+            processingCount = 0;
+        }
+
         /// <summary>
         /// Returns deep copy of reference lines.
         /// </summary>
@@ -276,7 +286,7 @@ namespace FlowerTitan.MeasuringLines
         /// <summary>
         /// Prepares for a new template and restores default settings.
         /// </summary>
-        public void NewTemplate()
+        public void NewTemplate(bool isTemplate = false)
         {
             //reseting listBoxe's items
             indexMove = true;
@@ -294,9 +304,15 @@ namespace FlowerTitan.MeasuringLines
                 iB.MouseUp -= image_MouseUp;
                 iB.Paint -= image_Paint;
                 iB.Tag = null;
-                iB.Image = null;
                 //delete lines from image
                 iB.Refresh();
+            }
+            if (!isTemplate)
+            {
+                foreach (Emgu.CV.UI.ImageBox iB in allBoxes)
+                {
+                    iB.Image = null;
+                }
             }
             //clearing working collection sets
             allImages.Clear();
@@ -304,11 +320,6 @@ namespace FlowerTitan.MeasuringLines
             lineNames.Clear();
             lineColors.Clear();
             //reseting settings to default
-            mainWindow.trackBarThickness.Value = 20;
-            mainWindow.trackBarPointSize.Value = 5;
-            thickness = mainWindow.trackBarThickness.Value / 10f;
-            pointSize = new Size(mainWindow.trackBarPointSize.Value, mainWindow.trackBarPointSize.Value);
-            mainWindow.buttonColor.BackColor = Color.Black;
             isOnPoint = false;
             isMoving = false;
             isSelected = false;
@@ -321,6 +332,12 @@ namespace FlowerTitan.MeasuringLines
             scale = 0;
             addedImages = 0;
             processingCount = 0;
+        }
+
+        public void UpdateSettings()
+        {
+            trackBarThickness_ValueChanged(this, new EventArgs());
+            trackBarPointSize_ValueChanged(this, new EventArgs());
         }
         
         /// <summary>

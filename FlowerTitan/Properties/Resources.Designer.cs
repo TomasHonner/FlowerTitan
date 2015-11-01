@@ -134,6 +134,15 @@ namespace FlowerTitan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        internal static string MainWindow_status_loading {
+            get {
+                return ResourceManager.GetString("MainWindow_status_loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Processing....
         /// </summary>
         internal static string MainWindow_status_processing {
@@ -157,6 +166,15 @@ namespace FlowerTitan.Properties {
         internal static string MainWindow_status_save {
             get {
                 return ResourceManager.GetString("MainWindow_status_save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving....
+        /// </summary>
+        internal static string MainWindow_status_saving {
+            get {
+                return ResourceManager.GetString("MainWindow_status_saving", resourceCulture);
             }
         }
         
@@ -192,8 +210,7 @@ namespace FlowerTitan.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error occured during template generation.
-        ///.
+        ///   Looks up a localized string similar to Error occured during template generation..
         /// </summary>
         internal static string TemplateGenerator_error_text {
             get {

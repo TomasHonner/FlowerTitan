@@ -142,6 +142,9 @@
   <data name="MainWindow_status_load" xml:space="preserve">
     <value>Loaded.</value>
   </data>
+  <data name="MainWindow_status_loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
   <data name="MainWindow_status_processing" xml:space="preserve">
     <value>Processing...</value>
   </data>
@@ -150,6 +153,9 @@
   </data>
   <data name="MainWindow_status_save" xml:space="preserve">
     <value>Saved.</value>
+  </data>
+  <data name="MainWindow_status_saving" xml:space="preserve">
+    <value>Saving...</value>
   </data>
   <data name="MeasuringLines_help" xml:space="preserve">
     <value>LMB - new point/new line/select point
@@ -165,8 +171,7 @@ BACKSPACE - delete whole line</value>
     <value>Load lines from template</value>
   </data>
   <data name="TemplateGenerator_error_text" xml:space="preserve">
-    <value>Error occured during template generation.
-</value>
+    <value>Error occured during template generation.</value>
   </data>
   <data name="TemplateGenerator_error_title" xml:space="preserve">
     <value>Generator error</value>
