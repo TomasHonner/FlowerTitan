@@ -210,6 +210,15 @@ namespace FlowerTitan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleting....
+        /// </summary>
+        internal static string Open_status_deleting {
+            get {
+                return ResourceManager.GetString("Open_status_deleting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured during template generation..
         /// </summary>
         internal static string TemplateGenerator_error_text {

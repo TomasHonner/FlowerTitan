@@ -14,6 +14,7 @@ namespace FlowerTitan
 {
     public partial class MainWindow : Form
     {
+        private bool previousExportState = false;
         private Controllers.TemplateProcessor _tp;
         private MeasuringLines.MeasuringLines measuringLines;
         private Database.Database database;
@@ -40,10 +41,16 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
+                previousExportState = buttonExport.Enabled;
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = false;
                 buttonStop.Enabled = true;
-                threadStart(Properties.Resources.MainWindow_status_processing);
+                timerStatus.Stop();
+                toolStripStatusLabelInfo.Text = Properties.Resources.MainWindow_status_processing;
+                toolStripProgressBar.Value = 0;
+                panel1.Enabled = false;
+                panel8.Enabled = false;
+                menuStrip.Enabled = false;
                 processingThread = new Thread(new ThreadStart(this.process));
                 processingThread.Start();
             }
@@ -71,7 +78,10 @@ namespace FlowerTitan
             Action processingDone = new Action(() =>
             {
                 buttonStop.Enabled = false;
-                threadDone(Properties.Resources.MainWindow_status_done);
+                changeStatus(Properties.Resources.MainWindow_status_done);
+                panel1.Enabled = true;
+                panel8.Enabled = true;
+                menuStrip.Enabled = true;
 
                 // MOCK: add processed lines to image (for every image with its processed lines)
                 //every array has to have the same count of lines and line's points as the reference one
@@ -154,7 +164,7 @@ namespace FlowerTitan
                 //enabling measuring lines on the first image
                 measuringLines.EnableMeasuringLinesOnFirstImage(iB1, 100f);
                 buttonStop.Enabled = false;
-                buttonExport.Enabled = true;
+                buttonExport.Enabled = false;
                 buttonStart.Enabled = true;
                 loadTemplateToolStripMenuItem1.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = false;
@@ -179,6 +189,9 @@ namespace FlowerTitan
             loadTemplateToolStripMenuItem1.Enabled = false;
             saveTemplateToolStripMenuItem.Enabled = false;
             saveTemplateToolStripMenuItem1.Enabled = false;
+            buttonStart.Enabled = false;
+            buttonStop.Enabled = false;
+            buttonExport.Enabled = false;
             // Set last window location
             if (Properties.Settings.Default.MainWindowLocation != null)
             {
@@ -206,6 +219,9 @@ namespace FlowerTitan
                     saveTemplateToolStripMenuItem.Enabled = false;
                     saveTemplateToolStripMenuItem1.Enabled = true;
                     loadTemplateToolStripMenuItem1.Enabled = true;
+                    buttonStart.Enabled = true;
+                    buttonStop.Enabled = false;
+                    buttonExport.Enabled = false;
                 }
             }
         }
@@ -243,6 +259,9 @@ namespace FlowerTitan
                 loadTemplateToolStripMenuItem1.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = true;
                 saveTemplateToolStripMenuItem1.Enabled = true;
+                buttonStart.Enabled = true;
+                buttonStop.Enabled = false;
+                buttonExport.Enabled = true;
             }
         }
 
@@ -283,16 +302,6 @@ namespace FlowerTitan
             menuStrip.Enabled = true;
         }
 
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //clean if new
-        }
-
-        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //clean if new
-        }
-
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Options o = new Options();
@@ -308,9 +317,7 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                //save to db
-                //get from db
-                //generate
+                // TODO generate
                 changeStatus(Properties.Resources.MainWindow_status_export);
             }
         }
@@ -320,16 +327,17 @@ namespace FlowerTitan
             processingThread.Abort();
             measuringLines.ProcessingAborted();
             changeStatus(Properties.Resources.MainWindow_status_abort);
-            tableLayoutPanel2.Enabled = true;
+            panel1.Enabled = true;
+            panel8.Enabled = true;
             menuStrip.Enabled = true;
             buttonStop.Enabled = false;
-            buttonExport.Enabled = true;
             buttonStart.Enabled = true;
+            buttonExport.Enabled = previousExportState;
         }
 
         private void createReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // TODO create report
         }
 
         private void timerStatus_Tick(object sender, EventArgs e)

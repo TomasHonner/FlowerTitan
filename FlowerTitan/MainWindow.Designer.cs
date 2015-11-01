@@ -68,9 +68,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,11 +96,12 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.tBtemplateName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
@@ -129,6 +127,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -288,7 +287,7 @@
             // 
             // tID
             // 
-            this.tID.Location = new System.Drawing.Point(147, 4);
+            this.tID.Location = new System.Drawing.Point(139, 10);
             this.tID.Name = "tID";
             this.tID.ReadOnly = true;
             this.tID.Size = new System.Drawing.Size(100, 20);
@@ -298,7 +297,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(16, 6);
+            this.label1.Location = new System.Drawing.Point(8, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 2;
@@ -311,7 +310,7 @@
             this.panel2.Controls.Add(this.checkboxFilter2);
             this.panel2.Controls.Add(this.checkboxFilter1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(9, 71);
+            this.panel2.Location = new System.Drawing.Point(6, 68);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(277, 74);
             this.panel2.TabIndex = 3;
@@ -395,7 +394,6 @@
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -518,31 +516,6 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(195, 6);
             // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.undoToolStripMenuItem.Text = "Undo";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
-            // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -635,7 +608,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.listBoxLines);
-            this.panel3.Location = new System.Drawing.Point(9, 151);
+            this.panel3.Location = new System.Drawing.Point(6, 148);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(277, 293);
             this.panel3.TabIndex = 12;
@@ -745,7 +718,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(980, 15);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(1011, 15);
             this.toolStripStatusLabel1.Spring = true;
             // 
             // toolStripProgressBar
@@ -803,13 +776,8 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.tBtemplateName);
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.tID);
-            this.panel6.Controls.Add(this.panel2);
-            this.panel6.Controls.Add(this.panel3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(885, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
@@ -817,9 +785,19 @@
             this.panel6.Size = new System.Drawing.Size(295, 612);
             this.panel6.TabIndex = 1;
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.buttonExport);
+            this.panel7.Controls.Add(this.buttonStart);
+            this.panel7.Controls.Add(this.buttonStop);
+            this.panel7.Location = new System.Drawing.Point(9, 450);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(277, 159);
+            this.panel7.TabIndex = 15;
+            // 
             // tBtemplateName
             // 
-            this.tBtemplateName.Location = new System.Drawing.Point(147, 37);
+            this.tBtemplateName.Location = new System.Drawing.Point(139, 43);
             this.tBtemplateName.Name = "tBtemplateName";
             this.tBtemplateName.Size = new System.Drawing.Size(100, 20);
             this.tBtemplateName.TabIndex = 14;
@@ -828,7 +806,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(15, 39);
+            this.label9.Location = new System.Drawing.Point(7, 45);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 17);
             this.label9.TabIndex = 13;
@@ -843,15 +821,18 @@
             this.timerStatus.Interval = 5000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
-            // panel7
+            // panel8
             // 
-            this.panel7.Controls.Add(this.buttonExport);
-            this.panel7.Controls.Add(this.buttonStart);
-            this.panel7.Controls.Add(this.buttonStop);
-            this.panel7.Location = new System.Drawing.Point(9, 450);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(277, 159);
-            this.panel7.TabIndex = 15;
+            this.panel8.Controls.Add(this.label1);
+            this.panel8.Controls.Add(this.tID);
+            this.panel8.Controls.Add(this.panel3);
+            this.panel8.Controls.Add(this.panel2);
+            this.panel8.Controls.Add(this.tBtemplateName);
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(289, 451);
+            this.panel8.TabIndex = 16;
             // 
             // MainWindow
             // 
@@ -897,8 +878,9 @@
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -923,7 +905,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem importTemplateToolStripMenuItem;
@@ -955,8 +936,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveTemplateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem linesControlsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
@@ -981,6 +960,7 @@
         public System.Windows.Forms.TextBox tBtemplateName;
         public System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
     }
 }
 

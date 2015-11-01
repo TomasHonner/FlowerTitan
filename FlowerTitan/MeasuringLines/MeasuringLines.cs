@@ -35,6 +35,8 @@ namespace FlowerTitan.MeasuringLines
         private bool isNew = true;
         //determines whether listBoxe's selected index is changing
         private bool indexMove = false;
+        //determines whether template was loaded from DB
+        private bool loaded = false;
         //counts added images if process button was pressed more than once
         private int addedImages = 0;
         //counts whether it was first processing or a next one
@@ -127,6 +129,7 @@ namespace FlowerTitan.MeasuringLines
                 i++;
             }
             firstProcessing = false;
+            loaded = true;
         }
 
         /// <summary>
@@ -246,8 +249,11 @@ namespace FlowerTitan.MeasuringLines
         }
 
         public void ProcessingAborted() {
-            firstProcessing = true;
-            processingCount = 0;
+            if (!loaded)
+            {
+                firstProcessing = true;
+                processingCount = 0;
+            }
         }
 
         /// <summary>
@@ -329,6 +335,7 @@ namespace FlowerTitan.MeasuringLines
             selectedPoint = 0;
             linesCounter = 0;
             firstProcessing = true;
+            loaded = false;
             scale = 0;
             addedImages = 0;
             processingCount = 0;

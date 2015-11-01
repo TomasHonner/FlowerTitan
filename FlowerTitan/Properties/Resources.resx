@@ -170,6 +170,9 @@ BACKSPACE - delete whole line</value>
   <data name="Open_load_template" xml:space="preserve">
     <value>Load lines from template</value>
   </data>
+  <data name="Open_status_deleting" xml:space="preserve">
+    <value>Deleting...</value>
+  </data>
   <data name="TemplateGenerator_error_text" xml:space="preserve">
     <value>Error occured during template generation.</value>
   </data>

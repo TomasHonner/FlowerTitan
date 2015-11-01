@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace FlowerTitan
 
         private Database.Database database;
         private bool isTemplate;
+        private Thread processingThread;
         List<long> ids = new List<long>();
         List<DateTime> dates = new List<DateTime>();
         List<string> names = new List<string>();
@@ -42,10 +44,15 @@ namespace FlowerTitan
                 dataGridView1.Rows.Add(dr);
                 i++;
             }
+            dataGridView1.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (processingThread != null)
+            {
+                if (processingThread.IsAlive) return;
+            }
             if (dataGridView1.Rows.Count > 0)
             {
                 this.Tag = ids[tempIDs.IndexOf((long)dataGridView1.CurrentRow.Cells[0].Value)];
@@ -56,16 +63,76 @@ namespace FlowerTitan
         {
             if (dataGridView1.Rows.Count > 0)
             {
+                if (processingThread != null)
+                {
+                    if (processingThread.IsAlive) return;
+                }
+                int rowID = dataGridView1.CurrentCell.RowIndex;
                 long id = ids[tempIDs.IndexOf((long)dataGridView1.CurrentRow.Cells[0].Value)];
-                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentCell.RowIndex);
-                database.DeleteTemplate(id);
+                DataGridViewRow dr = new DataGridViewRow();
+                dr.CreateCells(dataGridView1);
+                dr.Cells[0].Value = Properties.Resources.Open_status_deleting;
+                dr.Cells[1].Value = "";
+                dr.Cells[2].Value = "";
+                dataGridView1.Rows.RemoveAt(rowID);
+                dataGridView1.Rows.Insert(rowID, dr);
+                processingThread = new Thread(() => this.delete(id, rowID));
+                processingThread.Start();
             }
+            dataGridView1.Focus();
+        }
+
+        private void delete(long id, int rowID)
+        {
+            database.DeleteTemplate(id);
+
+            Action deleteDone = new Action(() =>
+            {
+                dataGridView1.Rows.RemoveAt(rowID);
+            });
+            this.Invoke(deleteDone);
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             button1_Click(sender, e);
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void Open_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (processingThread != null)
+            {
+                if (processingThread.IsAlive) e.Cancel = true;
+            }
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Delete:
+                    button3_Click(this, new EventArgs());
+                    break;
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (dataGridView1.Focused)
+            {
+                if (keyData == Keys.Enter)
+                {
+                    button1_Click(this, new EventArgs());
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    return true;
+                }
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
