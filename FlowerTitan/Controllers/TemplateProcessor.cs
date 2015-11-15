@@ -27,12 +27,17 @@ namespace FlowerTitan.Controllers
         /// <summary>
         /// List of blosssoms bitmaps to draw
         /// </summary>
-        private List<Bitmap> _listOfBlossomsToDraw;
+        private List<Image<Bgr, Byte>> _listOfBlossomsToDraw;
 
         /// <summary>
         /// Variable for temporary blossom from listOfBlossoms
         /// </summary>
         private Bitmap _tempBlossom;
+
+        /// <summary>
+        /// Variable for temporary list of blossoms
+        /// </summary>
+        private List<Image<Bgr, Byte>> _tempListOfBlossoms; 
 
         /// <summary>
         /// Temporary variable for images in graycale
@@ -119,7 +124,25 @@ namespace FlowerTitan.Controllers
         {
             _fc.createBlossomsList();
             _listOfBlossoms = _fc.BlossomsList;
-            _listOfBlossomsToDraw = _fc.BlossomsList;
+            convertListOfBlossoms();
+            _listOfBlossomsToDraw = _tempListOfBlossoms;
+        }
+
+        public void convertListOfBlossoms()
+        {
+            Bitmap ima;
+            Image<Bgr, Byte> imb;
+            Image<Bgr, Byte> imc;
+            _tempListOfBlossoms = new List<Image<Bgr,byte>>();
+
+            for(int i = 0 ; i < 13 ; i++)
+            {
+                ima = _listOfBlossoms.ElementAt(i);
+                imb = bitmapToEmgu(ima);
+                imc = resizeImage(imb);
+                _tempListOfBlossoms.Add(imc);
+                
+            }
         }
 
         /// <summary>
@@ -130,6 +153,17 @@ namespace FlowerTitan.Controllers
         private Image<Bgr, Byte> bitmapToEmgu(Bitmap b)
         {
             Image<Bgr, Byte> r = new Image<Bgr, byte>(b);
+            return r;
+        }
+
+        /// <summary>
+        /// Resize image to form window
+        /// </summary>
+        /// <param name="i">Image</param>
+        /// <returns>Resized image</returns>
+        private Image<Bgr, Byte> resizeImage(Image<Bgr, Byte> i)
+        {
+            Image<Bgr, Byte> r = i.Resize(200, 200, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);
             return r;
         }
 
@@ -184,12 +218,21 @@ namespace FlowerTitan.Controllers
 
         }
 
+        /// <summary>
+        /// Returns DPI of image
+        /// </summary>
+        /// <returns>DPI</returns>
+        public int getDpi()
+        {
+            return _fc.Dpi;
+        }
+
 
 
         /// <summary>
         /// Getter setter
         /// </summary>
-        public List<Bitmap> ListOfBlossomsToDraw
+        public List<Image<Bgr, Byte>> ListOfBlossomsToDraw
         {
             get { return _listOfBlossomsToDraw; }
             set { _listOfBlossomsToDraw = value; }

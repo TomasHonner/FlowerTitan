@@ -20,6 +20,7 @@ namespace FlowerTitan
         private Database.Database database;
         //processing thread
         private Thread processingThread;
+        private List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>> blossoms;
 
         public MainWindow()
         {
@@ -61,8 +62,10 @@ namespace FlowerTitan
             //get reference measuring lines, call only once
             MeasuringLines.Line[] referenceLines = measuringLines.GetReferenceMeasuringLines();
             _tp.startProcessing();
+           
 
             //MOCK
+            /*
             for (int i = 0; i < 10; i++)
             {
                 Thread.Sleep(1000);
@@ -73,6 +76,8 @@ namespace FlowerTitan
                 this.Invoke(stateChanged);
                 Thread.Sleep(1000);
             }
+             */
+
             //MOCK end
 
             Action processingDone = new Action(() =>
@@ -129,7 +134,11 @@ namespace FlowerTitan
         private void import()
         {
             _tp.loadTemplate(openFileDialogImage.FileName);
+            _tp.createListOfBlossoms();
+            this.blossoms = _tp.ListOfBlossomsToDraw;
+            
             //MOCK
+            /*
             for (int i = 0; i < 10; i++)
             {
                 Thread.Sleep(100);
@@ -140,11 +149,14 @@ namespace FlowerTitan
                 this.Invoke(stateChanged);
                 Thread.Sleep(100);
             }
+            */
+
             //MOCK end
 
             Action importingDone = new Action(() =>
             {
                 //MOCK
+                /*
                 tID.Text = new Random().Next().ToString();
                 iB1.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Aqua));
                 iB2.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Blue));
@@ -158,11 +170,25 @@ namespace FlowerTitan
                 iB10.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Honeydew));
                 iB11.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.LemonChiffon));
                 iB12.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.LightSeaGreen));
+                 */
                 //MOCK end
+
+                iB1.Image = this.blossoms.ElementAt(0);
+                iB2.Image = this.blossoms.ElementAt(1);
+                iB3.Image = this.blossoms.ElementAt(2);
+                iB4.Image = this.blossoms.ElementAt(3);
+                iB5.Image = this.blossoms.ElementAt(4);
+                iB6.Image = this.blossoms.ElementAt(5);
+                iB7.Image = this.blossoms.ElementAt(6);
+                iB8.Image = this.blossoms.ElementAt(7);
+                iB9.Image = this.blossoms.ElementAt(8);
+                iB10.Image = this.blossoms.ElementAt(9);
+                iB11.Image = this.blossoms.ElementAt(10);
+                iB12.Image = this.blossoms.ElementAt(11);
 
                 threadDone(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
-                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, 100f);
+                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)_tp.getDpi());
                 buttonStop.Enabled = false;
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = true;

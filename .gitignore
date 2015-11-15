@@ -158,3 +158,4 @@ $RECYCLE.BIN/
 .DS_Store
 *.dll
 packages/EntityFramework.6.1.2/content/Web.config.transform
+FlowerTitan/FlowerTitan.csproj

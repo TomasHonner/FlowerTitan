@@ -22,6 +22,11 @@ namespace FlowerTitan.Controllers
         /// </summary>
         private List<Bitmap> _blossomsList;
 
+        /// <summary>
+        /// Store DPI of image
+        /// </summary>
+        private int _dpi;
+
         
         /// <summary>
         /// FileController constructor
@@ -30,6 +35,20 @@ namespace FlowerTitan.Controllers
         {
             _sTemplate = null;
             _blossomsList = null;
+            _dpi = 0;
+            
+        }
+
+        /// <summary>
+        /// FileController constructor 
+        /// </summary>
+        /// <param name="imagePath">Path to image</param>
+        public FileController(string imagePath)
+        {
+            _sTemplate = null;
+            _blossomsList = null;
+            _dpi = 0;
+
         }
 
         /// <summary>
@@ -40,6 +59,7 @@ namespace FlowerTitan.Controllers
             try
             {
                 Bitmap bmp = new Bitmap(file);
+                Dpi = Convert.ToInt32(bmp.HorizontalResolution);
                 STemplate = bmp;
             }
             catch(Exception e)
@@ -58,9 +78,9 @@ namespace FlowerTitan.Controllers
             try
             {
 
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 13; i++)
                 {
-                    Rectangle cloneRect = getBlossomPosition(i);
+                    Rectangle cloneRect = getBlossomPosition(i, Dpi);
                     System.Drawing.Imaging.PixelFormat format = _sTemplate.PixelFormat;
                     Bitmap cloneBitmap = _sTemplate.Clone(cloneRect, format);
                     temp.Add(cloneBitmap);
@@ -79,18 +99,17 @@ namespace FlowerTitan.Controllers
         /// Return position of each blossom on template
         /// </summary>
         /// <param name="i">Identifier for window with blossom</param>
+        /// <param name="dpi">DPI resolution of Image</param>
         /// <returns>Rectangle with position</returns>
-        private Rectangle getBlossomPosition(int i)
+        private Rectangle getBlossomPosition(int i, int dpi)
         {
-            int x = 0, y = 0, w = 0, h = 0;
+            PositionController p = new PositionController(dpi,i);
+            p.calculatePositionOfFrame();
+            int[] r = p.FinalFramePosition;
 
-            switch (i)
-            {
-                case 0: { x = 1790; y = 1540; w = 80; h = 379; }; break;
-            }
-
-            return new Rectangle(x, y, w, h);
+            return new Rectangle(r[0], r[1], r[2], r[3]);
         }
+
 
         /// <summary>
         /// Getter and setter
@@ -108,6 +127,15 @@ namespace FlowerTitan.Controllers
         {
             get { return _blossomsList; }
             set { _blossomsList = value; }
+        }
+
+        /// <summary>
+        /// Getter and setter
+        /// </summary>
+        public int Dpi
+        {
+            get { return _dpi; }
+            set { _dpi = value; }
         }
 
     }
