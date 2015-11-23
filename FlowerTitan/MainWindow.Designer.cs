@@ -96,12 +96,13 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.tBtemplateName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBoxID = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
@@ -126,13 +127,15 @@
             this.panel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pictureBoxID);
             this.panel1.Controls.Add(this.iB6);
             this.panel1.Controls.Add(this.iB5);
             this.panel1.Controls.Add(this.iB8);
@@ -157,7 +160,7 @@
             // 
             this.iB6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB6.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB6.Location = new System.Drawing.Point(586, 227);
+            this.iB6.Location = new System.Drawing.Point(601, 320);
             this.iB6.Name = "iB6";
             this.iB6.Size = new System.Drawing.Size(250, 217);
             this.iB6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -168,7 +171,7 @@
             // 
             this.iB5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB5.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB5.Location = new System.Drawing.Point(300, 227);
+            this.iB5.Location = new System.Drawing.Point(315, 320);
             this.iB5.Name = "iB5";
             this.iB5.Size = new System.Drawing.Size(250, 217);
             this.iB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -179,7 +182,7 @@
             // 
             this.iB8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB8.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB8.Location = new System.Drawing.Point(300, 450);
+            this.iB8.Location = new System.Drawing.Point(315, 543);
             this.iB8.Name = "iB8";
             this.iB8.Size = new System.Drawing.Size(250, 217);
             this.iB8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -190,7 +193,7 @@
             // 
             this.iB9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB9.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB9.Location = new System.Drawing.Point(586, 450);
+            this.iB9.Location = new System.Drawing.Point(601, 543);
             this.iB9.Name = "iB9";
             this.iB9.Size = new System.Drawing.Size(250, 217);
             this.iB9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -201,7 +204,7 @@
             // 
             this.iB12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB12.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB12.Location = new System.Drawing.Point(586, 673);
+            this.iB12.Location = new System.Drawing.Point(601, 766);
             this.iB12.Name = "iB12";
             this.iB12.Size = new System.Drawing.Size(250, 217);
             this.iB12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -212,7 +215,7 @@
             // 
             this.iB11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB11.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB11.Location = new System.Drawing.Point(300, 673);
+            this.iB11.Location = new System.Drawing.Point(315, 766);
             this.iB11.Name = "iB11";
             this.iB11.Size = new System.Drawing.Size(250, 217);
             this.iB11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -223,7 +226,7 @@
             // 
             this.iB10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB10.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB10.Location = new System.Drawing.Point(3, 673);
+            this.iB10.Location = new System.Drawing.Point(18, 766);
             this.iB10.Name = "iB10";
             this.iB10.Size = new System.Drawing.Size(250, 217);
             this.iB10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -234,7 +237,7 @@
             // 
             this.iB7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB7.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB7.Location = new System.Drawing.Point(3, 450);
+            this.iB7.Location = new System.Drawing.Point(18, 543);
             this.iB7.Name = "iB7";
             this.iB7.Size = new System.Drawing.Size(250, 217);
             this.iB7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -245,7 +248,7 @@
             // 
             this.iB4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB4.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB4.Location = new System.Drawing.Point(3, 227);
+            this.iB4.Location = new System.Drawing.Point(18, 320);
             this.iB4.Name = "iB4";
             this.iB4.Size = new System.Drawing.Size(250, 217);
             this.iB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -256,7 +259,7 @@
             // 
             this.iB3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB3.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB3.Location = new System.Drawing.Point(586, 3);
+            this.iB3.Location = new System.Drawing.Point(601, 96);
             this.iB3.Name = "iB3";
             this.iB3.Size = new System.Drawing.Size(250, 217);
             this.iB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -267,7 +270,7 @@
             // 
             this.iB2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB2.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB2.Location = new System.Drawing.Point(300, 3);
+            this.iB2.Location = new System.Drawing.Point(315, 96);
             this.iB2.Name = "iB2";
             this.iB2.Size = new System.Drawing.Size(250, 217);
             this.iB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -278,7 +281,7 @@
             // 
             this.iB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB1.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB1.Location = new System.Drawing.Point(3, 3);
+            this.iB1.Location = new System.Drawing.Point(18, 96);
             this.iB1.Name = "iB1";
             this.iB1.Size = new System.Drawing.Size(250, 217);
             this.iB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -292,6 +295,7 @@
             this.tID.ReadOnly = true;
             this.tID.Size = new System.Drawing.Size(100, 20);
             this.tID.TabIndex = 1;
+            this.tID.DoubleClick += new System.EventHandler(this.tID_DoubleClick);
             // 
             // label1
             // 
@@ -785,15 +789,18 @@
             this.panel6.Size = new System.Drawing.Size(295, 612);
             this.panel6.TabIndex = 1;
             // 
-            // panel7
+            // panel8
             // 
-            this.panel7.Controls.Add(this.buttonExport);
-            this.panel7.Controls.Add(this.buttonStart);
-            this.panel7.Controls.Add(this.buttonStop);
-            this.panel7.Location = new System.Drawing.Point(9, 450);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(277, 159);
-            this.panel7.TabIndex = 15;
+            this.panel8.Controls.Add(this.label1);
+            this.panel8.Controls.Add(this.tID);
+            this.panel8.Controls.Add(this.panel3);
+            this.panel8.Controls.Add(this.panel2);
+            this.panel8.Controls.Add(this.tBtemplateName);
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(289, 451);
+            this.panel8.TabIndex = 16;
             // 
             // tBtemplateName
             // 
@@ -812,6 +819,16 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Template name";
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.buttonExport);
+            this.panel7.Controls.Add(this.buttonStart);
+            this.panel7.Controls.Add(this.buttonStop);
+            this.panel7.Location = new System.Drawing.Point(9, 450);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(277, 159);
+            this.panel7.TabIndex = 15;
+            // 
             // openFileDialogImage
             // 
             this.openFileDialogImage.Title = "Open template image";
@@ -821,18 +838,15 @@
             this.timerStatus.Interval = 5000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
-            // panel8
+            // pictureBoxID
             // 
-            this.panel8.Controls.Add(this.label1);
-            this.panel8.Controls.Add(this.tID);
-            this.panel8.Controls.Add(this.panel3);
-            this.panel8.Controls.Add(this.panel2);
-            this.panel8.Controls.Add(this.tBtemplateName);
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Location = new System.Drawing.Point(3, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(289, 451);
-            this.panel8.TabIndex = 16;
+            this.pictureBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxID.Location = new System.Drawing.Point(601, 30);
+            this.pictureBoxID.Name = "pictureBoxID";
+            this.pictureBoxID.Size = new System.Drawing.Size(250, 50);
+            this.pictureBoxID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxID.TabIndex = 15;
+            this.pictureBoxID.TabStop = false;
             // 
             // MainWindow
             // 
@@ -878,9 +892,10 @@
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -961,6 +976,7 @@
         public System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBoxID;
     }
 }
 

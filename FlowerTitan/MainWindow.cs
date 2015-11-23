@@ -136,43 +136,12 @@ namespace FlowerTitan
             _tp.loadTemplate(openFileDialogImage.FileName);
             _tp.createListOfBlossoms();
             this.blossoms = _tp.ListOfBlossomsToDraw;
-            
-            //MOCK
-            /*
-            for (int i = 0; i < 10; i++)
-            {
-                Thread.Sleep(100);
-                Action stateChanged = new Action(() =>
-                {
-                    toolStripProgressBar.Value = (i + 1) * 10;
-                });
-                this.Invoke(stateChanged);
-                Thread.Sleep(100);
-            }
-            */
-
-            //MOCK end
+            //TODO insert bitmap with template id, it is crutial that image mustn't have its frame, otherwise OCR will usually fail
+            Bitmap bitmapTempID = new Bitmap(@"E:\IS projekt\test_data\tempIDs\test14.png");
+            string tempID = TemplateOCR.TemplateIdOCR.GetInstance().ProcessTemplateID(bitmapTempID);
 
             Action importingDone = new Action(() =>
             {
-                //MOCK
-                /*
-                tID.Text = new Random().Next().ToString();
-                iB1.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Aqua));
-                iB2.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Blue));
-                iB3.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Brown));
-                iB4.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Coral));
-                iB5.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.DarkGreen));
-                iB6.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.DarkOrange));
-                iB7.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.DarkViolet));
-                iB8.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Firebrick));
-                iB9.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Gold));
-                iB10.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.Honeydew));
-                iB11.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.LemonChiffon));
-                iB12.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(100, 100, new Emgu.CV.Structure.Bgr(Color.LightSeaGreen));
-                 */
-                //MOCK end
-
                 iB1.Image = this.blossoms.ElementAt(0);
                 iB2.Image = this.blossoms.ElementAt(1);
                 iB3.Image = this.blossoms.ElementAt(2);
@@ -186,6 +155,8 @@ namespace FlowerTitan
                 iB11.Image = this.blossoms.ElementAt(10);
                 iB12.Image = this.blossoms.ElementAt(11);
 
+                tID.Text = tempID;
+                pictureBoxID.Image = bitmapTempID;
                 threadDone(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
                 measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)_tp.getDpi());
@@ -393,6 +364,11 @@ namespace FlowerTitan
             Properties.Settings.Default.LineThickness = trackBarThickness.Value;
             Properties.Settings.Default.PointSize = trackBarPointSize.Value;
             Properties.Settings.Default.Save();
+        }
+
+        private void tID_DoubleClick(object sender, EventArgs e)
+        {
+            tID.ReadOnly = !tID.ReadOnly;
         }
     }
 }
