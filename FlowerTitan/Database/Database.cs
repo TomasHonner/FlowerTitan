@@ -75,18 +75,18 @@ namespace FlowerTitan.Database
                 openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 //get last number
-                command.CommandText = "SELECT id, generatedNumber FROM Properties LIMIT 1;";
+                command.CommandText = "SELECT id, generated_number FROM Properties LIMIT 1;";
                 SQLiteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     id = (long)reader["id"];
-                    num = (long)reader["generatedNumber"];
+                    num = (long)reader["generated_number"];
                 }
                 reader.Close();
                 //set new last number
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@nLN", num + increment);
-                command.CommandText = "UPDATE Properties SET generatedNumber = @nLN WHERE id = @id;";
+                command.CommandText = "UPDATE Properties SET generated_number = @nLN WHERE id = @id;";
                 command.ExecuteNonQuery();
                 closeConnection();
             }
@@ -108,6 +108,7 @@ namespace FlowerTitan.Database
         /// <param name="scale">Template scale.</param>
         /// <param name="linesColors">Lines colors.</param>
         /// <param name="linesNames">Lines names.</param>
+        /// <param name="mainWindow">Owner of measuring lines.</param>
         public long SaveTemplate(AllLines[] allLines, Bitmap[] allImages, bool isTemplate, string temp_id, string name, double scale, Color[] linesColors, string[] linesNames, MainWindow mainWindow)
         {
             try
@@ -121,8 +122,16 @@ namespace FlowerTitan.Database
                 command.Parameters.AddWithValue("@name", name);
                 command.Parameters.AddWithValue("@scale", scale);
                 command.Parameters.AddWithValue("@temp_id", temp_id);
-                command.Parameters.AddWithValue("@isTemplate", isTemplate);
-                command.CommandText = "INSERT INTO Templates (date, name, scale, temp_id, isTemplate) VALUES (@date, @name, @scale, @temp_id, @isTemplate);";
+                command.Parameters.AddWithValue("@is_template", isTemplate);
+                byte[] tempImage;
+                if (isTemplate) tempImage = new byte[1] { 0 };
+                else
+                {
+                    ImageConverter converter = new ImageConverter();
+                    tempImage = (byte[])converter.ConvertTo(new Bitmap(mainWindow.pictureBoxID.Image), typeof(byte[]));
+                }
+                command.Parameters.AddWithValue("@temp_id_image", tempImage);
+                command.CommandText = "INSERT INTO Templates (date, name, scale, temp_id, is_template, temp_id_image) VALUES (@date, @name, @scale, @temp_id, @is_template, @temp_id_image);";
                 command.ExecuteNonQuery();
                 long newID = getLastID();
                 saveAllLines(allLines, allImages, newID, linesColors, linesNames, isTemplate, mainWindow);
@@ -145,6 +154,10 @@ namespace FlowerTitan.Database
             return -1L;
         }
 
+        /// <summary>
+        /// Delete template from DB.
+        /// </summary>
+        /// <param name="id">template id</param>
         public void DeleteTemplate(long id)
         {
             try
@@ -207,7 +220,7 @@ namespace FlowerTitan.Database
             int i = 0;
             foreach (AllLines al in allLines)
             {
-                saveImage(al, allImages[i], id, colors, names);
+                saveImage(al, allImages[i], id, colors, names, mainWindow.GetTemplateScale());
                 i++;
                 Action stateChanged = new Action(() =>
                 {
@@ -226,30 +239,30 @@ namespace FlowerTitan.Database
             }
         }
 
-        private void saveImage(AllLines al, Bitmap bitmap, long id, Color[] colors, string[] names)
+        private void saveImage(AllLines al, Bitmap bitmap, long id, Color[] colors, string[] names, double scale)
         {
             SQLiteCommand command = connection.CreateCommand();
             ImageConverter converter = new ImageConverter();
             command.Parameters.AddWithValue("@image", (byte[])converter.ConvertTo(bitmap, typeof(byte[])));
             command.Parameters.AddWithValue("@template", id);
-            command.Parameters.AddWithValue("@imageBoxID", al.ImageBoxID);
-            command.CommandText = "INSERT INTO Images (image, template, imageBoxID) VALUES (@image, @template, @imageBoxID);";
+            command.Parameters.AddWithValue("@image_box_id", al.ImageBoxID);
+            command.CommandText = "INSERT INTO Images (image, template, image_box_id) VALUES (@image, @template, @image_box_id);";
             command.ExecuteNonQuery();
             long imageID = getLastID();
             int i = 0;
             foreach (Line line in al.Lines)
             {
-                saveLine(line, imageID, colors[i], names[i]);
+                saveLine(line, imageID, colors[i], names[i], scale);
                 i++;
             }
         }
 
-        private void saveLine(Line line, long imageID, Color color, string name)
+        private void saveLine(Line line, long imageID, Color color, string name, double scale)
         {
             SQLiteCommand command = connection.CreateCommand();
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@color", color.ToArgb());
-            command.Parameters.AddWithValue("@length_mm", LengthConverter.LengthConverter.GetInstance().ConvertLineLengthToMM(line));
+            command.Parameters.AddWithValue("@length_mm", LengthConverter.LengthConverter.GetInstance().ConvertLineLengthToMM(line, scale));
             command.Parameters.AddWithValue("@image", imageID);
             command.CommandText = "INSERT INTO Lines (name, color, length_mm, image) VALUES (@name, @color, @length_mm, @image);";
             command.ExecuteNonQuery();
@@ -274,8 +287,8 @@ namespace FlowerTitan.Database
         {
             SQLiteCommand command = connection.CreateCommand();
             command.Parameters.AddWithValue("@temp_id", temp_id);
-            command.Parameters.AddWithValue("@isTemplate", isTemplate);
-            command.CommandText = "SELECT id, temp_id FROM Templates WHERE temp_id=@temp_id AND isTemplate=@isTemplate LIMIT 1;";
+            command.Parameters.AddWithValue("@is_template", isTemplate);
+            command.CommandText = "SELECT id, temp_id FROM Templates WHERE temp_id=@temp_id AND is_template=@is_template LIMIT 1;";
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -291,7 +304,7 @@ namespace FlowerTitan.Database
         /// <returns>last path</returns>
         public string GetSaveFilePath()
         {
-            return getProperty("saveFilePath");
+            return getProperty("save_file_path");
         }
 
         /// <summary>
@@ -300,7 +313,7 @@ namespace FlowerTitan.Database
         /// <returns>last path</returns>
         public string GetOpenFilePath()
         {
-            return getProperty("openFilePath");
+            return getProperty("open_file_path");
         }
 
         /// <summary>
@@ -309,7 +322,7 @@ namespace FlowerTitan.Database
         /// <returns>XLS path</returns>
         public string GetXLSPath()
         {
-            return getProperty("defaultXLSPath");
+            return getProperty("default_xls_path");
         }
 
         /// <summary>
@@ -346,7 +359,7 @@ namespace FlowerTitan.Database
         /// <param name="path">last used path</param>
         public void SetSaveFilePath(string path)
         {
-            setProperty("saveFilePath", path);
+            setProperty("save_file_path", path);
         }
 
         /// <summary>
@@ -355,7 +368,7 @@ namespace FlowerTitan.Database
         /// <param name="path">last used path</param>
         public void SetOpenFilePath(string path)
         {
-            setProperty("openFilePath", path);
+            setProperty("open_file_path", path);
         }
 
         /// <summary>
@@ -364,7 +377,7 @@ namespace FlowerTitan.Database
         /// <param name="path">new XLS path</param>
         public void SetXLSPath(string path)
         {
-            setProperty("defaultXLSPath", path);
+            setProperty("default_xls_path", path);
         }
 
         private long getLastID()
@@ -422,14 +435,22 @@ namespace FlowerTitan.Database
             }
         }
 
+        /// <summary>
+        /// Loads all templates which were saved as template or all saved templates from DB.
+        /// </summary>
+        /// <param name="ids">templates' real (db) ids</param>
+        /// <param name="dates">templates' dates</param>
+        /// <param name="names">templates' names</param>
+        /// <param name="tempIDs">templates' visible ids</param>
+        /// <param name="isTemplate">determines what kind of templates will be loaded (templates/templates template)</param>
         public void LoadTemplates(List<long> ids, List<DateTime> dates, List<string> names, List<long> tempIDs, bool isTemplate)
         {
             try
             {
                 openConnection();
                 SQLiteCommand command = connection.CreateCommand();
-                command.Parameters.AddWithValue("@isTemplate", isTemplate);
-                command.CommandText = "SELECT * FROM Templates WHERE isTemplate=@isTemplate;";
+                command.Parameters.AddWithValue("@is_template", isTemplate);
+                command.CommandText = "SELECT * FROM Templates WHERE is_template=@is_template;";
                 SQLiteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -447,6 +468,13 @@ namespace FlowerTitan.Database
             }
         }
 
+        /// <summary>
+        /// Loads template from db AS template.
+        /// </summary>
+        /// <param name="id">template id</param>
+        /// <param name="colors">template's lines' colors</param>
+        /// <param name="names">template's lines' names</param>
+        /// <returns>all template's lines</returns>
         public Line[] LoadAsTemplate(long id, List<int> colors, List<string> names)
         {
             try
@@ -454,7 +482,7 @@ namespace FlowerTitan.Database
                 openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
-                command.Parameters.AddWithValue("@isTemplate", true);
+                command.Parameters.AddWithValue("@is_template", true);
                 command.CommandText = "SELECT id, template FROM Images WHERE template=@id;";
                 SQLiteDataReader reader = command.ExecuteReader();
                 long imageID = 0;
@@ -512,14 +540,26 @@ namespace FlowerTitan.Database
             return l;
         }
 
-        public AllLines[] LoadTemplate(long id, List<int> colors, List<string> names, ref string name, ref double scale, ref long temp_id, List<byte[]> images)
+        /// <summary>
+        /// Load template from DB.
+        /// </summary>
+        /// <param name="id">template's db id</param>
+        /// <param name="colors">lines' colors</param>
+        /// <param name="names">lines' names</param>
+        /// <param name="name">template's name</param>
+        /// <param name="scale">template's scale</param>
+        /// <param name="temp_id">template's visible id</param>
+        /// <param name="images">template's images</param>
+        /// <param name="tempIdImage">template's id image</param>
+        /// <returns>all template's lines</returns>
+        public AllLines[] LoadTemplate(long id, List<int> colors, List<string> names, ref string name, ref double scale, ref long temp_id, List<byte[]> images, ref List<byte> tempIdImage)
         {
             try
             {
                 openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
-                command.Parameters.AddWithValue("@isTemplate", false);
+                command.Parameters.AddWithValue("@is_template", false);
                 command.CommandText = "SELECT * FROM Templates WHERE id=@id;";
                 SQLiteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -527,6 +567,7 @@ namespace FlowerTitan.Database
                     name = (string)reader["name"];
                     scale = (double)reader["scale"];
                     temp_id = (long)reader["temp_id"];
+                    tempIdImage = ((byte[])reader["temp_id_image"]).ToList<byte>();
                 }
                 reader.Close();
                 AllLines[] allLines = getImages(id, images, colors, names);
@@ -552,7 +593,7 @@ namespace FlowerTitan.Database
             {
                 imageIDs.Add((long)reader["id"]);
                 images.Add((byte[])reader["image"]);
-                imageBoxes.Add((long)reader["imageBoxID"]);
+                imageBoxes.Add((long)reader["image_box_id"]);
             }
             reader.Close();
             List<AllLines> allLines = new List<AllLines>();

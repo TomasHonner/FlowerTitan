@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using FlowerTitan.MeasuringLines;
+using System.Drawing;
 
 namespace FlowerTitan.LengthConverter
 {
@@ -15,6 +16,8 @@ namespace FlowerTitan.LengthConverter
     {
         //singleton instance
         private static LengthConverter lengthConverter = null;
+        //dpi to mm convert ratio
+        private const double DPI_TO_MM = 25.4;
 
         /// <summary>
         /// Private constructor.
@@ -34,10 +37,30 @@ namespace FlowerTitan.LengthConverter
             return lengthConverter;
         }
 
-        public float ConvertLineLengthToMM(Line line)
+        /// <summary>
+        /// Converts line length to mm.
+        /// </summary>
+        /// <param name="line">line to convert</param>
+        /// <param name="scale">converting scale</param>
+        /// <returns></returns>
+        public float ConvertLineLengthToMM(Line line, double scale)
         {
+            if (line.Points.Count == 1) return 0f;
+            int to = line.Points.Count - 1;
+            double lengthPx = 0;
+            for (int i = 0; i < to; i++)
+            {
+                float dX = line.Points[i].X - line.Points[i + 1].X;
+                float dY = line.Points[i].Y - line.Points[i + 1].Y;
+                lengthPx += Math.Sqrt((dX * dX) + (dY * dY));
+            }
+            float a = convertPxToMm(lengthPx, scale);
+            return a;
+        }
 
-            return 0f;
+        private float convertPxToMm(double lengthPx, double scale)
+        {
+            return (float)((lengthPx * DPI_TO_MM) / scale);
         }
     }
 }

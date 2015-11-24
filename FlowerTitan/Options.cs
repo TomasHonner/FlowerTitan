@@ -10,10 +10,16 @@ using System.Windows.Forms;
 
 namespace FlowerTitan
 {
+    /// <summary>
+    /// FlowerTitan options window/form.
+    /// </summary>
     public partial class Options : Form
     {
         private Database.Database db;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public Options()
         {
             InitializeComponent();

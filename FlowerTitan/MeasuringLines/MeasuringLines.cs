@@ -72,18 +72,30 @@ namespace FlowerTitan.MeasuringLines
         /// Returns whether measuring lines are enabled.
         /// </summary>
         public bool IsEnabled { get { return isEnabled; } }
-
+        /// <summary>
+        /// Returns all lines' colors.
+        /// </summary>
         public Color[] Colors { get { return lineColors.ToArray(); } }
-
+        /// <summary>
+        /// Returns all lines' names.
+        /// </summary>
         public string[] Names { get { return lineNames.ToArray(); } }
-
+        /// <summary>
+        /// Returns window/form on which are measuring lines performed.
+        /// </summary>
         public MainWindow MainWindow { get { return mainWindow; } }
-
         /// <summary>
         /// Returns image's scale in DPI.
         /// </summary>
         public double Scale { get { return scale; } }
 
+        /// <summary>
+        /// Sets template lines from DB on image, usually the first one.
+        /// </summary>
+        /// <param name="image">image, where template lines will be drawn</param>
+        /// <param name="tempLines">all template lines</param>
+        /// <param name="colors">all template's lines' colors</param>
+        /// <param name="names">all template's lines' names</param>
         public void SetTemplateLines(Emgu.CV.UI.ImageBox image, Line[] tempLines, int[] colors, string[] names)
         {
             double oldScale = scale;
@@ -112,7 +124,18 @@ namespace FlowerTitan.MeasuringLines
             repaintAllImages();
         }
 
-        public void SetAllTemplateLines(AllLines[] allLines, int[] colors, string[] names, byte[][] images, string name, double scale, long tempID)
+        /// <summary>
+        /// Sets all template lines and images loaded from DB.
+        /// </summary>
+        /// <param name="allLines">all lines</param>
+        /// <param name="colors">all lines' colors</param>
+        /// <param name="names">all lines' names</param>
+        /// <param name="images">all images</param>
+        /// <param name="name">template name</param>
+        /// <param name="scale">template scale</param>
+        /// <param name="tempID">template ID</param>
+        /// <param name="tempIdImage">template ID image</param>
+        public void SetAllTemplateLines(AllLines[] allLines, int[] colors, string[] names, byte[][] images, string name, double scale, long tempID, byte[] tempIdImage)
         {
             NewTemplate();
             mainWindow.tID.Text = tempID.ToString();
@@ -128,6 +151,7 @@ namespace FlowerTitan.MeasuringLines
                 if (i > 0) AddMeasuringLinesToImage(allBoxes[id], al.Lines.ToArray(), al.ImageBoxID);
                 i++;
             }
+            mainWindow.pictureBoxID.Image = new Bitmap((Image)converter.ConvertFrom(tempIdImage));
             firstProcessing = false;
             loaded = true;
         }
@@ -148,6 +172,9 @@ namespace FlowerTitan.MeasuringLines
             }
         }
 
+        /// <summary>
+        /// Returns all active images' images.
+        /// </summary>
         public Bitmap[] ActiveImagesImages
         {
             get
@@ -215,6 +242,7 @@ namespace FlowerTitan.MeasuringLines
         /// </summary>
         /// <param name="image">Image to which measuring lines are added.</param>
         /// <param name="lines">Array of lines for the particular image.</param>
+        /// <param name="imageBoxID">Image box id.</param>
         public void AddMeasuringLinesToImage(Emgu.CV.UI.ImageBox image, Line[] lines, long imageBoxID)
         {
             addedImages++;
@@ -248,6 +276,9 @@ namespace FlowerTitan.MeasuringLines
             image.Refresh();
         }
 
+        /// <summary>
+        /// Tells measuring lines that processing was aborted, so it will be prepared for it.
+        /// </summary>
         public void ProcessingAborted() {
             if (!loaded)
             {
@@ -341,6 +372,9 @@ namespace FlowerTitan.MeasuringLines
             processingCount = 0;
         }
 
+        /// <summary>
+        /// Tells measuring lines that line settings where changed.
+        /// </summary>
         public void UpdateSettings()
         {
             trackBarThickness_ValueChanged(this, new EventArgs());
@@ -793,7 +827,8 @@ namespace FlowerTitan.MeasuringLines
                 //if line is selected change its color
                 if (isSelected)
                 {
-                    lineColors[selectedLine] = mainWindow.buttonColor.BackColor;
+                    //lineColors[selectedLine] = mainWindow.buttonColor.BackColor; causes: mouse hower on point changes selectedLine and if a line is selected it could thus change inappropriate line's color
+                    lineColors[mainWindow.listBoxLines.SelectedIndex] = mainWindow.buttonColor.BackColor;
                     repaintAllImages();
                 }
         }

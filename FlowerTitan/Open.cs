@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace FlowerTitan
 {
+    /// <summary>
+    /// FlowerTitan open/delete from DB window/form.
+    /// </summary>
     public partial class Open : Form
     {
 
@@ -22,6 +25,11 @@ namespace FlowerTitan
         List<string> names = new List<string>();
         List<long> tempIDs = new List<long>();
 
+        /// <summary>
+        /// Parametrized constructor.
+        /// </summary>
+        /// <param name="title">Window title.</param>
+        /// <param name="isTemplate">Determines whether templates or template templates from DB should be loaded.</param>
         public Open(string title, bool isTemplate)
         {
             InitializeComponent();
@@ -120,6 +128,12 @@ namespace FlowerTitan
             }
         }
 
+        /// <summary>
+        /// Capture form press.
+        /// </summary>
+        /// <param name="msg">message</param>
+        /// <param name="keyData">keyData</param>
+        /// <returns>whether key press was handeled.</returns>
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (dataGridView1.Focused)

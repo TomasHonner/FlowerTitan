@@ -12,6 +12,9 @@ using System.Threading;
 
 namespace FlowerTitan
 {
+    /// <summary>
+    /// FlowerTitan main window/form.
+    /// </summary>
     public partial class MainWindow : Form
     {
         private bool previousExportState = false;
@@ -22,6 +25,9 @@ namespace FlowerTitan
         private Thread processingThread;
         private List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>> blossoms;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -166,6 +172,7 @@ namespace FlowerTitan
                 loadTemplateToolStripMenuItem1.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = false;
                 saveTemplateToolStripMenuItem1.Enabled = true;
+                panel1.Visible = true;
             });
             this.Invoke(importingDone);
         }
@@ -241,17 +248,18 @@ namespace FlowerTitan
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Open o = new Open(Properties.Resources.Open_load_template, false);
+            Open o = new Open(Properties.Resources.Open_load, false);
             if ((o.ShowDialog() == System.Windows.Forms.DialogResult.OK) && (o.Tag != null))
             {
                 List<int> colors = new List<int>();
                 List<string> names = new List<string>();
                 List<byte[]> images = new List<byte[]>();
+                List<byte> tempIdImage = new List<byte>();
                 string name = "";
                 double scale = 0;
                 long tempID = 0L;
-                MeasuringLines.AllLines[] allLines = database.LoadTemplate((long)o.Tag, colors, names, ref name, ref scale, ref tempID, images);
-                measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID);
+                MeasuringLines.AllLines[] allLines = database.LoadTemplate((long)o.Tag, colors, names, ref name, ref scale, ref tempID, images, ref tempIdImage);
+                measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID, tempIdImage.ToArray());
                 changeStatus(Properties.Resources.MainWindow_status_load);
                 loadTemplateToolStripMenuItem1.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = true;
@@ -259,6 +267,7 @@ namespace FlowerTitan
                 buttonStart.Enabled = true;
                 buttonStop.Enabled = false;
                 buttonExport.Enabled = true;
+                panel1.Visible = true;
             }
         }
 
@@ -332,11 +341,6 @@ namespace FlowerTitan
             buttonExport.Enabled = previousExportState;
         }
 
-        private void createReportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO create report
-        }
-
         private void timerStatus_Tick(object sender, EventArgs e)
         {
             timerStatus.Stop();
@@ -369,6 +373,15 @@ namespace FlowerTitan
         private void tID_DoubleClick(object sender, EventArgs e)
         {
             tID.ReadOnly = !tID.ReadOnly;
+        }
+
+        /// <summary>
+        /// Gets template's scale.
+        /// </summary>
+        /// <returns>template's scale</returns>
+        public double GetTemplateScale()
+        {
+            return measuringLines.Scale;
         }
     }
 }

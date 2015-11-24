@@ -36,6 +36,11 @@ namespace FlowerTitan.TemplateOCR
             return templateIdOCR;
         }
 
+        /// <summary>
+        /// Processes scanned template id.
+        /// </summary>
+        /// <param name="image">scanned image with template number</param>
+        /// <returns>template number</returns>
         public string ProcessTemplateID(Bitmap image)
         {
             TesseractEngine engine = new TesseractEngine(@"./tessdata", "eng");
