@@ -58,7 +58,7 @@ namespace FlowerTitan.Database
         /// <param name="e">occured exception</param>
         private static void showError(Exception e)
         {
-            System.Windows.Forms.MessageBox.Show(Properties.Resources.Database_error_text + e.Message, Properties.Resources.Database_error_title, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            System.Windows.Forms.MessageBox.Show(Properties.Resources.Database_error_text + "\n" + e.Message, Properties.Resources.Database_error_title, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
         }
 
         /// <summary>

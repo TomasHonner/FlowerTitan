@@ -235,5 +235,77 @@ namespace FlowerTitan.Properties {
                 return ResourceManager.GetString("TemplateGenerator_error_title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured during data export..
+        /// </summary>
+        internal static string XLSXGenerator_error_text {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_error_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export error.
+        /// </summary>
+        internal static string XLSXGenerator_error_title {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_error_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flower No.:.
+        /// </summary>
+        internal static string XLSXGenerator_flower {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_flower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template ID:.
+        /// </summary>
+        internal static string XLSXGenerator_id {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All lengths in:.
+        /// </summary>
+        internal static string XLSXGenerator_lengths {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_lengths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lines:.
+        /// </summary>
+        internal static string XLSXGenerator_lines {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_lines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mm.
+        /// </summary>
+        internal static string XLSXGenerator_mm {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_mm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template name:.
+        /// </summary>
+        internal static string XLSXGenerator_name {
+            get {
+                return ResourceManager.GetString("XLSXGenerator_name", resourceCulture);
+            }
+        }
     }
 }

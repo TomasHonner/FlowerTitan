@@ -179,4 +179,28 @@ BACKSPACE - delete whole line</value>
   <data name="TemplateGenerator_error_title" xml:space="preserve">
     <value>Generator error</value>
   </data>
+  <data name="XLSXGenerator_error_text" xml:space="preserve">
+    <value>Error occured during data export.</value>
+  </data>
+  <data name="XLSXGenerator_error_title" xml:space="preserve">
+    <value>Export error</value>
+  </data>
+  <data name="XLSXGenerator_flower" xml:space="preserve">
+    <value>Flower No.:</value>
+  </data>
+  <data name="XLSXGenerator_id" xml:space="preserve">
+    <value>Template ID:</value>
+  </data>
+  <data name="XLSXGenerator_lengths" xml:space="preserve">
+    <value>All lengths in:</value>
+  </data>
+  <data name="XLSXGenerator_lines" xml:space="preserve">
+    <value>Lines:</value>
+  </data>
+  <data name="XLSXGenerator_mm" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="XLSXGenerator_name" xml:space="preserve">
+    <value>Template name:</value>
+  </data>
 </root>

@@ -60,6 +60,10 @@
     <Reference Include="Emgu.Util">
       <HintPath>C:\Emgu\emgucv-windows-universal-cuda 2.4.10.1940\bin\Emgu.Util.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PdfSharp">
       <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
     </Reference>
@@ -136,6 +140,7 @@
       <DependentUpon>TemplateGeneratorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="TemplateOCR\TemplateIdOCR.cs" />
+    <Compile Include="XLSXGenerator\XLSGenerator.cs" />
     <EmbeddedResource Include="AboutFlowerTitan.resx">
       <DependentUpon>AboutFlowerTitan.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,9 +205,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="XLSGenerator\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="cvextern.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

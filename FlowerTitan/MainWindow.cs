@@ -49,6 +49,7 @@ namespace FlowerTitan
             if (measuringLines.IsEnabled)
             {
                 previousExportState = buttonExport.Enabled;
+                exportDataToolStripMenuItem.Enabled = false;
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = false;
                 buttonStop.Enabled = true;
@@ -111,6 +112,7 @@ namespace FlowerTitan
 
                 buttonExport.Enabled = true;
                 buttonStart.Enabled = true;
+                exportDataToolStripMenuItem.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = true;
                 saveTemplateToolStripMenuItem1.Enabled = true;
                 loadTemplateToolStripMenuItem1.Enabled = false;
@@ -128,6 +130,7 @@ namespace FlowerTitan
                 measuringLines.NewTemplate();
                 tBtemplateName.Text = "";
                 threadStart(Properties.Resources.MainWindow_status_importing);
+                exportDataToolStripMenuItem.Enabled = false;
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = false;
                 buttonStop.Enabled = false;
@@ -169,6 +172,7 @@ namespace FlowerTitan
                 buttonStop.Enabled = false;
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = true;
+                exportDataToolStripMenuItem.Enabled = false;
                 loadTemplateToolStripMenuItem1.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = false;
                 saveTemplateToolStripMenuItem1.Enabled = true;
@@ -193,6 +197,7 @@ namespace FlowerTitan
             loadTemplateToolStripMenuItem1.Enabled = false;
             saveTemplateToolStripMenuItem.Enabled = false;
             saveTemplateToolStripMenuItem1.Enabled = false;
+            exportDataToolStripMenuItem.Enabled = false;
             buttonStart.Enabled = false;
             buttonStop.Enabled = false;
             buttonExport.Enabled = false;
@@ -223,6 +228,7 @@ namespace FlowerTitan
                     saveTemplateToolStripMenuItem.Enabled = false;
                     saveTemplateToolStripMenuItem1.Enabled = true;
                     loadTemplateToolStripMenuItem1.Enabled = true;
+                    exportDataToolStripMenuItem.Enabled = false;
                     buttonStart.Enabled = true;
                     buttonStop.Enabled = false;
                     buttonExport.Enabled = false;
@@ -264,6 +270,7 @@ namespace FlowerTitan
                 loadTemplateToolStripMenuItem1.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = true;
                 saveTemplateToolStripMenuItem1.Enabled = true;
+                exportDataToolStripMenuItem.Enabled = true;
                 buttonStart.Enabled = true;
                 buttonStop.Enabled = false;
                 buttonExport.Enabled = true;
@@ -323,7 +330,7 @@ namespace FlowerTitan
         {
             if (measuringLines.IsEnabled)
             {
-                // TODO generate
+                FlowerTitan.XLSXGenerator.XLSXGenerator.GetInstance().ExportData(tID.Value.ToString(), tBtemplateName.Text, measuringLines.Names, measuringLines.ActiveImagesLines, database.GetXLSPath(), measuringLines.Scale);
                 changeStatus(Properties.Resources.MainWindow_status_export);
             }
         }
@@ -339,6 +346,7 @@ namespace FlowerTitan
             buttonStop.Enabled = false;
             buttonStart.Enabled = true;
             buttonExport.Enabled = previousExportState;
+            exportDataToolStripMenuItem.Enabled = previousExportState;
         }
 
         private void timerStatus_Tick(object sender, EventArgs e)

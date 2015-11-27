@@ -52,13 +52,13 @@ namespace FlowerTitan.TemplateGenerator
             templatesCountBackup = -templatesCount;
             PdfDocument pdf = new PdfDocument();
             //initial settings
-            pdf.Info.Title = "FlowerTitan template";
-            pdf.Info.Author = "FlowerTitan";
+            pdf.Info.Title = "Template by " + System.Windows.Forms.Application.ProductName;
+            pdf.Info.Author = System.Windows.Forms.Application.ProductName + ", " + System.Windows.Forms.Application.CompanyName;
             pdf.Info.CreationDate = DateTime.Now;
-            pdf.Info.Creator = "FlowerTitan";
-            pdf.Info.Keywords = "FlowerTitan; template";
+            pdf.Info.Creator = System.Windows.Forms.Application.ProductName + " " + System.Windows.Forms.Application.ProductVersion;
+            pdf.Info.Keywords = System.Windows.Forms.Application.ProductName + ", template, " + System.Windows.Forms.Application.CompanyName;
             pdf.Info.ModificationDate = DateTime.Now;
-            pdf.Info.Subject = "template";
+            pdf.Info.Subject = "Template";
             pdf.Language = "en-US";
             pdf.SecuritySettings.PermitModifyDocument = false;
             PdfPage pdfPage;
