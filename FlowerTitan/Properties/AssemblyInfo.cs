@@ -7,9 +7,9 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FlowerTitan")]
-[assembly: AssemblyDescription("description")]
+[assembly: AssemblyDescription("Flowers image processing software.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("company")]
+[assembly: AssemblyCompany("HST")]
 [assembly: AssemblyProduct("FlowerTitan")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("FlowerTitan")]

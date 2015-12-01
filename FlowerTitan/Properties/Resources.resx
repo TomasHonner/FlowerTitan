@@ -179,6 +179,12 @@ BACKSPACE - delete whole line</value>
   <data name="TemplateGenerator_error_title" xml:space="preserve">
     <value>Generator error</value>
   </data>
+  <data name="TemplateIdOCR_error_text" xml:space="preserve">
+    <value>Error occured during template id OCR.</value>
+  </data>
+  <data name="TemplateIdOCR_error_title" xml:space="preserve">
+    <value>OCR error</value>
+  </data>
   <data name="XLSXGenerator_error_text" xml:space="preserve">
     <value>Error occured during data export.</value>
   </data>

@@ -72,7 +72,7 @@ namespace FlowerTitan.Database
             long id = 0;
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 //get last number
                 command.CommandText = "SELECT id, generated_number FROM Properties LIMIT 1;";
@@ -88,7 +88,7 @@ namespace FlowerTitan.Database
                 command.Parameters.AddWithValue("@nLN", num + increment);
                 command.CommandText = "UPDATE Properties SET generated_number = @nLN WHERE id = @id;";
                 command.ExecuteNonQuery();
-                closeConnection();
+                closeConnection(transaction);
             }
             catch (Exception e)
             {
@@ -113,7 +113,7 @@ namespace FlowerTitan.Database
         {
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 bool exists = false;
                 long id = 0;
                 templateExists(temp_id, ref exists, ref id, isTemplate);
@@ -144,7 +144,7 @@ namespace FlowerTitan.Database
                     mainWindow.toolStripProgressBar.Value = 100;
                 });
                 mainWindow.Invoke(stateChanged);
-                closeConnection();
+                closeConnection(transaction);
                 return newID;
             }
             catch (Exception e)
@@ -162,9 +162,9 @@ namespace FlowerTitan.Database
         {
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 deleteOldTemplate(id);
-                closeConnection();
+                closeConnection(transaction);
             }
             catch (Exception e)
             {
@@ -335,7 +335,7 @@ namespace FlowerTitan.Database
             string val = "";
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 command.CommandText = String.Format("SELECT {0} FROM Properties LIMIT 1;", column);
                 SQLiteDataReader reader = command.ExecuteReader();
@@ -344,7 +344,7 @@ namespace FlowerTitan.Database
                     val = reader[column].ToString();
                 }
                 reader.Close();
-                closeConnection();
+                closeConnection(transaction);
             }
             catch (Exception e)
             {
@@ -396,12 +396,12 @@ namespace FlowerTitan.Database
         {
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 command.Parameters.AddWithValue("@val", value);
                 command.CommandText = String.Format("UPDATE Properties SET {0} = @val WHERE id = 1;", column);
                 command.ExecuteNonQuery();
-                closeConnection();
+                closeConnection(transaction);
             }
             catch (Exception e)
             {
@@ -412,7 +412,8 @@ namespace FlowerTitan.Database
         /// <summary>
         /// Opens connection.
         /// </summary>
-        private void openConnection()
+        /// <returns>DB transaction which begins</returns>
+        private SQLiteTransaction openConnection()
         {
             if (connection.State != ConnectionState.Open)
             {
@@ -421,16 +422,21 @@ namespace FlowerTitan.Database
                 //enable foreign keys constraints
                 command.CommandText = "PRAGMA foreign_keys = ON";
                 command.ExecuteNonQuery();
+                SQLiteTransaction transaction = connection.BeginTransaction();
+                return transaction;
             }
+            return null;
         }
 
         /// <summary>
         /// Closes connection.
         /// </summary>
-        private void closeConnection()
+        /// <param name="transaction">DB trancaction to commit</param>
+        private void closeConnection(SQLiteTransaction transaction)
         {
             if (connection.State == ConnectionState.Open)
             {
+                transaction.Commit();
                 connection.Close();
             }
         }
@@ -447,7 +453,7 @@ namespace FlowerTitan.Database
         {
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 command.Parameters.AddWithValue("@is_template", isTemplate);
                 command.CommandText = "SELECT * FROM Templates WHERE is_template=@is_template;";
@@ -460,7 +466,7 @@ namespace FlowerTitan.Database
                     tempIDs.Add((long)reader["temp_id"]);
                 }
                 reader.Close();
-                closeConnection();
+                closeConnection(transaction);
             }
             catch (Exception e)
             {
@@ -479,7 +485,7 @@ namespace FlowerTitan.Database
         {
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@is_template", true);
@@ -492,7 +498,7 @@ namespace FlowerTitan.Database
                 }
                 reader.Close();
                 Line[] lines = getLines(imageID, colors, names);
-                closeConnection();
+                closeConnection(transaction);
                 return lines;
             }
             catch (Exception e)
@@ -556,7 +562,7 @@ namespace FlowerTitan.Database
         {
             try
             {
-                openConnection();
+                SQLiteTransaction transaction = openConnection();
                 SQLiteCommand command = connection.CreateCommand();
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@is_template", false);
@@ -571,7 +577,7 @@ namespace FlowerTitan.Database
                 }
                 reader.Close();
                 AllLines[] allLines = getImages(id, images, colors, names);
-                closeConnection();
+                closeConnection(transaction);
                 return allLines;
             }
             catch (Exception e)

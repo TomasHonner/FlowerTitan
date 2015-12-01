@@ -29,20 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBoxID = new System.Windows.Forms.PictureBox();
-            this.iB6 = new Emgu.CV.UI.ImageBox();
-            this.iB5 = new Emgu.CV.UI.ImageBox();
-            this.iB8 = new Emgu.CV.UI.ImageBox();
-            this.iB9 = new Emgu.CV.UI.ImageBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.iB1 = new Emgu.CV.UI.ImageBox();
             this.iB12 = new Emgu.CV.UI.ImageBox();
+            this.iB9 = new Emgu.CV.UI.ImageBox();
             this.iB11 = new Emgu.CV.UI.ImageBox();
+            this.iB8 = new Emgu.CV.UI.ImageBox();
             this.iB10 = new Emgu.CV.UI.ImageBox();
+            this.iB6 = new Emgu.CV.UI.ImageBox();
+            this.pictureBoxID = new System.Windows.Forms.PictureBox();
+            this.iB5 = new Emgu.CV.UI.ImageBox();
+            this.iB2 = new Emgu.CV.UI.ImageBox();
+            this.iB3 = new Emgu.CV.UI.ImageBox();
             this.iB7 = new Emgu.CV.UI.ImageBox();
             this.iB4 = new Emgu.CV.UI.ImageBox();
-            this.iB3 = new Emgu.CV.UI.ImageBox();
-            this.iB2 = new Emgu.CV.UI.ImageBox();
-            this.iB1 = new Emgu.CV.UI.ImageBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkboxFilter3 = new System.Windows.Forms.CheckBox();
@@ -103,19 +105,20 @@
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB9)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iB1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB1)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -135,169 +138,196 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.pictureBoxID);
-            this.panel1.Controls.Add(this.iB6);
-            this.panel1.Controls.Add(this.iB5);
-            this.panel1.Controls.Add(this.iB8);
-            this.panel1.Controls.Add(this.iB9);
-            this.panel1.Controls.Add(this.iB12);
-            this.panel1.Controls.Add(this.iB11);
-            this.panel1.Controls.Add(this.iB10);
-            this.panel1.Controls.Add(this.iB7);
-            this.panel1.Controls.Add(this.iB4);
-            this.panel1.Controls.Add(this.iB3);
-            this.panel1.Controls.Add(this.iB2);
-            this.panel1.Controls.Add(this.iB1);
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.panel9);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(877, 600);
+            this.panel1.Size = new System.Drawing.Size(858, 680);
             this.panel1.TabIndex = 0;
             this.panel1.Visible = false;
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             // 
-            // pictureBoxID
+            // panel9
             // 
-            this.pictureBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxID.Location = new System.Drawing.Point(601, 30);
-            this.pictureBoxID.Name = "pictureBoxID";
-            this.pictureBoxID.Size = new System.Drawing.Size(250, 50);
-            this.pictureBoxID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxID.TabIndex = 15;
-            this.pictureBoxID.TabStop = false;
-            // 
-            // iB6
-            // 
-            this.iB6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB6.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB6.Location = new System.Drawing.Point(601, 319);
-            this.iB6.Name = "iB6";
-            this.iB6.Size = new System.Drawing.Size(250, 217);
-            this.iB6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB6.TabIndex = 14;
-            this.iB6.TabStop = false;
-            // 
-            // iB5
-            // 
-            this.iB5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB5.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB5.Location = new System.Drawing.Point(315, 319);
-            this.iB5.Name = "iB5";
-            this.iB5.Size = new System.Drawing.Size(250, 217);
-            this.iB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB5.TabIndex = 13;
-            this.iB5.TabStop = false;
-            // 
-            // iB8
-            // 
-            this.iB8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB8.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB8.Location = new System.Drawing.Point(315, 542);
-            this.iB8.Name = "iB8";
-            this.iB8.Size = new System.Drawing.Size(250, 217);
-            this.iB8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB8.TabIndex = 12;
-            this.iB8.TabStop = false;
-            // 
-            // iB9
-            // 
-            this.iB9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB9.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB9.Location = new System.Drawing.Point(601, 542);
-            this.iB9.Name = "iB9";
-            this.iB9.Size = new System.Drawing.Size(250, 217);
-            this.iB9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB9.TabIndex = 11;
-            this.iB9.TabStop = false;
-            // 
-            // iB12
-            // 
-            this.iB12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB12.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB12.Location = new System.Drawing.Point(601, 765);
-            this.iB12.Name = "iB12";
-            this.iB12.Size = new System.Drawing.Size(250, 217);
-            this.iB12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB12.TabIndex = 10;
-            this.iB12.TabStop = false;
-            // 
-            // iB11
-            // 
-            this.iB11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB11.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB11.Location = new System.Drawing.Point(315, 765);
-            this.iB11.Name = "iB11";
-            this.iB11.Size = new System.Drawing.Size(250, 217);
-            this.iB11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB11.TabIndex = 9;
-            this.iB11.TabStop = false;
-            // 
-            // iB10
-            // 
-            this.iB10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB10.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB10.Location = new System.Drawing.Point(18, 765);
-            this.iB10.Name = "iB10";
-            this.iB10.Size = new System.Drawing.Size(250, 217);
-            this.iB10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB10.TabIndex = 8;
-            this.iB10.TabStop = false;
-            // 
-            // iB7
-            // 
-            this.iB7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB7.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB7.Location = new System.Drawing.Point(18, 542);
-            this.iB7.Name = "iB7";
-            this.iB7.Size = new System.Drawing.Size(250, 217);
-            this.iB7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB7.TabIndex = 7;
-            this.iB7.TabStop = false;
-            // 
-            // iB4
-            // 
-            this.iB4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB4.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB4.Location = new System.Drawing.Point(18, 319);
-            this.iB4.Name = "iB4";
-            this.iB4.Size = new System.Drawing.Size(250, 217);
-            this.iB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB4.TabIndex = 6;
-            this.iB4.TabStop = false;
-            // 
-            // iB3
-            // 
-            this.iB3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB3.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB3.Location = new System.Drawing.Point(601, 96);
-            this.iB3.Name = "iB3";
-            this.iB3.Size = new System.Drawing.Size(250, 217);
-            this.iB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB3.TabIndex = 5;
-            this.iB3.TabStop = false;
-            // 
-            // iB2
-            // 
-            this.iB2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.iB2.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB2.Location = new System.Drawing.Point(315, 96);
-            this.iB2.Name = "iB2";
-            this.iB2.Size = new System.Drawing.Size(250, 217);
-            this.iB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iB2.TabIndex = 3;
-            this.iB2.TabStop = false;
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.iB1);
+            this.panel9.Controls.Add(this.iB12);
+            this.panel9.Controls.Add(this.iB9);
+            this.panel9.Controls.Add(this.iB11);
+            this.panel9.Controls.Add(this.iB8);
+            this.panel9.Controls.Add(this.iB10);
+            this.panel9.Controls.Add(this.iB6);
+            this.panel9.Controls.Add(this.pictureBoxID);
+            this.panel9.Controls.Add(this.iB5);
+            this.panel9.Controls.Add(this.iB2);
+            this.panel9.Controls.Add(this.iB3);
+            this.panel9.Controls.Add(this.iB7);
+            this.panel9.Controls.Add(this.iB4);
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1584, 2236);
+            this.panel9.TabIndex = 16;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            this.panel9.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             // 
             // iB1
             // 
             this.iB1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.iB1.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
-            this.iB1.Location = new System.Drawing.Point(18, 96);
+            this.iB1.Location = new System.Drawing.Point(40, 180);
             this.iB1.Name = "iB1";
-            this.iB1.Size = new System.Drawing.Size(250, 217);
-            this.iB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iB1.Size = new System.Drawing.Size(480, 480);
+            this.iB1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iB1.TabIndex = 2;
             this.iB1.TabStop = false;
+            this.iB1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB12
+            // 
+            this.iB12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB12.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB12.Location = new System.Drawing.Point(1064, 1716);
+            this.iB12.Name = "iB12";
+            this.iB12.Size = new System.Drawing.Size(480, 480);
+            this.iB12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB12.TabIndex = 10;
+            this.iB12.TabStop = false;
+            this.iB12.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB9
+            // 
+            this.iB9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB9.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB9.Location = new System.Drawing.Point(1064, 1204);
+            this.iB9.Name = "iB9";
+            this.iB9.Size = new System.Drawing.Size(480, 480);
+            this.iB9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB9.TabIndex = 11;
+            this.iB9.TabStop = false;
+            this.iB9.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB11
+            // 
+            this.iB11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB11.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB11.Location = new System.Drawing.Point(552, 1716);
+            this.iB11.Name = "iB11";
+            this.iB11.Size = new System.Drawing.Size(480, 480);
+            this.iB11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB11.TabIndex = 9;
+            this.iB11.TabStop = false;
+            this.iB11.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB8
+            // 
+            this.iB8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB8.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB8.Location = new System.Drawing.Point(552, 1204);
+            this.iB8.Name = "iB8";
+            this.iB8.Size = new System.Drawing.Size(480, 480);
+            this.iB8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB8.TabIndex = 12;
+            this.iB8.TabStop = false;
+            this.iB8.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB10
+            // 
+            this.iB10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB10.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB10.Location = new System.Drawing.Point(40, 1716);
+            this.iB10.Name = "iB10";
+            this.iB10.Size = new System.Drawing.Size(480, 480);
+            this.iB10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB10.TabIndex = 8;
+            this.iB10.TabStop = false;
+            this.iB10.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB6
+            // 
+            this.iB6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB6.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB6.Location = new System.Drawing.Point(1064, 692);
+            this.iB6.Name = "iB6";
+            this.iB6.Size = new System.Drawing.Size(480, 480);
+            this.iB6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB6.TabIndex = 14;
+            this.iB6.TabStop = false;
+            this.iB6.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // pictureBoxID
+            // 
+            this.pictureBoxID.BackColor = System.Drawing.Color.White;
+            this.pictureBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxID.Location = new System.Drawing.Point(1064, 40);
+            this.pictureBoxID.Name = "pictureBoxID";
+            this.pictureBoxID.Size = new System.Drawing.Size(480, 110);
+            this.pictureBoxID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxID.TabIndex = 15;
+            this.pictureBoxID.TabStop = false;
+            // 
+            // iB5
+            // 
+            this.iB5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB5.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB5.Location = new System.Drawing.Point(552, 692);
+            this.iB5.Name = "iB5";
+            this.iB5.Size = new System.Drawing.Size(480, 480);
+            this.iB5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB5.TabIndex = 13;
+            this.iB5.TabStop = false;
+            this.iB5.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB2
+            // 
+            this.iB2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB2.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB2.Location = new System.Drawing.Point(552, 180);
+            this.iB2.Name = "iB2";
+            this.iB2.Size = new System.Drawing.Size(480, 480);
+            this.iB2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB2.TabIndex = 3;
+            this.iB2.TabStop = false;
+            this.iB2.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB3
+            // 
+            this.iB3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB3.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB3.Location = new System.Drawing.Point(1064, 180);
+            this.iB3.Name = "iB3";
+            this.iB3.Size = new System.Drawing.Size(480, 480);
+            this.iB3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB3.TabIndex = 5;
+            this.iB3.TabStop = false;
+            this.iB3.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB7
+            // 
+            this.iB7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB7.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB7.Location = new System.Drawing.Point(40, 1204);
+            this.iB7.Name = "iB7";
+            this.iB7.Size = new System.Drawing.Size(480, 480);
+            this.iB7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB7.TabIndex = 7;
+            this.iB7.TabStop = false;
+            this.iB7.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            // 
+            // iB4
+            // 
+            this.iB4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iB4.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.iB4.Location = new System.Drawing.Point(40, 692);
+            this.iB4.Name = "iB4";
+            this.iB4.Size = new System.Drawing.Size(480, 480);
+            this.iB4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iB4.TabIndex = 6;
+            this.iB4.TabStop = false;
+            this.iB4.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             // 
             // label1
             // 
@@ -426,7 +456,7 @@
             this.toolStripSeparator4});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 21);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // newTemplateToolStripMenuItem
             // 
@@ -523,7 +553,7 @@
             this.optionsToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
-            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Text = "&Settings";
             // 
             // optionsToolStripMenuItem
             // 
@@ -539,7 +569,7 @@
             this.linesControlsToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
             // 
@@ -551,6 +581,7 @@
             // linesControlsToolStripMenuItem
             // 
             this.linesControlsToolStripMenuItem.Name = "linesControlsToolStripMenuItem";
+            this.linesControlsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.linesControlsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.linesControlsToolStripMenuItem.Text = "Lines controls";
             this.linesControlsToolStripMenuItem.Click += new System.EventHandler(this.linesControlsToolStripMenuItem_Click);
@@ -702,7 +733,7 @@
             this.toolStripStatusLabelInfo,
             this.toolStripStatusLabel1,
             this.toolStripProgressBar});
-            this.statusStrip.Location = new System.Drawing.Point(2, 639);
+            this.statusStrip.Location = new System.Drawing.Point(2, 719);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statusStrip.Size = new System.Drawing.Size(1180, 20);
@@ -745,7 +776,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 661);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 741);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
             // panel5
@@ -757,15 +788,15 @@
             this.panel5.Location = new System.Drawing.Point(2, 29);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1180, 608);
+            this.panel5.Size = new System.Drawing.Size(1180, 688);
             this.panel5.TabIndex = 14;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -773,20 +804,23 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1176, 604);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1176, 684);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.AutoScroll = true;
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(881, 2);
+            this.panel6.Location = new System.Drawing.Point(862, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(293, 600);
+            this.panel6.Size = new System.Drawing.Size(312, 680);
             this.panel6.TabIndex = 1;
+            this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
             // 
             // panel8
             // 
@@ -855,30 +889,31 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 741);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
-            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(890, 620);
             this.Name = "MainWindow";
             this.Text = "FlowerTitan";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB9)).EndInit();
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iB1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iB3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iB1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip.ResumeLayout(false);
@@ -895,6 +930,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -1049,6 +1085,7 @@
         public System.Windows.Forms.NumericUpDown tID;
         private System.Windows.Forms.ToolStripMenuItem exportDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.Panel panel9;
     }
 }
 

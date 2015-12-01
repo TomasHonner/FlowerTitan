@@ -146,7 +146,23 @@ namespace FlowerTitan
             _tp.createListOfBlossoms();
             this.blossoms = _tp.ListOfBlossomsToDraw;
             //TODO insert bitmap with template id, it is crutial that image mustn't have its frame, otherwise OCR will usually fail
-            Bitmap bitmapTempID = new Bitmap(@"E:\IS projekt\test_data\tempIDs\test14.png");
+            //MOCK image
+            Image img = new Bitmap(pictureBoxID.Width, pictureBoxID.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            Graphics drawing = Graphics.FromImage(img);
+            drawing.Clear(Color.White);
+            Brush textBrush = new SolidBrush(Color.Black);
+            FontFamily fontFamily = new FontFamily("Arial");
+            Font font = new Font(fontFamily, 30, FontStyle.Bold, GraphicsUnit.Pixel);
+            drawing.DrawString("12345", font, textBrush, 150, 10);
+            drawing.Save();
+            Bitmap bitmapTempID = new Bitmap(img.Width, img.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            using (Graphics gr = Graphics.FromImage(bitmapTempID))
+            {
+                gr.DrawImage(img, new Rectangle(0, 0, bitmapTempID.Width, bitmapTempID.Height));
+            }
+            textBrush.Dispose();
+            drawing.Dispose();
+            //MOCK end
             string tempID = TemplateOCR.TemplateIdOCR.GetInstance().ProcessTemplateID(bitmapTempID);
 
             Action importingDone = new Action(() =>
@@ -205,6 +221,8 @@ namespace FlowerTitan
             if (Properties.Settings.Default.MainWindowLocation != null)
             {
                 this.Location = Properties.Settings.Default.MainWindowLocation;
+                this.Size = Properties.Settings.Default.MainWindowSize;
+                this.WindowState = Properties.Settings.Default.MainWindowState;
                 trackBarThickness.Value = Properties.Settings.Default.LineThickness;
                 trackBarPointSize.Value = Properties.Settings.Default.PointSize;
                 buttonColor.BackColor = Properties.Settings.Default.LineColor;
@@ -371,7 +389,16 @@ namespace FlowerTitan
             {
                 if (processingThread.IsAlive) e.Cancel = true;
             }
-            Properties.Settings.Default.MainWindowLocation = this.Location;
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                Properties.Settings.Default.MainWindowState = this.WindowState;
+            }
+            else
+            {
+                Properties.Settings.Default.MainWindowState = FormWindowState.Normal;
+                Properties.Settings.Default.MainWindowLocation = this.Location;
+                Properties.Settings.Default.MainWindowSize = this.Size;
+            }
             Properties.Settings.Default.LineColor = buttonColor.BackColor;
             Properties.Settings.Default.LineThickness = trackBarThickness.Value;
             Properties.Settings.Default.PointSize = trackBarPointSize.Value;
@@ -390,6 +417,30 @@ namespace FlowerTitan
         public double GetTemplateScale()
         {
             return measuringLines.Scale;
+        }
+
+        private void panel6_MouseEnter(object sender, EventArgs e)
+        {
+            panel6.Focus();
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+            int left = iB1.Location.X;
+            int top = iB1.Location.Y;
+            int offset = iB2.Location.X - iB1.Location.X;
+            Pen pen = new Pen(Color.Black, 12);
+            Rectangle rec = new Rectangle(pictureBoxID.Location.X, pictureBoxID.Location.Y, pictureBoxID.Width, pictureBoxID.Height);
+            e.Graphics.DrawRectangle(pen, rec);
+            for (int row = 0; row < 4; row++)
+            {
+                for (int column = 0; column < 3; column++)
+                {
+                    rec = new Rectangle((left + (column * offset)), (top + (row * offset)), iB1.Width, iB1.Height);
+                    e.Graphics.DrawRectangle(pen, rec);
+                }
+            }
+            pen.Dispose();
         }
     }
 }

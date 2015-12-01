@@ -237,6 +237,24 @@ namespace FlowerTitan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured during template id OCR..
+        /// </summary>
+        internal static string TemplateIdOCR_error_text {
+            get {
+                return ResourceManager.GetString("TemplateIdOCR_error_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OCR error.
+        /// </summary>
+        internal static string TemplateIdOCR_error_title {
+            get {
+                return ResourceManager.GetString("TemplateIdOCR_error_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured during data export..
         /// </summary>
         internal static string XLSXGenerator_error_text {

@@ -43,30 +43,38 @@ namespace FlowerTitan.TemplateOCR
         /// <returns>template number</returns>
         public string ProcessTemplateID(Bitmap image)
         {
-            TesseractEngine engine = new TesseractEngine(@"./tessdata", "eng");
-            engine.DefaultPageSegMode = PageSegMode.SingleLine;
-            engine.SetVariable("tessedit_char_whitelist", "0123456789");
-            engine.SetVariable("textord_tabfind_vertical_text", false);
-            engine.SetVariable("classify_font_name", "Arial.ttf");
-            engine.SetVariable("classify_enable_learning", false);
-            Page page = engine.Process(image);
-            string output = page.GetText();
-            string result = "";
-            foreach (char c in output)
+            try
             {
-                bool isNum = false;
-                for (int i = 0; i < 10; i++)
+                TesseractEngine engine = new TesseractEngine(@"./tessdata", "eng");
+                engine.DefaultPageSegMode = PageSegMode.SingleLine;
+                engine.SetVariable("tessedit_char_whitelist", "0123456789");
+                engine.SetVariable("textord_tabfind_vertical_text", false);
+                engine.SetVariable("classify_font_name", "Arial.ttf");
+                engine.SetVariable("classify_enable_learning", false);
+                Page page = engine.Process(image);
+                string output = page.GetText();
+                string result = "";
+                foreach (char c in output)
                 {
-                    if (c.ToString() == i.ToString())
+                    bool isNum = false;
+                    for (int i = 0; i < 10; i++)
                     {
-                        isNum = true;
-                        break;
+                        if (c.ToString() == i.ToString())
+                        {
+                            isNum = true;
+                            break;
+                        }
                     }
+                    if (isNum) result += c;
                 }
-                if (isNum) result += c;
+                if (result == "") result = "0";
+                return result;
             }
-            if (result == "") result = "NaN";
-            return result;
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.TemplateIdOCR_error_text + "\n" + e.Message, Properties.Resources.TemplateIdOCR_error_title, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                return "0";
+            }
         }
     }
 }
