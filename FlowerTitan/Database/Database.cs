@@ -128,7 +128,7 @@ namespace FlowerTitan.Database
                 else
                 {
                     ImageConverter converter = new ImageConverter();
-                    tempImage = (byte[])converter.ConvertTo(new Bitmap(mainWindow.pictureBoxID.Image), typeof(byte[]));
+                    tempImage = (byte[])converter.ConvertTo(mainWindow.imageBoxID.Image.Bitmap, typeof(byte[]));
                 }
                 command.Parameters.AddWithValue("@temp_id_image", tempImage);
                 command.CommandText = "INSERT INTO Templates (date, name, scale, temp_id, is_template, temp_id_image) VALUES (@date, @name, @scale, @temp_id, @is_template, @temp_id_image);";

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Drawing;
 using System.Windows.Forms;
-using Tesseract;
+using Emgu.CV.OCR;
 
 namespace FlowerTitan.TemplateOCR
 {
@@ -41,18 +41,16 @@ namespace FlowerTitan.TemplateOCR
         /// </summary>
         /// <param name="image">scanned image with template number</param>
         /// <returns>template number</returns>
-        public string ProcessTemplateID(Bitmap image)
+        public string ProcessTemplateID(Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> image)
         {
             try
             {
-                TesseractEngine engine = new TesseractEngine(@"./tessdata", "eng");
-                engine.DefaultPageSegMode = PageSegMode.SingleLine;
-                engine.SetVariable("tessedit_char_whitelist", "0123456789");
-                engine.SetVariable("textord_tabfind_vertical_text", false);
-                engine.SetVariable("classify_font_name", "Arial.ttf");
-                engine.SetVariable("classify_enable_learning", false);
-                Page page = engine.Process(image);
-                string output = page.GetText();
+                Tesseract tess = new Tesseract("", "eng", Tesseract.OcrEngineMode.OEM_TESSERACT_ONLY, "0123456789");
+                tess.SetVariable("textord_tabfind_vertical_text", "false");
+                tess.SetVariable("classify_font_name", "Arial.ttf");
+                tess.SetVariable("classify_enable_learning", "false");
+                tess.Recognize(image);
+                string output = tess.GetText();
                 string result = "";
                 foreach (char c in output)
                 {

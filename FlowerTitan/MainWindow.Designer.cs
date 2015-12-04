@@ -39,7 +39,6 @@
             this.iB8 = new Emgu.CV.UI.ImageBox();
             this.iB10 = new Emgu.CV.UI.ImageBox();
             this.iB6 = new Emgu.CV.UI.ImageBox();
-            this.pictureBoxID = new System.Windows.Forms.PictureBox();
             this.iB5 = new Emgu.CV.UI.ImageBox();
             this.iB2 = new Emgu.CV.UI.ImageBox();
             this.iB3 = new Emgu.CV.UI.ImageBox();
@@ -104,6 +103,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.imageBoxID = new Emgu.CV.UI.ImageBox();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iB1)).BeginInit();
@@ -113,7 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iB8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB3)).BeginInit();
@@ -133,6 +132,7 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tID)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBoxID)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -144,7 +144,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(858, 680);
+            this.panel1.Size = new System.Drawing.Size(856, 680);
             this.panel1.TabIndex = 0;
             this.panel1.Visible = false;
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
@@ -153,6 +153,7 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.imageBoxID);
             this.panel9.Controls.Add(this.iB1);
             this.panel9.Controls.Add(this.iB12);
             this.panel9.Controls.Add(this.iB9);
@@ -160,7 +161,6 @@
             this.panel9.Controls.Add(this.iB8);
             this.panel9.Controls.Add(this.iB10);
             this.panel9.Controls.Add(this.iB6);
-            this.panel9.Controls.Add(this.pictureBoxID);
             this.panel9.Controls.Add(this.iB5);
             this.panel9.Controls.Add(this.iB2);
             this.panel9.Controls.Add(this.iB3);
@@ -257,17 +257,6 @@
             this.iB6.TabIndex = 14;
             this.iB6.TabStop = false;
             this.iB6.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
-            // 
-            // pictureBoxID
-            // 
-            this.pictureBoxID.BackColor = System.Drawing.Color.White;
-            this.pictureBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxID.Location = new System.Drawing.Point(1064, 40);
-            this.pictureBoxID.Name = "pictureBoxID";
-            this.pictureBoxID.Size = new System.Drawing.Size(480, 110);
-            this.pictureBoxID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxID.TabIndex = 15;
-            this.pictureBoxID.TabStop = false;
             // 
             // iB5
             // 
@@ -796,7 +785,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 314F));
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -815,10 +804,10 @@
             this.panel6.AutoScroll = true;
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(862, 2);
+            this.panel6.Location = new System.Drawing.Point(860, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(312, 680);
+            this.panel6.Size = new System.Drawing.Size(314, 680);
             this.panel6.TabIndex = 1;
             this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
             // 
@@ -885,6 +874,17 @@
             this.timerStatus.Interval = 5000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
+            // imageBoxID
+            // 
+            this.imageBoxID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageBoxID.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.imageBoxID.Location = new System.Drawing.Point(1064, 40);
+            this.imageBoxID.Name = "imageBoxID";
+            this.imageBoxID.Size = new System.Drawing.Size(480, 110);
+            this.imageBoxID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageBoxID.TabIndex = 16;
+            this.imageBoxID.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -908,7 +908,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iB8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iB3)).EndInit();
@@ -936,6 +935,7 @@
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tID)).EndInit();
             this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageBoxID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1076,16 +1076,13 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         /// <summary>
-        /// Template ID image.
-        /// </summary>
-        public System.Windows.Forms.PictureBox pictureBoxID;
-        /// <summary>
         /// Template ID.
         /// </summary>
         public System.Windows.Forms.NumericUpDown tID;
         private System.Windows.Forms.ToolStripMenuItem exportDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.Panel panel9;
+        public Emgu.CV.UI.ImageBox imageBoxID;
     }
 }
 

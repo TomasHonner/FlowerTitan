@@ -151,7 +151,7 @@ namespace FlowerTitan.MeasuringLines
                 if (i > 0) AddMeasuringLinesToImage(allBoxes[id], al.Lines.ToArray(), al.ImageBoxID);
                 i++;
             }
-            mainWindow.pictureBoxID.Image = new Bitmap((Image)converter.ConvertFrom(tempIdImage));
+            mainWindow.imageBoxID.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(new Bitmap((Image)converter.ConvertFrom(tempIdImage)));
             firstProcessing = false;
             loaded = true;
         }

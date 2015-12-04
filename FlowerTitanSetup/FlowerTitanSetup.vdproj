@@ -15,109 +15,169 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0268D91E698346A2ABF5C22197546786"
+        "MsmKey" = "8:_045CC8CA42B743BDA64EF57713F51543"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0AFFEC1C7B094214933F31AB49F2F8A9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0C0E4983474A4FB2BAC43B839F1F5A9D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_19E33D34FCFA90F9711B56C13AC43CCB"
-        "OwnerKey" = "8:_C46022EB9B35E4FEB12117B66577A2EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_19E33D34FCFA90F9711B56C13AC43CCB"
+        "MsmKey" = "8:_04DC623559D8DA7B63D07407AAC8DACA"
         "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2847707712F94C478C4E030F4C182341"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2D74BCF333BD4FA18A3B274F611E2978"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_317DBBC283A541A7AFF6E85E4285EAAD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_34EAA9CF01BF56F99D7841E9CC194F33"
+        "MsmKey" = "8:_0C4944D3D1C98077B9E2476AF27DB701"
         "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_35513410BB8840C9975DAAE94ACC302D"
+        "MsmKey" = "8:_18671D9401B04C82B19002585045D413"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_48D6EE73442E46A7AD1D587484C8F75C"
+        "MsmKey" = "8:_1F875F562C074CE19B4E0B04AB60E360"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4F581E59C87641A0805C4841CD994D89"
+        "MsmKey" = "8:_28689F5511BB414EAA1AD2BE63E9D977"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5C0871EDB6034AD1801A7B5F79CE9561"
+        "MsmKey" = "8:_2C479D9E8B1D42B1BF14315D05B3978A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6228D09549C746E2AE848136012E2C9A"
+        "MsmKey" = "8:_337F156E20744831B7BC5438F7029C75"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7FCE6CEC00054FBD857A8F546BD44C5B"
+        "MsmKey" = "8:_3901961815F9406685AA0DE93D4487D0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8765F90726D248BB80BB6A9DF35825DB"
+        "MsmKey" = "8:_4504772D318A4F3DA0D9B74086E41FC7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_944CD3C7EE064C5FA3D3CC05B02EEEB1"
+        "MsmKey" = "8:_4B3E67B1BE1341EEB83CFF3780607F45"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_97F16EC6AF5D4A7B9C9E7EAAC9B61804"
+        "MsmKey" = "8:_4EAF5D53DF844A9DAD42979333386E61"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4F0126BFAFB5BFE89B5AF8619F0B4388"
+        "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4F0126BFAFB5BFE89B5AF8619F0B4388"
+        "OwnerKey" = "8:_F4914C741CFB14137E7E4DE7D2F74EA6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_501FC1E0C16D476E97DFBAB99183DBF2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5B0E8E30DFBA41169F5747B615310915"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_65AAF3D3743C4088B996D7AF97DF5FB7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_65E14F087CBE46CC96DADFEE704CCF03"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6705211C349C4AA099025BE51125C237"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6D479614038646C4B8423705A34C1419"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7BB9908A7EC349DB9DEEC7A89E9E46FA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7F4E600EA52042F58AD12F11B5F3209F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7FE1525A9E9D45D6AA46AADA3B2A907B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_800D1CEDCC764BD4969CBDA44C4A914F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8437529346064D7ABA4164CF1B798E90"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8BDEDFAAFA2A4DA5936B091E9B7FC669"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_920E6C9E99844945B273F61A2AF03155"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_92CC214C1D324238BD12A600AF0F1B55"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -135,20 +195,44 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A3F35E6DA933BE0D635E1D41792805A2"
+        "MsmKey" = "8:_A166F91D54327A016218EE96AC402C50"
         "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A3F35E6DA933BE0D635E1D41792805A2"
-        "OwnerKey" = "8:_C46022EB9B35E4FEB12117B66577A2EF"
+        "MsmKey" = "8:_A3E86838D6F3498B97A1CF7EF1EC0D01"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A5E7BBC84F3AD957BFBE3578AFEFC516"
         "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A84776116A0A019CB9DA3EB5B59F75DD"
+        "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A84776116A0A019CB9DA3EB5B59F75DD"
+        "OwnerKey" = "8:_A166F91D54327A016218EE96AC402C50"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A84776116A0A019CB9DA3EB5B59F75DD"
+        "OwnerKey" = "8:_0C4944D3D1C98077B9E2476AF27DB701"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A89A0D9EFECC4475AEDC5D37DC45ED94"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -165,62 +249,140 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BA758BEA330D4907B46E53119CC477BC"
+        "MsmKey" = "8:_B109C3BF12DB4C1C825DA6C6E81A67C5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BF05079044344036B08E28F7D7D19DBA"
+        "MsmKey" = "8:_B60F7071610D480BA296381C8FB0F0ED"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C46022EB9B35E4FEB12117B66577A2EF"
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
         "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CE1C0A5341FBA64DAE5F0626C5BA9711"
-        "OwnerKey" = "8:_A3F35E6DA933BE0D635E1D41792805A2"
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_A166F91D54327A016218EE96AC402C50"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CE1C0A5341FBA64DAE5F0626C5BA9711"
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_F4914C741CFB14137E7E4DE7D2F74EA6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_0C4944D3D1C98077B9E2476AF27DB701"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_C5990061D25681BACE3FE80B6BB892A0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_FE0F8DEAB55C6478AB68F2FC952BBADD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_04DC623559D8DA7B63D07407AAC8DACA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
+        "OwnerKey" = "8:_A84776116A0A019CB9DA3EB5B59F75DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C5990061D25681BACE3FE80B6BB892A0"
         "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CE1C0A5341FBA64DAE5F0626C5BA9711"
-        "OwnerKey" = "8:_C46022EB9B35E4FEB12117B66577A2EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DA28D58BEAC64C329B7FECBB9DD932EB"
+        "MsmKey" = "8:_C7C60D6BD922423480D5D698CF70489A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DB60C8EDDEB94EFB91CCFD1BB98C2EB1"
+        "MsmKey" = "8:_C840752AF09D49369AB4A3EDFBEBEFB8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E24824C89E8A437DB0AE923C88B24A5E"
+        "MsmKey" = "8:_DFD5E445C3A747B2871F505D364843A9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E3126F565CD24AE4B588055F5845D86E"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_A166F91D54327A016218EE96AC402C50"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_F4914C741CFB14137E7E4DE7D2F74EA6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_0C4944D3D1C98077B9E2476AF27DB701"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_C5990061D25681BACE3FE80B6BB892A0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_FE0F8DEAB55C6478AB68F2FC952BBADD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_04DC623559D8DA7B63D07407AAC8DACA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "OwnerKey" = "8:_A84776116A0A019CB9DA3EB5B59F75DD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -249,14 +411,32 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F58BEBCD62CF4B1DA71C93F0A93E44E5"
+        "MsmKey" = "8:_F3A404C785484B7989F641546F9300C5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E24824C89E8A437DB0AE923C88B24A5E"
+        "MsmKey" = "8:_F4914C741CFB14137E7E4DE7D2F74EA6"
+        "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FC40ED7CE702471D91FB8A3F1F0800B6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FE0F8DEAB55C6478AB68F2FC952BBADD"
+        "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FEB879AB1AFC40BC84883C55C6932A32"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -268,7 +448,61 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_34EAA9CF01BF56F99D7841E9CC194F33"
+        "OwnerKey" = "8:_045CC8CA42B743BDA64EF57713F51543"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A166F91D54327A016218EE96AC402C50"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F4914C741CFB14137E7E4DE7D2F74EA6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0C4944D3D1C98077B9E2476AF27DB701"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C5990061D25681BACE3FE80B6BB892A0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FE0F8DEAB55C6478AB68F2FC952BBADD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_04DC623559D8DA7B63D07407AAC8DACA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A84776116A0A019CB9DA3EB5B59F75DD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E00476B2CD9679D6CBCAD19FC5D1250B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BAEDFD33702C8EC19D084A601DB04467"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -292,43 +526,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4F0126BFAFB5BFE89B5AF8619F0B4388"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_AAB05AF04232290CCA1F8230B634234A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C46022EB9B35E4FEB12117B66577A2EF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_19E33D34FCFA90F9711B56C13AC43CCB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A3F35E6DA933BE0D635E1D41792805A2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CE1C0A5341FBA64DAE5F0626C5BA9711"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_48D6EE73442E46A7AD1D587484C8F75C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2D74BCF333BD4FA18A3B274F611E2978"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -373,6 +577,16 @@
                     "Name" = "8:Tesseract 3.02.02"
                     "ProductCode" = "8:HST.Tesseract"
                     }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:HST.vcredist_2010"
+                    {
+                    "Name" = "8:vcredist 2010"
+                    "ProductCode" = "8:HST.vcredist_2010"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:HST.vcredist_2012"
+                    {
+                    "Name" = "8:vcredist 2012"
+                    "ProductCode" = "8:HST.vcredist_2012"
+                    }
                 }
             }
         }
@@ -400,10 +614,20 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.1"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    "Name" = "8:Microsoft .NET Framework 4.5.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5.1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:HST.vcredist_2012"
+                    {
+                    "Name" = "8:Microsoft Visual C++ 2012 Redistributable"
+                    "ProductCode" = "8:HST.vcredist_2012"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:HST.vcredist_2013"
+                    {
+                    "Name" = "8:Microsoft Visual C++ 2013 Redistributable"
+                    "ProductCode" = "8:HST.vcredist_2013"
                     }
                 }
             }
@@ -413,17 +637,17 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_D8D4F06377544421A78BCC446505ADF6"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_C3C6B74D87974C44B67F687B2C082D0D"
             {
-            "Name" = "8:FlowerTitanChangePermissions.exe"
+            "Name" = "8:FlowerTitanSettings.exe"
             "Condition" = "8:"
-            "Object" = "8:_48D6EE73442E46A7AD1D587484C8F75C"
+            "Object" = "8:_045CC8CA42B743BDA64EF57713F51543"
             "FileType" = "3:2"
             "InstallAction" = "3:2"
-            "Arguments" = "8:"
+            "Arguments" = "8:\"[TARGETDIR]\""
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_1770332E_0FEA_47C8_9A9F_B5DC985EA4A9"
+            "Identifier" = "8:_E7A12113_DF41_414D_9B78_11CF583E58DD"
             "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
@@ -450,10 +674,21 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0268D91E698346A2ABF5C22197546786"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_045CC8CA42B743BDA64EF57713F51543"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\cvextern.dll"
-            "TargetName" = "8:cvextern.dll"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FlowerTitanChangePermissions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_045CC8CA42B743BDA64EF57713F51543"
+                    {
+                    "Name" = "8:FlowerTitanSettings.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:E:\\IS projekt\\FlowerTitanSettings.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
             "Condition" = "8:"
@@ -470,10 +705,72 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0AFFEC1C7B094214933F31AB49F2F8A9"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_04DC623559D8DA7B63D07407AAC8DACA"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_objdetect2410.dll"
-            "TargetName" = "8:opencv_objdetect2410.dll"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.ML, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_04DC623559D8DA7B63D07407AAC8DACA"
+                    {
+                    "Name" = "8:Emgu.CV.ML.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Emgu.CV.ML.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0C4944D3D1C98077B9E2476AF27DB701"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.Stitching, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0C4944D3D1C98077B9E2476AF27DB701"
+                    {
+                    "Name" = "8:Emgu.CV.Stitching.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Emgu.CV.Stitching.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_18671D9401B04C82B19002585045D413"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_highgui2410.dll"
+            "TargetName" = "8:opencv_highgui2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
@@ -490,9 +787,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C0E4983474A4FB2BAC43B839F1F5A9D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1F875F562C074CE19B4E0B04AB60E360"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_ml2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_ml2410.dll"
             "TargetName" = "8:opencv_ml2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
@@ -510,14 +807,154 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_19E33D34FCFA90F9711B56C13AC43CCB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_28689F5511BB414EAA1AD2BE63E9D977"
+            {
+            "SourcePath" = "8:E:\\IS projekt\\FlowerTitan_licence.rtf"
+            "TargetName" = "8:FlowerTitan_licence.rtf"
+            "Tag" = "8:"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2C479D9E8B1D42B1BF14315D05B3978A"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.bigrams"
+            "TargetName" = "8:eng.cube.bigrams"
+            "Tag" = "8:"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_337F156E20744831B7BC5438F7029C75"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_videostab2410.dll"
+            "TargetName" = "8:opencv_videostab2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3901961815F9406685AA0DE93D4487D0"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_objdetect2410.dll"
+            "TargetName" = "8:opencv_objdetect2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4504772D318A4F3DA0D9B74086E41FC7"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_core2410.dll"
+            "TargetName" = "8:opencv_core2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B3E67B1BE1341EEB83CFF3780607F45"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.traineddata"
+            "TargetName" = "8:eng.traineddata"
+            "Tag" = "8:"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4EAF5D53DF844A9DAD42979333386E61"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\nppc32_65.dll"
+            "TargetName" = "8:nppc32_65.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4F0126BFAFB5BFE89B5AF8619F0B4388"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_19E33D34FCFA90F9711B56C13AC43CCB"
+                    "_4F0126BFAFB5BFE89B5AF8619F0B4388"
                     {
                     "Name" = "8:ZedGraph.dll"
                     "Attributes" = "3:512"
@@ -541,10 +978,30 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2847707712F94C478C4E030F4C182341"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_501FC1E0C16D476E97DFBAB99183DBF2"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_highgui2410.dll"
-            "TargetName" = "8:opencv_highgui2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.size"
+            "TargetName" = "8:eng.cube.size"
+            "Tag" = "8:"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5B0E8E30DFBA41169F5747B615310915"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_features2d2410.dll"
+            "TargetName" = "8:opencv_features2d2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
@@ -561,41 +1018,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2D74BCF333BD4FA18A3B274F611E2978"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65AAF3D3743C4088B996D7AF97DF5FB7"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PdfSharp.Charting.resources, Version=1.32.3057.0, Culture=de, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2D74BCF333BD4FA18A3B274F611E2978"
-                    {
-                    "Name" = "8:PdfSharp.Charting.resources.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\de\\PdfSharp.Charting.resources.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_CB9CC9C4385B439089109CD040129C72"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_317DBBC283A541A7AFF6E85E4285EAAD"
-            {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_calib3d2410.dll"
-            "TargetName" = "8:opencv_calib3d2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\nppi32_65.dll"
+            "TargetName" = "8:nppi32_65.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
@@ -612,40 +1038,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_34EAA9CF01BF56F99D7841E9CC194F33"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_65E14F087CBE46CC96DADFEE704CCF03"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Tesseract, Version=2.4.1.0, Culture=neutral, PublicKeyToken=ebeb3d86bef60cbe, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_34EAA9CF01BF56F99D7841E9CC194F33"
-                    {
-                    "Name" = "8:Tesseract.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Tesseract.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35513410BB8840C9975DAAE94ACC302D"
-            {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_flann2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_flann2410.dll"
             "TargetName" = "8:opencv_flann2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
@@ -663,23 +1058,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_48D6EE73442E46A7AD1D587484C8F75C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6705211C349C4AA099025BE51125C237"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FlowerTitanChangePermissions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_48D6EE73442E46A7AD1D587484C8F75C"
-                    {
-                    "Name" = "8:FlowerTitanChangePermissions.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\..\\FlowerTitanChangePermissions\\FlowerTitanChangePermissions\\bin\\Debug\\FlowerTitanChangePermissions.exe"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.params"
+            "TargetName" = "8:eng.cube.params"
             "Tag" = "8:"
-            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -694,10 +1078,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F581E59C87641A0805C4841CD994D89"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D479614038646C4B8423705A34C1419"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\liblept168.dll"
-            "TargetName" = "8:liblept168.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_calib3d2410.dll"
+            "TargetName" = "8:opencv_calib3d2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
@@ -714,12 +1098,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C0871EDB6034AD1801A7B5F79CE9561"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7BB9908A7EC349DB9DEEC7A89E9E46FA"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x64\\SQLite.Interop.dll"
-            "TargetName" = "8:SQLite.Interop.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.lm"
+            "TargetName" = "8:eng.cube.lm"
             "Tag" = "8:"
-            "Folder" = "8:_0234180C0D2C4C878B125B1CCCEE3CD3"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -734,30 +1118,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6228D09549C746E2AE848136012E2C9A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7F4E600EA52042F58AD12F11B5F3209F"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\libtesseract302.dll"
-            "TargetName" = "8:libtesseract302.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7FCE6CEC00054FBD857A8F546BD44C5B"
-            {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_video2410.dll"
-            "TargetName" = "8:opencv_video2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\npps32_65.dll"
+            "TargetName" = "8:npps32_65.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
@@ -774,10 +1138,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8765F90726D248BB80BB6A9DF35825DB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7FE1525A9E9D45D6AA46AADA3B2A907B"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\nppc32_65.dll"
-            "TargetName" = "8:nppc32_65.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.tesseract_cube.nn"
+            "TargetName" = "8:eng.tesseract_cube.nn"
+            "Tag" = "8:"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_800D1CEDCC764BD4969CBDA44C4A914F"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_superres2410.dll"
+            "TargetName" = "8:opencv_superres2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
@@ -794,9 +1178,49 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_944CD3C7EE064C5FA3D3CC05B02EEEB1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8437529346064D7ABA4164CF1B798E90"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_contrib2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\cvextern.dll"
+            "TargetName" = "8:cvextern.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BDEDFAAFA2A4DA5936B091E9B7FC669"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_stitching2410.dll"
+            "TargetName" = "8:opencv_stitching2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_920E6C9E99844945B273F61A2AF03155"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_contrib2410.dll"
             "TargetName" = "8:opencv_contrib2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
@@ -814,12 +1238,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_97F16EC6AF5D4A7B9C9E7EAAC9B61804"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92CC214C1D324238BD12A600AF0F1B55"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x64\\libtesseract302.dll"
-            "TargetName" = "8:libtesseract302.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\cufft32_65.dll"
+            "TargetName" = "8:cufft32_65.dll"
             "Tag" = "8:"
-            "Folder" = "8:_0234180C0D2C4C878B125B1CCCEE3CD3"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -865,20 +1289,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A3F35E6DA933BE0D635E1D41792805A2"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A166F91D54327A016218EE96AC402C50"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Emgu.CV, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.VideoStab, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A3F35E6DA933BE0D635E1D41792805A2"
+                    "_A166F91D54327A016218EE96AC402C50"
                     {
-                    "Name" = "8:Emgu.CV.dll"
+                    "Name" = "8:Emgu.CV.VideoStab.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Emgu.CV.dll"
+            "SourcePath" = "8:Emgu.CV.VideoStab.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
@@ -894,6 +1318,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3E86838D6F3498B97A1CF7EF1EC0D01"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.nn"
+            "TargetName" = "8:eng.cube.nn"
+            "Tag" = "8:"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A5E7BBC84F3AD957BFBE3578AFEFC516"
@@ -925,6 +1369,57 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A84776116A0A019CB9DA3EB5B59F75DD"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.GPU, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A84776116A0A019CB9DA3EB5B59F75DD"
+                    {
+                    "Name" = "8:Emgu.CV.GPU.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Emgu.CV.GPU.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A89A0D9EFECC4475AEDC5D37DC45ED94"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_video2410.dll"
+            "TargetName" = "8:opencv_video2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AAB05AF04232290CCA1F8230B634234A"
@@ -978,12 +1473,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA758BEA330D4907B46E53119CC477BC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B109C3BF12DB4C1C825DA6C6E81A67C5"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_legacy2410.dll"
-            "TargetName" = "8:opencv_legacy2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.fold"
+            "TargetName" = "8:eng.cube.fold"
             "Tag" = "8:"
-            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -998,9 +1493,9 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BF05079044344036B08E28F7D7D19DBA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B60F7071610D480BA296381C8FB0F0ED"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\cudart32_65.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\cudart32_65.dll"
             "TargetName" = "8:cudart32_65.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
@@ -1018,45 +1513,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C46022EB9B35E4FEB12117B66577A2EF"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Emgu.CV.UI, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C46022EB9B35E4FEB12117B66577A2EF"
-                    {
-                    "Name" = "8:Emgu.CV.UI.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Emgu.CV.UI.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CE1C0A5341FBA64DAE5F0626C5BA9711"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BAEDFD33702C8EC19D084A601DB04467"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Emgu.Util, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_CE1C0A5341FBA64DAE5F0626C5BA9711"
+                    "_BAEDFD33702C8EC19D084A601DB04467"
                     {
                     "Name" = "8:Emgu.Util.dll"
                     "Attributes" = "3:512"
@@ -1080,12 +1544,43 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DA28D58BEAC64C329B7FECBB9DD932EB"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C5990061D25681BACE3FE80B6BB892A0"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x64\\liblept168.dll"
-            "TargetName" = "8:liblept168.dll"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.OpenCL, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C5990061D25681BACE3FE80B6BB892A0"
+                    {
+                    "Name" = "8:Emgu.CV.OpenCL.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Emgu.CV.OpenCL.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_0234180C0D2C4C878B125B1CCCEE3CD3"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C7C60D6BD922423480D5D698CF70489A"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.word-freq"
+            "TargetName" = "8:eng.cube.word-freq"
+            "Tag" = "8:"
+            "Folder" = "8:_8A5BC263B9414594A2ED0847710B71C8"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1100,9 +1595,29 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DB60C8EDDEB94EFB91CCFD1BB98C2EB1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C840752AF09D49369AB4A3EDFBEBEFB8"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_imgproc2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_nonfree2410.dll"
+            "TargetName" = "8:opencv_nonfree2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DFD5E445C3A747B2871F505D364843A9"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_imgproc2410.dll"
             "TargetName" = "8:opencv_imgproc2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
@@ -1120,23 +1635,23 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E24824C89E8A437DB0AE923C88B24A5E"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E00476B2CD9679D6CBCAD19FC5D1250B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PdfSharp.resources, Version=1.32.3057.0, Culture=de, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E24824C89E8A437DB0AE923C88B24A5E"
+                    "_E00476B2CD9679D6CBCAD19FC5D1250B"
                     {
-                    "Name" = "8:PdfSharp.resources.dll"
+                    "Name" = "8:Emgu.CV.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\de\\PdfSharp.resources.dll"
+            "SourcePath" = "8:Emgu.CV.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_CB9CC9C4385B439089109CD040129C72"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1148,27 +1663,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E3126F565CD24AE4B588055F5845D86E"
-            {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_core2410.dll"
-            "TargetName" = "8:opencv_core2410.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E55D984623F2A63D1259BB0948A29F8D"
@@ -1242,10 +1737,112 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F58BEBCD62CF4B1DA71C93F0A93E44E5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F3A404C785484B7989F641546F9300C5"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\bin\\Debug\\x86\\opencv_features2d2410.dll"
-            "TargetName" = "8:opencv_features2d2410.dll"
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_legacy2410.dll"
+            "TargetName" = "8:opencv_legacy2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F4914C741CFB14137E7E4DE7D2F74EA6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.UI, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F4914C741CFB14137E7E4DE7D2F74EA6"
+                    {
+                    "Name" = "8:Emgu.CV.UI.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Emgu.CV.UI.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FC40ED7CE702471D91FB8A3F1F0800B6"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_photo2410.dll"
+            "TargetName" = "8:opencv_photo2410.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FE0F8DEAB55C6478AB68F2FC952BBADD"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Emgu.CV.OCR, Version=2.4.10.1939, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FE0F8DEAB55C6478AB68F2FC952BBADD"
+                    {
+                    "Name" = "8:Emgu.CV.OCR.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Emgu.CV.OCR.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FEB879AB1AFC40BC84883C55C6932A32"
+            {
+            "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\x86\\opencv_gpu2410.dll"
+            "TargetName" = "8:opencv_gpu2410.dll"
             "Tag" = "8:"
             "Folder" = "8:_3972983F56BD4233A2582317187C1B1E"
             "Condition" = "8:"
@@ -1278,17 +1875,6 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_0234180C0D2C4C878B125B1CCCEE3CD3"
-                    {
-                    "Name" = "8:x64"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_C3610930AFC5485A979B2DE8ED9F41DB"
-                        "Folders"
-                        {
-                        }
-                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_3972983F56BD4233A2582317187C1B1E"
                     {
                     "Name" = "8:x86"
@@ -1300,6 +1886,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_8A5BC263B9414594A2ED0847710B71C8"
+                    {
+                    "Name" = "8:tessdata"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_5D3D7AE6A30C48EC9BBE655BF0BC65E6"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_B22564E7806B4F15ABEFAA1D80F457F2"
                     {
                     "Name" = "8:Database"
@@ -1307,17 +1904,6 @@
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
                     "Property" = "8:_E2530C92525344069014E5B2AD168DB7"
-                        "Folders"
-                        {
-                        }
-                    }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_CB9CC9C4385B439089109CD040129C72"
-                    {
-                    "Name" = "8:de"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_CD103C67E121413D95C18CFBAC56E14E"
                         "Folders"
                         {
                         }
@@ -1385,7 +1971,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FlowerTitan"
         "ProductCode" = "8:{1192BC63-8F3B-4499-AD46-B6C4FF047A1D}"
-        "PackageCode" = "8:{9B24F297-DD30-442B-AC32-90AD0588137A}"
+        "PackageCode" = "8:{247BF45F-E1CE-49A7-A71C-F72F779F33CE}"
         "UpgradeCode" = "8:{82A08FE3-ED28-42FD-8D53-4D2D86E923A4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1402,7 +1988,7 @@
         "Keywords" = "8:FlowerTitan, HST"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_F003529ADBA9404CA7E24AF1A219BC20"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1516,7 +2102,7 @@
             "Target" = "8:_F0AE4160A50C472FB1B4056447C1247F"
             "Folder" = "8:_7543393C8403406FA8093815EEA4524B"
             "WorkingFolder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
-            "Icon" = "8:"
+            "Icon" = "8:_F003529ADBA9404CA7E24AF1A219BC20"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C0B4B3C331D54822BF535EDCC1A58989"
@@ -1530,7 +2116,7 @@
             "Target" = "8:_F0AE4160A50C472FB1B4056447C1247F"
             "Folder" = "8:_9A4FC86216C94FE79C4A0F92802C0572"
             "WorkingFolder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
-            "Icon" = "8:"
+            "Icon" = "8:_F003529ADBA9404CA7E24AF1A219BC20"
             "Feature" = "8:"
             }
         }
@@ -1630,9 +2216,56 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_A4B94CCEB21B45C98EA0E7DB01521EC1"
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_00A6623DB8694BA3B979F0FC7FC7744C"
                     {
                     "Sequence" = "3:200"
+                    "DisplayName" = "8:License Agreement"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminLicenseDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "EulaText"
+                            {
+                            "Name" = "8:EulaText"
+                            "DisplayName" = "8:#1008"
+                            "Description" = "8:#1108"
+                            "Type" = "3:6"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:_28689F5511BB414EAA1AD2BE63E9D977"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Sunken"
+                            {
+                            "Name" = "8:Sunken"
+                            "DisplayName" = "8:#1007"
+                            "Description" = "8:#1107"
+                            "Type" = "3:5"
+                            "ContextData" = "8:4;True=4;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:4"
+                            "DefaultValue" = "3:4"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_A4B94CCEB21B45C98EA0E7DB01521EC1"
+                    {
+                    "Sequence" = "3:300"
                     "DisplayName" = "8:Installation Folder"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -1702,7 +2335,7 @@
                     }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_F3A2FD4DE9684250A6068C7344A41222"
                     {
-                    "Sequence" = "3:300"
+                    "Sequence" = "3:400"
                     "DisplayName" = "8:Confirm Installation"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -1880,6 +2513,53 @@
                             }
                         }
                     }
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_E4D441B6072342C0A925444AB1F05836"
+                    {
+                    "Sequence" = "3:110"
+                    "DisplayName" = "8:License Agreement"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdLicenseDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "EulaText"
+                            {
+                            "Name" = "8:EulaText"
+                            "DisplayName" = "8:#1008"
+                            "Description" = "8:#1108"
+                            "Type" = "3:6"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:_28689F5511BB414EAA1AD2BE63E9D977"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Sunken"
+                            {
+                            "Name" = "8:Sunken"
+                            "DisplayName" = "8:#1007"
+                            "Description" = "8:#1107"
+                            "Type" = "3:5"
+                            "ContextData" = "8:4;True=4;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:4"
+                            "DefaultValue" = "3:4"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
                 }
             }
             "{DF760B10-853B-4699-99F2-AFF7185B4A62}:_D58736D1CE2D4E8B92D5220BCC74784A"
@@ -1934,7 +2614,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F0AE4160A50C472FB1B4056447C1247F"
             {
-            "SourcePath" = "8:..\\FlowerTitan\\obj\\Debug\\FlowerTitan.exe"
+            "SourcePath" = "8:..\\FlowerTitan\\obj\\x86\\Release\\FlowerTitan.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"

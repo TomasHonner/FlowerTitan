@@ -147,7 +147,7 @@ namespace FlowerTitan
             this.blossoms = _tp.ListOfBlossomsToDraw;
             //TODO insert bitmap with template id, it is crutial that image mustn't have its frame, otherwise OCR will usually fail
             //MOCK image
-            Image img = new Bitmap(pictureBoxID.Width, pictureBoxID.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            Image img = new Bitmap(imageBoxID.Width, imageBoxID.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
             Graphics drawing = Graphics.FromImage(img);
             drawing.Clear(Color.White);
             Brush textBrush = new SolidBrush(Color.Black);
@@ -160,10 +160,11 @@ namespace FlowerTitan
             {
                 gr.DrawImage(img, new Rectangle(0, 0, bitmapTempID.Width, bitmapTempID.Height));
             }
+            Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> emguCVImage = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(bitmapTempID);
             textBrush.Dispose();
             drawing.Dispose();
             //MOCK end
-            string tempID = TemplateOCR.TemplateIdOCR.GetInstance().ProcessTemplateID(bitmapTempID);
+            string tempID = TemplateOCR.TemplateIdOCR.GetInstance().ProcessTemplateID(emguCVImage);
 
             Action importingDone = new Action(() =>
             {
@@ -181,7 +182,7 @@ namespace FlowerTitan
                 iB12.Image = this.blossoms.ElementAt(11);
 
                 tID.Text = tempID;
-                pictureBoxID.Image = bitmapTempID;
+                imageBoxID.Image = emguCVImage;
                 threadDone(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
                 measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)_tp.getDpi());
@@ -430,7 +431,7 @@ namespace FlowerTitan
             int top = iB1.Location.Y;
             int offset = iB2.Location.X - iB1.Location.X;
             Pen pen = new Pen(Color.Black, 12);
-            Rectangle rec = new Rectangle(pictureBoxID.Location.X, pictureBoxID.Location.Y, pictureBoxID.Width, pictureBoxID.Height);
+            Rectangle rec = new Rectangle(imageBoxID.Location.X, imageBoxID.Location.Y, imageBoxID.Width, imageBoxID.Height);
             e.Graphics.DrawRectangle(pen, rec);
             for (int row = 0; row < 4; row++)
             {
