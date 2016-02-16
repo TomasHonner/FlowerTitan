@@ -136,6 +136,7 @@ namespace FlowerTitan.MeasuringLines
             repaintAllImages();
         }
 
+
         /// <summary>
         /// Sets all template lines and images loaded from DB.
         /// </summary>
@@ -147,7 +148,8 @@ namespace FlowerTitan.MeasuringLines
         /// <param name="scale">template scale</param>
         /// <param name="tempID">template ID</param>
         /// <param name="tempIdImage">template ID image</param>
-        public void SetAllTemplateLines(AllLines[] allLines, int[] colors, string[] names, byte[][] images, string name, double scale, long tempID, byte[] tempIdImage)
+        /// <returns>all loaded images</returns>
+        public List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>> SetAllTemplateLines(AllLines[] allLines, int[] colors, string[] names, byte[][] images, string name, double scale, long tempID, byte[] tempIdImage)
         {
             NewTemplate();
             mainWindow.tID.Text = tempID.ToString();
@@ -156,16 +158,20 @@ namespace FlowerTitan.MeasuringLines
             addLines(allBoxes[0], allLines[0].Lines.ToArray(), colors, names);
             ImageConverter converter = new ImageConverter();
             int i = 0;
+            List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>> imgs = new List<Emgu.CV.Image<Emgu.CV.Structure.Bgr,byte>>();
             foreach (AllLines al in allLines)
             {
                 long id = al.ImageBoxID - 1;
-                allBoxes[id].Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(new Bitmap((Image)converter.ConvertFrom(images[i])));
+                Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> img = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(new Bitmap((Image)converter.ConvertFrom(images[i])));
+                allBoxes[id].Image = img;
+                imgs.Add(img);
                 if (i > 0) AddMeasuringLinesToImage(allBoxes[id], al.Lines.ToArray(), al.ImageBoxID);
                 i++;
             }
             mainWindow.imageBoxID.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(new Bitmap((Image)converter.ConvertFrom(tempIdImage)));
             firstProcessing = false;
             loaded = true;
+            return imgs;
         }
 
         /// <summary>

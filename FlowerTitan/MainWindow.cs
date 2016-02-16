@@ -265,7 +265,7 @@ namespace FlowerTitan
                 double scale = 0;
                 long tempID = 0L;
                 MeasuringLines.AllLines[] allLines = database.LoadTemplate((long)o.Tag, colors, names, ref name, ref scale, ref tempID, images, ref tempIdImage);
-                measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID, tempIdImage.ToArray());
+                tp.ListOfBlossomsToDraw = measuringLines.SetAllTemplateLines(allLines, colors.ToArray(), names.ToArray(), images.ToArray(), name, scale, tempID, tempIdImage.ToArray());
                 changeStatus(Properties.Resources.MainWindow_status_load);
                 loadTemplateToolStripMenuItem1.Enabled = true;
                 saveTemplateToolStripMenuItem.Enabled = true;
