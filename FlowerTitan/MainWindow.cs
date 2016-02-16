@@ -77,7 +77,11 @@ namespace FlowerTitan
             List<MeasuringLines.Line[]> referenceLines = new List<MeasuringLines.Line[]>();
             for (int i = 0; i < c; i++)
             {
-                referenceLines.Add(measuringLines.GetReferenceMeasuringLines(i));
+                MeasuringLines.Line[] l = measuringLines.GetReferenceMeasuringLines(i);
+                if (l != null)
+                {
+                    referenceLines.Add(l);
+                }
             }
             MeasuringLines.Line[][] resultLines = tp.startProcessing(treshold, tresholdLinking, referenceLines.ToArray(), this);
             
@@ -146,30 +150,41 @@ namespace FlowerTitan
 
         private void import(int width, int height)
         {
-            tp.loadTemplate(openFileDialogImage.FileName, this);
-            tp.createListOfBlossoms(width, height, this);
-            //set template id image and get number
-            Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> emguCVImage = tp.ListOfBlossomsToDraw[tp.ListOfBlossomsToDraw.Count - 1];
-            string tempID = TemplateOCR.TemplateIdOCR.GetInstance().ProcessTemplateID(emguCVImage);
-
-            Action importingDone = new Action(() =>
+            try
             {
-                drawBlossoms();
-                tID.Text = tempID;
-                imageBoxID.Image = emguCVImage;
-                threadDone(Properties.Resources.MainWindow_status_import);
-                //enabling measuring lines on the first image
-                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)tp.getDpi());
-                buttonStop.Enabled = false;
-                buttonExport.Enabled = false;
-                buttonStart.Enabled = true;
-                exportDataToolStripMenuItem.Enabled = false;
-                loadTemplateToolStripMenuItem1.Enabled = true;
-                saveTemplateToolStripMenuItem.Enabled = false;
-                saveTemplateToolStripMenuItem1.Enabled = true;
-                panel1.Visible = true;
-            });
-            this.Invoke(importingDone);
+                tp.loadTemplate(openFileDialogImage.FileName, this);
+                tp.createListOfBlossoms(width, height, this);
+                //set template id image and get number
+                Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> emguCVImage = tp.ListOfBlossomsToDraw[tp.ListOfBlossomsToDraw.Count - 1];
+                string tempID = TemplateOCR.TemplateIdOCR.GetInstance().ProcessTemplateID(emguCVImage);
+                Action importingDone = new Action(() =>
+                {
+                    drawBlossoms();
+                    tID.Text = tempID;
+                    imageBoxID.Image = emguCVImage;
+                    threadDone(Properties.Resources.MainWindow_status_import);
+                    //enabling measuring lines on the first image
+                    measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)tp.getDpi());
+                    buttonStop.Enabled = false;
+                    buttonExport.Enabled = false;
+                    buttonStart.Enabled = true;
+                    exportDataToolStripMenuItem.Enabled = false;
+                    loadTemplateToolStripMenuItem1.Enabled = true;
+                    saveTemplateToolStripMenuItem.Enabled = false;
+                    saveTemplateToolStripMenuItem1.Enabled = true;
+                    panel1.Visible = true;
+                });
+                this.Invoke(importingDone);
+            }
+            catch (Exception e)
+            {
+                Action importingFailed = new Action(() =>
+                {
+                    threadDone(Properties.Resources.MainWindow_status_import_fail);
+                });
+                this.Invoke(importingFailed);
+                MessageBox.Show(Properties.Resources.MainWindow_import_error_text + "\n" + e.Message, Properties.Resources.MainWindow_import_error_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void newTemplateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -218,11 +233,12 @@ namespace FlowerTitan
                 Open o = new Open(Properties.Resources.Open_load_template, true);
                 if ((o.ShowDialog() == System.Windows.Forms.DialogResult.OK) && (o.Tag != null))
                 {
+                    threadStart(Properties.Resources.MainWindow_status_loading);
                     List<int> colors = new List<int>();
                     List<string> names = new List<string>();
                     MeasuringLines.Line[] tempLines = database.LoadAsTemplate((long)o.Tag, colors, names);
                     measuringLines.SetTemplateLines(iB1, tempLines, colors.ToArray(), names.ToArray());
-                    changeStatus(Properties.Resources.MainWindow_status_load);
+                    threadDone(Properties.Resources.MainWindow_status_load);
                     saveTemplateToolStripMenuItem.Enabled = false;
                     saveTemplateToolStripMenuItem1.Enabled = true;
                     loadTemplateToolStripMenuItem1.Enabled = true;

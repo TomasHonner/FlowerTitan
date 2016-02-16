@@ -62,21 +62,14 @@ namespace FlowerTitan.Core
         /// <param name="file">Path ti file</param>
         public void loadTemplate(string file, MainWindow mainWindow)
         {
-            try
+            Bitmap bmp = new Bitmap(file);
+            Dpi = Convert.ToInt32(bmp.HorizontalResolution);
+            STemplate = bmp;
+            Action stateChanged = new Action(() =>
             {
-                Bitmap bmp = new Bitmap(file);
-                Dpi = Convert.ToInt32(bmp.HorizontalResolution);
-                STemplate = bmp;
-                Action stateChanged = new Action(() =>
-                {
-                    mainWindow.toolStripProgressBar.Value = 30;
-                });
-                mainWindow.Invoke(stateChanged);
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
+                mainWindow.toolStripProgressBar.Value = 30;
+            });
+            mainWindow.Invoke(stateChanged);
         }
 
         /// <summary>
@@ -86,21 +79,13 @@ namespace FlowerTitan.Core
         public void createBlossomsList()
         {
             List<Bitmap> temp = new List<Bitmap>();
-            try
+            
+            for (int i = 0; i < 13; i++)
             {
-
-                for (int i = 0; i < 13; i++)
-                {
-                    Rectangle cloneRect = getBlossomPosition(i, Dpi);
-                    System.Drawing.Imaging.PixelFormat format = sTemplate.PixelFormat;
-                    Bitmap cloneBitmap = sTemplate.Clone(cloneRect, format);
-                    temp.Add(cloneBitmap);
-                }
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
+                Rectangle cloneRect = getBlossomPosition(i, Dpi);
+                System.Drawing.Imaging.PixelFormat format = sTemplate.PixelFormat;
+                Bitmap cloneBitmap = sTemplate.Clone(cloneRect, format);
+                temp.Add(cloneBitmap);
             }
             DpiNew = Convert.ToInt32(temp[0].HorizontalResolution);
             blossomsList =  temp;

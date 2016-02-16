@@ -158,7 +158,7 @@ namespace FlowerTitan.MeasuringLines
             addLines(allBoxes[0], allLines[0].Lines.ToArray(), colors, names);
             ImageConverter converter = new ImageConverter();
             int i = 0;
-            List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>> imgs = new List<Emgu.CV.Image<Emgu.CV.Structure.Bgr,byte>>();
+            List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>> imgs = new List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, byte>>();
             foreach (AllLines al in allLines)
             {
                 long id = al.ImageBoxID - 1;
@@ -168,8 +168,11 @@ namespace FlowerTitan.MeasuringLines
                 if (i > 0) AddMeasuringLinesToImage(allBoxes[id], al.Lines.ToArray(), al.ImageBoxID);
                 i++;
             }
-            mainWindow.imageBoxID.Image = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(new Bitmap((Image)converter.ConvertFrom(tempIdImage)));
+            Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> tempIdImg = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(new Bitmap((Image)converter.ConvertFrom(tempIdImage)));
+            mainWindow.imageBoxID.Image = tempIdImg;
+            imgs.Add(tempIdImg);
             firstProcessing = false;
+            processingCount = 1;
             loaded = true;
             return imgs;
         }
@@ -312,9 +315,10 @@ namespace FlowerTitan.MeasuringLines
         /// Returns deep copy of reference lines for particular image.
         /// </summary>
         /// <param name="referenceImageId">image id</param>
-        /// <returns>reference lines</returns>
+        /// <returns>reference lines, null if image is not active</returns>
         public Line[] GetReferenceMeasuringLines(int referenceImageId)
         {
+            if (referenceImageId >= allLines.Count) return null;
             List<Line> deepCopy = new List<Line>();
             int i = 0;
             foreach (Line l in allLines[referenceImageId].Lines)

@@ -80,6 +80,24 @@ namespace FlowerTitan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured during template import..
+        /// </summary>
+        internal static string MainWindow_import_error_text {
+            get {
+                return ResourceManager.GetString("MainWindow_import_error_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import error.
+        /// </summary>
+        internal static string MainWindow_import_error_title {
+            get {
+                return ResourceManager.GetString("MainWindow_import_error_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aborted..
         /// </summary>
         internal static string MainWindow_status_abort {
@@ -112,6 +130,15 @@ namespace FlowerTitan.Properties {
         internal static string MainWindow_status_import {
             get {
                 return ResourceManager.GetString("MainWindow_status_import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import failed..
+        /// </summary>
+        internal static string MainWindow_status_import_fail {
+            get {
+                return ResourceManager.GetString("MainWindow_status_import_fail", resourceCulture);
             }
         }
         

@@ -24,14 +24,6 @@ namespace FlowerTitan.Core
         /// </summary>
         private List<WhitePixelsStorage> whitePixelListFinal;
 
-        /// <summary>
-        /// PixelProcessor contructor
-        /// </summary>
-        public PixelProcessor()
-        {
-            this.whitePixelListFinal = new List<WhitePixelsStorage>();
-        }
-
        /// <summary>
         /// Start processing array of lines from MainWindow
        /// </summary>
@@ -41,48 +33,69 @@ namespace FlowerTitan.Core
         {
             if (lines.Length == 1)
             {
-                List<MeasuringLines.Line[]> allLines = new List<MeasuringLines.Line[]>();
-                for (int i = 1; i < 13; i++)
-                {
-                    List<MeasuringLines.Line> imgLines = new List<MeasuringLines.Line>();
-                    foreach (MeasuringLines.Line line in lines[0])
-                    {
-                        List<Point> pointList = line.Points;
-                        List<Point> rList = new List<Point>();
-                        foreach (Point p in pointList)
-                        {
-                            rList.Add(findNearestPixel(p, i - 1));
-                        }
-                        MeasuringLines.Line l = new MeasuringLines.Line();
-                        l.Points = rList;
-                        imgLines.Add(l);
-                    }
-                    allLines.Add(imgLines.ToArray());
-                }
-                return allLines.ToArray();
+                return processEveryImage(lines, true);
             }
             else
             {
-                List<MeasuringLines.Line[]> allLines = new List<MeasuringLines.Line[]>();
-                for (int i = 1; i < 13; i++)
+                return processEveryImage(lines, false);
+            }
+        }
+
+        /// <summary>
+        /// Processes every image with default or itself lines according to the isFirstProcessing parameter.
+        /// </summary>
+        /// <param name="lines">reference lines from first or all images</param>
+        /// <param name="isFirstProcessing">determines whether lines are the same for all images or not</param>
+        /// <returns>Array of detected lines</returns>
+        private MeasuringLines.Line[][] processEveryImage(MeasuringLines.Line[][] lines, bool isFirstProcessing)
+        {
+            List<MeasuringLines.Line[]> allLines = new List<MeasuringLines.Line[]>();
+            for (int i = 1; i < whitePixelListFinal.Count; i++)
+            {
+                if (!whitePixelListFinal[i - 1].IsEmpty)
                 {
                     List<MeasuringLines.Line> imgLines = new List<MeasuringLines.Line>();
-                    foreach (MeasuringLines.Line line in lines[i - 1])
+                    if (isFirstProcessing)
                     {
-                        List<Point> pointList = line.Points;
-                        List<Point> rList = new List<Point>();
-                        foreach (Point p in pointList)
+                        foreach (MeasuringLines.Line line in lines[0])
                         {
-                            rList.Add(findNearestPixel(p, i - 1));
+                            processEveryLine(i, imgLines, line);
                         }
-                        MeasuringLines.Line l = new MeasuringLines.Line();
-                        l.Points = rList;
-                        imgLines.Add(l);
+                    }
+                    else
+                    {
+                        foreach (MeasuringLines.Line line in lines[i - 1])
+                        {
+                            processEveryLine(i, imgLines, line);
+                        }
                     }
                     allLines.Add(imgLines.ToArray());
                 }
-                return allLines.ToArray();
+                else
+                {
+                    break;
+                }
             }
+            return allLines.ToArray();
+        }
+
+        /// <summary>
+        /// Processes every image's line.
+        /// </summary>
+        /// <param name="i">image's index</param>
+        /// <param name="imgLines">result lines</param>
+        /// <param name="line">processed line</param>
+        private void processEveryLine(int i, List<MeasuringLines.Line> imgLines, MeasuringLines.Line line)
+        {
+            List<Point> pointList = line.Points;
+            List<Point> rList = new List<Point>();
+            foreach (Point p in pointList)
+            {
+                rList.Add(findNearestPixel(p, i - 1));
+            }
+            MeasuringLines.Line l = new MeasuringLines.Line();
+            l.Points = rList;
+            imgLines.Add(l);
         }
 
         /// <summary>
@@ -93,27 +106,21 @@ namespace FlowerTitan.Core
         /// <returns>Nearest point to pixel</returns>
         private Point findNearestPixel(Point p, int index)
         {
-            Point r = new Point(0,0);
+            Point r = new Point(0, 0);
             WhitePixelsStorage wps = WhitePixelListFinal[index];
-            if (wps.IsEmpty)
+            
+            List<Point> tempList = wps.AllWhitePixels;
+            double minLengthPx = Double.MaxValue;
+            foreach (Point pp in tempList)
             {
-                //MessageBox.Show("No Flower found in box number " + wps.ImageNumber);
-            }
-            else
-            {
-                List<Point> tempList = wps.AllWhitePixels;
-                double minLengthPx = Double.MaxValue;
-                foreach (Point pp in tempList)
+                double lengthPx;
+                float dX = p.X - pp.X;
+                float dY = p.Y - pp.Y;
+                lengthPx = Math.Sqrt((dX * dX) + (dY * dY));
+                if (lengthPx < minLengthPx)
                 {
-                    double lengthPx;
-                    float dX = p.X - pp.X;
-                    float dY = p.Y - pp.Y;
-                    lengthPx = Math.Sqrt((dX * dX) + (dY * dY));
-                    if (lengthPx < minLengthPx)
-                    {
-                        r = new Point(pp.X, pp.Y);
-                        minLengthPx = lengthPx;
-                    }
+                    r = pp;
+                    minLengthPx = lengthPx;
                 }
             }
             return r;
@@ -125,6 +132,7 @@ namespace FlowerTitan.Core
         /// <param name="l">List of images with edge detection</param>
         public void proccessImageList(List<Image<Gray, Byte>> l, MainWindow mainWindow)
         {
+            this.whitePixelListFinal = new List<WhitePixelsStorage>();
             int n = 0;
             if (l.Count > 0)
             {

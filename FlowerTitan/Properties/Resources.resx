@@ -124,6 +124,12 @@
   <data name="Database_error_title" xml:space="preserve">
     <value>Database error</value>
   </data>
+  <data name="MainWindow_import_error_text" xml:space="preserve">
+    <value>Error occured during template import.</value>
+  </data>
+  <data name="MainWindow_import_error_title" xml:space="preserve">
+    <value>Import error</value>
+  </data>
   <data name="MainWindow_status_abort" xml:space="preserve">
     <value>Aborted.</value>
   </data>
@@ -138,6 +144,9 @@
   </data>
   <data name="MainWindow_status_importing" xml:space="preserve">
     <value>Importing...</value>
+  </data>
+  <data name="MainWindow_status_import_fail" xml:space="preserve">
+    <value>Import failed.</value>
   </data>
   <data name="MainWindow_status_load" xml:space="preserve">
     <value>Loaded.</value>

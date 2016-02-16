@@ -137,16 +137,6 @@ namespace FlowerTitan.Core
             Bitmap tmp;
             fc.loadTemplate(file, mainWindow);
             template = fc.STemplate;
-            /*
-            if (tmp.Width > 1 && tmp.Height > 1)
-            {
-                MessageBox.Show("The image has not minimal size. \n You proberly load non template image.");
-            }
-            else
-            {
-                template = tmp;
-            }
-             */
         }
 
         /// <summary>
