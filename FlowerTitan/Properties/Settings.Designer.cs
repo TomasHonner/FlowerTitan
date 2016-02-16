@@ -94,5 +94,29 @@ namespace FlowerTitan.Properties {
                 this["MainWindowState"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("128")]
+        public int Treshold1 {
+            get {
+                return ((int)(this["Treshold1"]));
+            }
+            set {
+                this["Treshold1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("128")]
+        public int Treshold2 {
+            get {
+                return ((int)(this["Treshold2"]));
+            }
+            set {
+                this["Treshold2"] = value;
+            }
+        }
     }
 }

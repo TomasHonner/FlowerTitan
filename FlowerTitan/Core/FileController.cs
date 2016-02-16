@@ -8,24 +8,29 @@ using System.IO;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace FlowerTitan.Controllers
+namespace FlowerTitan.Core
 {
     class FileController
     {
         /// <summary>
         /// Store loaded template
         /// </summary>
-        private Bitmap _sTemplate;
+        private Bitmap sTemplate;
 
         /// <summary>
         /// Store blossoms bitmaps in a list
         /// </summary>
-        private List<Bitmap> _blossomsList;
+        private List<Bitmap> blossomsList;
 
         /// <summary>
-        /// Store DPI of image
+        /// Store DPI of image old image
         /// </summary>
-        private int _dpi;
+        private int dpi;
+
+        /// <summary>
+        /// Store dpi of created image 
+        /// </summary>
+        private int dpiNew;
 
         
         /// <summary>
@@ -33,9 +38,9 @@ namespace FlowerTitan.Controllers
         /// </summary>
         public FileController()
         {
-            _sTemplate = null;
-            _blossomsList = null;
-            _dpi = 0;
+            sTemplate = null;
+            blossomsList = null;
+            dpi = 0;
             
         }
 
@@ -45,22 +50,28 @@ namespace FlowerTitan.Controllers
         /// <param name="imagePath">Path to image</param>
         public FileController(string imagePath)
         {
-            _sTemplate = null;
-            _blossomsList = null;
-            _dpi = 0;
+            sTemplate = null;
+            blossomsList = null;
+            dpi = 0;
 
         }
 
         /// <summary>
         /// Load template from file
         /// </summary>
-        public void loadTemplate(string file)
+        /// <param name="file">Path ti file</param>
+        public void loadTemplate(string file, MainWindow mainWindow)
         {
             try
             {
                 Bitmap bmp = new Bitmap(file);
                 Dpi = Convert.ToInt32(bmp.HorizontalResolution);
                 STemplate = bmp;
+                Action stateChanged = new Action(() =>
+                {
+                    mainWindow.toolStripProgressBar.Value = 30;
+                });
+                mainWindow.Invoke(stateChanged);
             }
             catch(Exception e)
             {
@@ -81,8 +92,8 @@ namespace FlowerTitan.Controllers
                 for (int i = 0; i < 13; i++)
                 {
                     Rectangle cloneRect = getBlossomPosition(i, Dpi);
-                    System.Drawing.Imaging.PixelFormat format = _sTemplate.PixelFormat;
-                    Bitmap cloneBitmap = _sTemplate.Clone(cloneRect, format);
+                    System.Drawing.Imaging.PixelFormat format = sTemplate.PixelFormat;
+                    Bitmap cloneBitmap = sTemplate.Clone(cloneRect, format);
                     temp.Add(cloneBitmap);
                 }
 
@@ -91,7 +102,8 @@ namespace FlowerTitan.Controllers
             {
                 MessageBox.Show(e.ToString());
             }
-            _blossomsList =  temp;
+            DpiNew = Convert.ToInt32(temp[0].HorizontalResolution);
+            blossomsList =  temp;
 
         }
 
@@ -116,26 +128,35 @@ namespace FlowerTitan.Controllers
         /// </summary>
         public Bitmap STemplate
         {
-            get { return _sTemplate; }
-            set { _sTemplate = value; }
+            get { return sTemplate; }
+            set { sTemplate = value; }
         }
 
         /// <summary>
-        /// Getter and setter
+        /// Getter and setter for BlossomsList
         /// </summary>
         public List<Bitmap> BlossomsList
         {
-            get { return _blossomsList; }
-            set { _blossomsList = value; }
+            get { return blossomsList; }
+            set { blossomsList = value; }
         }
 
         /// <summary>
-        /// Getter and setter
+        /// Getter and setter for Dpi
         /// </summary>
         public int Dpi
         {
-            get { return _dpi; }
-            set { _dpi = value; }
+            get { return dpi; }
+            set { dpi = value; }
+        }
+
+        /// <summary>
+        /// Getter Setter for DpiNew
+        /// </summary>
+        public int DpiNew
+        {
+            get { return dpiNew; }
+            set { dpiNew = value; }
         }
 
     }

@@ -68,6 +68,18 @@ namespace FlowerTitan.MeasuringLines
 
         //determines whether measuring lines were enabled
         private bool isEnabled = false;
+
+        /// <summary>
+        /// Returns whether this is first processing.
+        /// </summary>
+        public bool IsFirstProcessing
+        {
+            get
+            {
+                if (processingCount < 1) return true;
+                else return false;
+            }
+        }
         /// <summary>
         /// Returns whether measuring lines are enabled.
         /// </summary>
@@ -245,7 +257,6 @@ namespace FlowerTitan.MeasuringLines
         /// <param name="imageBoxID">Image box id.</param>
         public void AddMeasuringLinesToImage(Emgu.CV.UI.ImageBox image, Line[] lines, long imageBoxID)
         {
-            addedImages++;
             //creates deep copy of added lines
             AllLines al = new AllLines();
             int i = 0;
@@ -261,7 +272,7 @@ namespace FlowerTitan.MeasuringLines
                 i++;
             }
             image.Tag = al;
-            if (firstProcessing)
+            if (firstProcessing && (imageBoxID != 1))
             {
                 //adding handlers to image
                 addHandlersToImage(image);
@@ -271,6 +282,7 @@ namespace FlowerTitan.MeasuringLines
                 //handlers are already added, just change of image's lines reference
                 allLines[addedImages] = al;
             }
+            addedImages++;
             al.ImageBoxID = imageBoxID;
             //force line drawing
             image.Refresh();
@@ -282,28 +294,32 @@ namespace FlowerTitan.MeasuringLines
         public void ProcessingAborted() {
             if (!loaded)
             {
-                firstProcessing = true;
-                processingCount = 0;
+                if (processingCount == 1)
+                {
+                    firstProcessing = true;
+                    processingCount = 0;
+                }
             }
         }
 
         /// <summary>
-        /// Returns deep copy of reference lines.
+        /// Returns deep copy of reference lines for particular image.
         /// </summary>
-        /// <returns></returns>
-        public Line[] GetReferenceMeasuringLines()
+        /// <param name="referenceImageId">image id</param>
+        /// <returns>reference lines</returns>
+        public Line[] GetReferenceMeasuringLines(int referenceImageId)
         {
             List<Line> deepCopy = new List<Line>();
             int i = 0;
-            foreach (Line l in allLines[0].Lines)
+            foreach (Line l in allLines[referenceImageId].Lines)
             {
                 //copy every line
                 deepCopy.Add(new Line());
                 int j = 0;
-                foreach (Point p in allLines[0].Lines[i].Points)
+                foreach (Point p in allLines[referenceImageId].Lines[i].Points)
                 {
                     //copy every line's point
-                    deepCopy[i].Points.Add(new Point(allLines[0].Lines[i].Points[j].X, allLines[0].Lines[i].Points[j].Y));
+                    deepCopy[i].Points.Add(new Point(allLines[referenceImageId].Lines[i].Points[j].X, allLines[referenceImageId].Lines[i].Points[j].Y));
                     j++;
                 }
                 i++;
@@ -313,7 +329,6 @@ namespace FlowerTitan.MeasuringLines
             if (processingCount == 1)
             {
                 firstProcessing = false;
-                processingCount = 0;
             }
             processingCount++;
             addedImages = 0;
@@ -323,6 +338,7 @@ namespace FlowerTitan.MeasuringLines
         /// <summary>
         /// Prepares for a new template and restores default settings.
         /// </summary>
+        /// <param name="isTemplate">determines whether it is template. Default false.</param>
         public void NewTemplate(bool isTemplate = false)
         {
             //reseting listBoxe's items

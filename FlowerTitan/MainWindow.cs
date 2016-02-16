@@ -18,12 +18,12 @@ namespace FlowerTitan
     public partial class MainWindow : Form
     {
         private bool previousExportState = false;
-        private Controllers.TemplateProcessor _tp;
+        private Core.TemplateProcessor tp;
         private MeasuringLines.MeasuringLines measuringLines;
         private Database.Database database;
+        private Emgu.CV.UI.ImageBox[] allImages;
         //processing thread
         private Thread processingThread;
-        private List<Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>> blossoms;
 
         /// <summary>
         /// Default constructor.
@@ -46,6 +46,9 @@ namespace FlowerTitan
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            int a, b;
+            a = treshold1.Value;
+            b = treshold2.Value;
             if (measuringLines.IsEnabled)
             {
                 previousExportState = buttonExport.Enabled;
@@ -59,34 +62,25 @@ namespace FlowerTitan
                 panel1.Enabled = false;
                 panel8.Enabled = false;
                 menuStrip.Enabled = false;
-                processingThread = new Thread(new ThreadStart(this.process));
+                processingThread = new Thread(() => this.process(a, b));
                 processingThread.Start();
+                panelProcessing.Enabled = true;
+                buttonImages.Enabled = true;
+                buttonEdges.Enabled = true;
             }
         }
 
-        private void process()
+        private void process(int treshold, int tresholdLinking)
         {
-            //get reference measuring lines, call only once
-            MeasuringLines.Line[] referenceLines = measuringLines.GetReferenceMeasuringLines();
-            _tp.startProcessing();
-           
-
-            //MOCK
-            /*
-            for (int i = 0; i < 10; i++)
+            int c = 1;
+            if (!measuringLines.IsFirstProcessing) c = 12;
+            List<MeasuringLines.Line[]> referenceLines = new List<MeasuringLines.Line[]>();
+            for (int i = 0; i < c; i++)
             {
-                Thread.Sleep(1000);
-                Action stateChanged = new Action(() =>
-                {
-                    toolStripProgressBar.Value = (i + 1) * 10;
-                });
-                this.Invoke(stateChanged);
-                Thread.Sleep(1000);
+                referenceLines.Add(measuringLines.GetReferenceMeasuringLines(i));
             }
-             */
-
-            //MOCK end
-
+            MeasuringLines.Line[][] resultLines = tp.startProcessing(treshold, tresholdLinking, referenceLines.ToArray(), this);
+            
             Action processingDone = new Action(() =>
             {
                 buttonStop.Enabled = false;
@@ -95,20 +89,12 @@ namespace FlowerTitan
                 panel8.Enabled = true;
                 menuStrip.Enabled = true;
 
-                // MOCK: add processed lines to image (for every image with its processed lines)
-                //every array has to have the same count of lines and line's points as the reference one
-                measuringLines.AddMeasuringLinesToImage(iB2, referenceLines, 2);
-                measuringLines.AddMeasuringLinesToImage(iB3, referenceLines, 3);
-                measuringLines.AddMeasuringLinesToImage(iB4, referenceLines, 4);
-                measuringLines.AddMeasuringLinesToImage(iB5, referenceLines, 5);
-                measuringLines.AddMeasuringLinesToImage(iB6, referenceLines, 6);
-                measuringLines.AddMeasuringLinesToImage(iB7, referenceLines, 7);
-                measuringLines.AddMeasuringLinesToImage(iB8, referenceLines, 8);
-                measuringLines.AddMeasuringLinesToImage(iB9, referenceLines, 9);
-                measuringLines.AddMeasuringLinesToImage(iB10, referenceLines, 10);
-                measuringLines.AddMeasuringLinesToImage(iB11, referenceLines, 11);
-                measuringLines.AddMeasuringLinesToImage(iB12, referenceLines, 12);
-                //MOCK end
+                int counter = 0;
+                foreach (MeasuringLines.Line[] lines in resultLines)
+                {
+                    measuringLines.AddMeasuringLinesToImage(allImages[counter], lines, (counter + 1));
+                    counter++;
+                }
 
                 buttonExport.Enabled = true;
                 buttonStart.Enabled = true;
@@ -118,6 +104,22 @@ namespace FlowerTitan
                 loadTemplateToolStripMenuItem1.Enabled = false;
             });
             this.Invoke(processingDone);
+        }
+
+        private void drawBlossoms()
+        {
+            for (int i = 0; i < tp.ListOfBlossomsToDraw.Count - 1; i++)
+            {
+                allImages[i].Image = tp.ListOfBlossomsToDraw[i];
+            }
+        }
+
+        private void drawEdges()
+        {
+            for (int i = 0; i < tp.ListOfEdgesToDraw.Count - 1; i++)
+            {
+                allImages[i].Image = tp.ListOfEdgesToDraw[i];
+            }
         }
 
         private void importTemplateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -134,58 +136,30 @@ namespace FlowerTitan
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = false;
                 buttonStop.Enabled = false;
-                processingThread = new Thread(new ThreadStart(this.import));
+                int width = iB1.Width;
+                int height = iB1.Height;
+                processingThread = new Thread(() => this.import(width, height));
                 processingThread.Start();
                 database.SetOpenFilePath(System.IO.Path.GetDirectoryName(openFileDialogImage.FileName));
             }
         }
 
-        private void import()
+        private void import(int width, int height)
         {
-            _tp.loadTemplate(openFileDialogImage.FileName);
-            _tp.createListOfBlossoms();
-            this.blossoms = _tp.ListOfBlossomsToDraw;
-            //TODO insert bitmap with template id, it is crutial that image mustn't have its frame, otherwise OCR will usually fail
-            //MOCK image
-            Image img = new Bitmap(imageBoxID.Width, imageBoxID.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            Graphics drawing = Graphics.FromImage(img);
-            drawing.Clear(Color.White);
-            Brush textBrush = new SolidBrush(Color.Black);
-            FontFamily fontFamily = new FontFamily("Arial");
-            Font font = new Font(fontFamily, 30, FontStyle.Bold, GraphicsUnit.Pixel);
-            drawing.DrawString("12345", font, textBrush, 150, 10);
-            drawing.Save();
-            Bitmap bitmapTempID = new Bitmap(img.Width, img.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            using (Graphics gr = Graphics.FromImage(bitmapTempID))
-            {
-                gr.DrawImage(img, new Rectangle(0, 0, bitmapTempID.Width, bitmapTempID.Height));
-            }
-            Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> emguCVImage = new Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte>(bitmapTempID);
-            textBrush.Dispose();
-            drawing.Dispose();
-            //MOCK end
+            tp.loadTemplate(openFileDialogImage.FileName, this);
+            tp.createListOfBlossoms(width, height, this);
+            //set template id image and get number
+            Emgu.CV.Image<Emgu.CV.Structure.Bgr, Byte> emguCVImage = tp.ListOfBlossomsToDraw[tp.ListOfBlossomsToDraw.Count - 1];
             string tempID = TemplateOCR.TemplateIdOCR.GetInstance().ProcessTemplateID(emguCVImage);
 
             Action importingDone = new Action(() =>
             {
-                iB1.Image = this.blossoms.ElementAt(0);
-                iB2.Image = this.blossoms.ElementAt(1);
-                iB3.Image = this.blossoms.ElementAt(2);
-                iB4.Image = this.blossoms.ElementAt(3);
-                iB5.Image = this.blossoms.ElementAt(4);
-                iB6.Image = this.blossoms.ElementAt(5);
-                iB7.Image = this.blossoms.ElementAt(6);
-                iB8.Image = this.blossoms.ElementAt(7);
-                iB9.Image = this.blossoms.ElementAt(8);
-                iB10.Image = this.blossoms.ElementAt(9);
-                iB11.Image = this.blossoms.ElementAt(10);
-                iB12.Image = this.blossoms.ElementAt(11);
-
+                drawBlossoms();
                 tID.Text = tempID;
                 imageBoxID.Image = emguCVImage;
                 threadDone(Properties.Resources.MainWindow_status_import);
                 //enabling measuring lines on the first image
-                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)_tp.getDpi());
+                measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)tp.getDpi());
                 buttonStop.Enabled = false;
                 buttonExport.Enabled = false;
                 buttonStart.Enabled = true;
@@ -206,7 +180,7 @@ namespace FlowerTitan
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            _tp = new Controllers.TemplateProcessor();
+            tp = new Core.TemplateProcessor();
             measuringLines = MeasuringLines.MeasuringLines.GetInstance(this);
             database = Database.Database.GetInstance();
             openFileDialogImage.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
@@ -218,6 +192,9 @@ namespace FlowerTitan
             buttonStart.Enabled = false;
             buttonStop.Enabled = false;
             buttonExport.Enabled = false;
+            buttonEdges.Enabled = false;
+            buttonImages.Enabled = false;
+            allImages = new Emgu.CV.UI.ImageBox[] { iB1, iB2, iB3, iB4, iB5, iB6, iB7, iB8, iB9, iB10, iB11, iB12 };
             // Set last window location
             if (Properties.Settings.Default.MainWindowLocation != null)
             {
@@ -227,6 +204,8 @@ namespace FlowerTitan
                 trackBarThickness.Value = Properties.Settings.Default.LineThickness;
                 trackBarPointSize.Value = Properties.Settings.Default.PointSize;
                 buttonColor.BackColor = Properties.Settings.Default.LineColor;
+                treshold1.Value = Properties.Settings.Default.Treshold1;
+                treshold2.Value = Properties.Settings.Default.Treshold2;
                 measuringLines.UpdateSettings();
             }
         }
@@ -251,6 +230,8 @@ namespace FlowerTitan
                     buttonStart.Enabled = true;
                     buttonStop.Enabled = false;
                     buttonExport.Enabled = false;
+                    buttonImages.Enabled = false;
+                    buttonEdges.Enabled = false;
                 }
             }
         }
@@ -294,6 +275,8 @@ namespace FlowerTitan
                 buttonStop.Enabled = false;
                 buttonExport.Enabled = true;
                 panel1.Visible = true;
+                buttonImages.Enabled = false;
+                buttonEdges.Enabled = false;
             }
         }
 
@@ -403,6 +386,8 @@ namespace FlowerTitan
             Properties.Settings.Default.LineColor = buttonColor.BackColor;
             Properties.Settings.Default.LineThickness = trackBarThickness.Value;
             Properties.Settings.Default.PointSize = trackBarPointSize.Value;
+            Properties.Settings.Default.Treshold1 = treshold1.Value;
+            Properties.Settings.Default.Treshold2 = treshold2.Value;
             Properties.Settings.Default.Save();
         }
 
@@ -442,6 +427,16 @@ namespace FlowerTitan
                 }
             }
             pen.Dispose();
+        }
+
+        private void buttonImages_Click(object sender, EventArgs e)
+        {
+            drawBlossoms();
+        }
+
+        private void buttonEdges_Click(object sender, EventArgs e)
+        {
+            drawEdges();
         }
     }
 }

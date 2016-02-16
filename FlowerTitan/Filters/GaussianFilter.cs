@@ -39,7 +39,6 @@ namespace FlowerTitan.Filters
         {
             try
             {
-                //CvInvoke.cvSmooth(_sourceImage, _resultImage, Emgu.CV.CvEnum.SMOOTH_TYPE.CV_GAUSSIAN);
                 _resultImage = _sourceImage.SmoothGaussian(1);
             }
             catch (Exception e)

@@ -148,9 +148,11 @@
     <Compile Include="AboutFlowerTitan.Designer.cs">
       <DependentUpon>AboutFlowerTitan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\FileController.cs" />
-    <Compile Include="Controllers\PositionController.cs" />
-    <Compile Include="Controllers\TemplateProcessor.cs" />
+    <Compile Include="Core\FileController.cs" />
+    <Compile Include="Core\PixelProcessor.cs" />
+    <Compile Include="Core\PositionController.cs" />
+    <Compile Include="Core\TemplateProcessor.cs" />
+    <Compile Include="Core\WhitePixelsStorage.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Filters\EdgeFilter.cs" />
     <Compile Include="Filters\GaussianFilter.cs" />

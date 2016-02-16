@@ -34,11 +34,11 @@ namespace FlowerTitan.Filters
         /// <summary>
         /// Apply filter on image
         /// </summary>
-        public void applyFilter()
+        public void applyFilter(int treshold, int tresholdLinking)
         {
             try
             {
-                _resultImage = _sourceImage.Canny(250, 250, 3);
+                _resultImage = _sourceImage.Canny(treshold, tresholdLinking);
             }
             catch (Exception e)
             {
