@@ -22,6 +22,7 @@ namespace FlowerTitan
         private MeasuringLines.MeasuringLines measuringLines;
         private Database.Database database;
         private Emgu.CV.UI.ImageBox[] allImages;
+        private bool edges = false;
         //processing thread
         private Thread processingThread;
 
@@ -133,6 +134,7 @@ namespace FlowerTitan
 
         private void drawBlossoms()
         {
+            edges = false;
             for (int i = 0; i < tp.ListOfBlossomsToDraw.Count - 1; i++)
             {
                 allImages[i].Image = tp.ListOfBlossomsToDraw[i];
@@ -141,6 +143,7 @@ namespace FlowerTitan
 
         private void drawEdges()
         {
+            edges = true;
             for (int i = 0; i < tp.ListOfEdgesToDraw.Count - 1; i++)
             {
                 allImages[i].Image = tp.ListOfEdgesToDraw[i];
@@ -185,7 +188,7 @@ namespace FlowerTitan
                     imageBoxID.Image = emguCVImage;
                     threadDone(Properties.Resources.MainWindow_status_import);
                     //enabling measuring lines on the first image
-                    measuringLines.EnableMeasuringLinesOnFirstImage(iB1, (float)tp.getDpi());
+                    measuringLines.EnableMeasuringLinesOnFirstImage(iB1, tp.getDpi());
                     buttonStop.Enabled = false;
                     buttonExport.Enabled = false;
                     buttonStart.Enabled = true;
@@ -278,7 +281,7 @@ namespace FlowerTitan
             if (measuringLines.IsEnabled)
             {
                 threadStart(Properties.Resources.MainWindow_status_saving);
-                processingThread = new Thread(() => this.save(true));
+                processingThread = new Thread(() => this.save(true, false));
                 processingThread.Start();
             }
         }
@@ -322,7 +325,9 @@ namespace FlowerTitan
             if (measuringLines.IsEnabled)
             {
                 threadStart(Properties.Resources.MainWindow_status_saving);
-                processingThread = new Thread(() => this.save(false));
+                bool prev = edges;
+                if (prev) drawBlossoms();
+                processingThread = new Thread(() => this.save(false, prev));
                 processingThread.Start();
             }
         }
@@ -336,13 +341,14 @@ namespace FlowerTitan
             menuStrip.Enabled = false;
         }
 
-        private void save(bool isTemplate)
+        private void save(bool isTemplate, bool prev)
         {
             database.SaveTemplate(measuringLines.ActiveImagesLines, measuringLines.ActiveImagesImages, isTemplate, tID.Text, tBtemplateName.Text, measuringLines.Scale, measuringLines.Colors, measuringLines.Names, this);
-
+            
             Action saveDone = new Action(() =>
             {
                 threadDone(Properties.Resources.MainWindow_status_save);
+                if (prev) drawEdges();
             });
             this.Invoke(saveDone);
         }

@@ -107,6 +107,11 @@ namespace FlowerTitan.Core
         /// </summary>
         PixelProcessor pp;
 
+        /// <summary>
+        /// Stores new Dpi value after image resize.
+        /// </summary>
+        private double newDpi = 0;
+
 
         /// <summary>
         /// TemplateProcessor constructor
@@ -132,6 +137,7 @@ namespace FlowerTitan.Core
         /// Load template from file
         /// </summary>
         /// <param name="file">Image file</param>
+        /// <param name="mainWindow">Instance of MainWindow</param>
         public void loadTemplate(string file, MainWindow mainWindow)
         {
             Bitmap tmp;
@@ -144,6 +150,7 @@ namespace FlowerTitan.Core
         /// </summary>
         /// <param name="width">Width of created image</param>
         /// <param name="height">Height of created image</param>
+        /// <param name="mainWindow">Instance of MainWindow</param>
         public void createListOfBlossoms(int width, int height, MainWindow mainWindow)
         {
             fc.createBlossomsList();
@@ -181,8 +188,9 @@ namespace FlowerTitan.Core
                     imb = bitmapToEmgu(ima);
                     imc = resizeImage(imb, width, height);
                     tempListOfBlossoms.Add(imc);
-
                 }
+                //DPI rescale formula [DPI/(original size/new size)])
+                newDpi = listOfBlossoms[0].HorizontalResolution / ((double)listOfBlossoms[0].Width / (double)tempListOfBlossoms[0].Width);
             
         }
 
@@ -206,7 +214,7 @@ namespace FlowerTitan.Core
         /// <returns>Resized image</returns>
         private Image<Bgr, Byte> resizeImage(Image<Bgr, Byte> i, int width, int height)
         {
-            Image<Bgr, Byte> r = i.Resize(width, height, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);
+            Image<Bgr, Byte> r = i.Resize(width, height, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR, true);
             return r;
         }
 
@@ -273,6 +281,7 @@ namespace FlowerTitan.Core
         /// <param name="treshold">Treshold</param>
         /// <param name="tresholdLinking">TresholdLinking</param>
         /// <param name="referenceLines">Array of lines draw  by user</param>
+        /// <param name="mainWindow">Instance of MainWindow</param>
         /// <returns>Array of lines after image processing to draw</returns>
         public MeasuringLines.Line[][] startProcessing(int treshold, int tresholdLinking, MeasuringLines.Line[][] referenceLines, MainWindow mainWindow)
         {
@@ -302,9 +311,9 @@ namespace FlowerTitan.Core
         /// Returns DPI of image
         /// </summary>
         /// <returns>DPI</returns>
-        public int getDpi()
+        public double getDpi()
         {
-            return fc.DpiNew;
+            return newDpi;
         }
 
 

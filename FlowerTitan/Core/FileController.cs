@@ -26,12 +26,6 @@ namespace FlowerTitan.Core
         /// Store DPI of image old image
         /// </summary>
         private int dpi;
-
-        /// <summary>
-        /// Store dpi of created image 
-        /// </summary>
-        private int dpiNew;
-
         
         /// <summary>
         /// FileController constructor
@@ -59,7 +53,8 @@ namespace FlowerTitan.Core
         /// <summary>
         /// Load template from file
         /// </summary>
-        /// <param name="file">Path ti file</param>
+        /// <param name="file">Path to file</param>
+        /// <param name="mainWindow">Instance of MainWindow</param>
         public void loadTemplate(string file, MainWindow mainWindow)
         {
             Bitmap bmp = new Bitmap(file);
@@ -87,7 +82,6 @@ namespace FlowerTitan.Core
                 Bitmap cloneBitmap = sTemplate.Clone(cloneRect, format);
                 temp.Add(cloneBitmap);
             }
-            DpiNew = Convert.ToInt32(temp[0].HorizontalResolution);
             blossomsList =  temp;
 
         }
@@ -133,15 +127,6 @@ namespace FlowerTitan.Core
         {
             get { return dpi; }
             set { dpi = value; }
-        }
-
-        /// <summary>
-        /// Getter Setter for DpiNew
-        /// </summary>
-        public int DpiNew
-        {
-            get { return dpiNew; }
-            set { dpiNew = value; }
         }
 
     }

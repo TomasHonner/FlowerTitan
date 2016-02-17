@@ -43,24 +43,24 @@ namespace FlowerTitan.LengthConverter
         /// <param name="line">line to convert</param>
         /// <param name="scale">converting scale</param>
         /// <returns></returns>
-        public float ConvertLineLengthToMM(Line line, double scale)
+        public double ConvertLineLengthToMM(Line line, double scale)
         {
             if (line.Points.Count == 1) return 0f;
             int to = line.Points.Count - 1;
             double lengthPx = 0;
             for (int i = 0; i < to; i++)
             {
-                float dX = line.Points[i].X - line.Points[i + 1].X;
-                float dY = line.Points[i].Y - line.Points[i + 1].Y;
+                int dX = line.Points[i].X - line.Points[i + 1].X;
+                int dY = line.Points[i].Y - line.Points[i + 1].Y;
                 lengthPx += Math.Sqrt((dX * dX) + (dY * dY));
             }
-            float a = convertPxToMm(lengthPx, scale);
+            double a = convertPxToMm(lengthPx, scale);
             return a;
         }
 
-        private float convertPxToMm(double lengthPx, double scale)
+        private double convertPxToMm(double lengthPx, double scale)
         {
-            return (float)((lengthPx * DPI_TO_MM) / scale);
+            return (lengthPx * DPI_TO_MM) / scale;
         }
     }
 }

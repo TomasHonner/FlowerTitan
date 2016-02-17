@@ -136,6 +136,7 @@ namespace FlowerTitan.Core
         /// Find all white pixels in all images from the list
         /// </summary>
         /// <param name="l">List of images with edge detection</param>
+        /// <param name="mainWindow">Instance of MainWindow</param>
         public void proccessImageList(List<Image<Gray, Byte>> l, MainWindow mainWindow)
         {
             this.whitePixelListFinal = new List<WhitePixelsStorage>();
