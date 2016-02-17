@@ -72,42 +72,63 @@ namespace FlowerTitan
 
         private void process(int treshold, int tresholdLinking)
         {
-            int c = 1;
-            if (!measuringLines.IsFirstProcessing) c = 12;
-            List<MeasuringLines.Line[]> referenceLines = new List<MeasuringLines.Line[]>();
-            for (int i = 0; i < c; i++)
+            try
             {
-                MeasuringLines.Line[] l = measuringLines.GetReferenceMeasuringLines(i);
-                if (l != null)
+                int c = 1;
+                if (!measuringLines.IsFirstProcessing) c = 12;
+                List<MeasuringLines.Line[]> referenceLines = new List<MeasuringLines.Line[]>();
+                for (int i = 0; i < c; i++)
                 {
-                    referenceLines.Add(l);
+                    MeasuringLines.Line[] l = measuringLines.GetReferenceMeasuringLines(i);
+                    if (l != null)
+                    {
+                        referenceLines.Add(l);
+                    }
                 }
+                MeasuringLines.Line[][] resultLines = tp.startProcessing(treshold, tresholdLinking, referenceLines.ToArray(), this);
+
+                Action processingDone = new Action(() =>
+                {
+                    buttonStop.Enabled = false;
+                    changeStatus(Properties.Resources.MainWindow_status_done);
+                    panel1.Enabled = true;
+                    panel8.Enabled = true;
+                    menuStrip.Enabled = true;
+
+                    int counter = 0;
+                    foreach (MeasuringLines.Line[] lines in resultLines)
+                    {
+                        measuringLines.AddMeasuringLinesToImage(allImages[counter], lines, (counter + 1));
+                        counter++;
+                    }
+
+                    buttonExport.Enabled = true;
+                    buttonStart.Enabled = true;
+                    exportDataToolStripMenuItem.Enabled = true;
+                    saveTemplateToolStripMenuItem.Enabled = true;
+                    saveTemplateToolStripMenuItem1.Enabled = true;
+                    loadTemplateToolStripMenuItem1.Enabled = false;
+                });
+                this.Invoke(processingDone);
             }
-            MeasuringLines.Line[][] resultLines = tp.startProcessing(treshold, tresholdLinking, referenceLines.ToArray(), this);
-            
-            Action processingDone = new Action(() =>
+            catch (Exception e)
             {
-                buttonStop.Enabled = false;
-                changeStatus(Properties.Resources.MainWindow_status_done);
-                panel1.Enabled = true;
-                panel8.Enabled = true;
-                menuStrip.Enabled = true;
-
-                int counter = 0;
-                foreach (MeasuringLines.Line[] lines in resultLines)
+                Action processingFailed = new Action(() =>
                 {
-                    measuringLines.AddMeasuringLinesToImage(allImages[counter], lines, (counter + 1));
-                    counter++;
-                }
-
-                buttonExport.Enabled = true;
-                buttonStart.Enabled = true;
-                exportDataToolStripMenuItem.Enabled = true;
-                saveTemplateToolStripMenuItem.Enabled = true;
-                saveTemplateToolStripMenuItem1.Enabled = true;
-                loadTemplateToolStripMenuItem1.Enabled = false;
-            });
-            this.Invoke(processingDone);
+                    processingThread.Abort();
+                    measuringLines.ProcessingAborted();
+                    panel1.Enabled = true;
+                    panel8.Enabled = true;
+                    menuStrip.Enabled = true;
+                    buttonStop.Enabled = false;
+                    buttonStart.Enabled = true;
+                    buttonExport.Enabled = previousExportState;
+                    exportDataToolStripMenuItem.Enabled = previousExportState;
+                    threadDone(Properties.Resources.MainWindow_status_processing_failed);
+                });
+                this.Invoke(processingFailed);
+                MessageBox.Show(Properties.Resources.MainWindow_process_error_text + "\n" + e.Message, Properties.Resources.MainWindow_process_error_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void drawBlossoms()

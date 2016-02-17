@@ -218,4 +218,13 @@ BACKSPACE - delete whole line</value>
   <data name="XLSXGenerator_name" xml:space="preserve">
     <value>Template name:</value>
   </data>
+  <data name="MainWindow_status_processing_failed" xml:space="preserve">
+    <value>Processing failed.</value>
+  </data>
+  <data name="MainWindow_process_error_text" xml:space="preserve">
+    <value>Error occured during template processing.</value>
+  </data>
+  <data name="MainWindow_process_error_title" xml:space="preserve">
+    <value>Process error</value>
+  </data>
 </root>

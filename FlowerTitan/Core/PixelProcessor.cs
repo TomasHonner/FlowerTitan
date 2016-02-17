@@ -24,6 +24,12 @@ namespace FlowerTitan.Core
         /// </summary>
         private List<WhitePixelsStorage> whitePixelListFinal;
 
+        /// <summary>
+        /// Empty image treshold.
+        /// </summary>
+        private static int emptyTreshold = Database.Database.GetInstance().GetProperty("emptyTreshold");
+        public static int EmptyTreshold { set { emptyTreshold = value; } }
+
        /// <summary>
         /// Start processing array of lines from MainWindow
        /// </summary>
@@ -142,7 +148,7 @@ namespace FlowerTitan.Core
                     wps.ImageNumber = n;
                     wps.AllWhitePixels = proccessImage(i);
                     n++;
-                    if (wps.AllWhitePixels.Count() < 1000)
+                    if (wps.AllWhitePixels.Count() < emptyTreshold)
                     {
                         wps.IsEmpty = true;
                         WhitePixelListFinal.Add(wps);

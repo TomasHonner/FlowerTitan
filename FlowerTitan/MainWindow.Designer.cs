@@ -148,7 +148,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 680);
+            this.panel1.Size = new System.Drawing.Size(834, 680);
             this.panel1.TabIndex = 0;
             this.panel1.Visible = false;
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
@@ -398,10 +398,10 @@
             // 
             // buttonEdges
             // 
-            this.buttonEdges.Location = new System.Drawing.Point(197, 95);
+            this.buttonEdges.Location = new System.Drawing.Point(182, 95);
             this.buttonEdges.Name = "buttonEdges";
-            this.buttonEdges.Size = new System.Drawing.Size(75, 23);
-            this.buttonEdges.TabIndex = 1;
+            this.buttonEdges.Size = new System.Drawing.Size(90, 23);
+            this.buttonEdges.TabIndex = 5;
             this.buttonEdges.Text = "Show edges";
             this.buttonEdges.UseVisualStyleBackColor = true;
             this.buttonEdges.Click += new System.EventHandler(this.buttonEdges_Click);
@@ -411,7 +411,7 @@
             this.buttonImages.Location = new System.Drawing.Point(3, 95);
             this.buttonImages.Name = "buttonImages";
             this.buttonImages.Size = new System.Drawing.Size(90, 23);
-            this.buttonImages.TabIndex = 0;
+            this.buttonImages.TabIndex = 4;
             this.buttonImages.Text = "Show images";
             this.buttonImages.UseVisualStyleBackColor = true;
             this.buttonImages.Click += new System.EventHandler(this.buttonImages_Click);
@@ -423,7 +423,7 @@
             this.buttonStop.Location = new System.Drawing.Point(28, 56);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(231, 40);
-            this.buttonStop.TabIndex = 4;
+            this.buttonStop.TabIndex = 12;
             this.buttonStop.Text = "Stop Processing";
             this.buttonStop.UseVisualStyleBackColor = true;
             this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
@@ -434,7 +434,7 @@
             this.buttonStart.Location = new System.Drawing.Point(28, 10);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(231, 40);
-            this.buttonStart.TabIndex = 5;
+            this.buttonStart.TabIndex = 11;
             this.buttonStart.Text = "Start Processing";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
@@ -444,7 +444,7 @@
             this.buttonExport.Location = new System.Drawing.Point(28, 102);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(231, 40);
-            this.buttonExport.TabIndex = 6;
+            this.buttonExport.TabIndex = 13;
             this.buttonExport.Text = "Export to XLS";
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
@@ -627,7 +627,7 @@
             this.buttonColor.Location = new System.Drawing.Point(97, 36);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(25, 25);
-            this.buttonColor.TabIndex = 8;
+            this.buttonColor.TabIndex = 10;
             this.buttonColor.UseVisualStyleBackColor = false;
             // 
             // label4
@@ -645,7 +645,7 @@
             this.listBoxLines.Location = new System.Drawing.Point(106, 11);
             this.listBoxLines.Name = "listBoxLines";
             this.listBoxLines.Size = new System.Drawing.Size(157, 199);
-            this.listBoxLines.TabIndex = 10;
+            this.listBoxLines.TabIndex = 8;
             // 
             // textBoxLine
             // 
@@ -653,7 +653,7 @@
             this.textBoxLine.MaxLength = 100;
             this.textBoxLine.Name = "textBoxLine";
             this.textBoxLine.Size = new System.Drawing.Size(162, 20);
-            this.textBoxLine.TabIndex = 11;
+            this.textBoxLine.TabIndex = 9;
             // 
             // panel3
             // 
@@ -678,7 +678,7 @@
             this.trackBarPointSize.Minimum = 1;
             this.trackBarPointSize.Name = "trackBarPointSize";
             this.trackBarPointSize.Size = new System.Drawing.Size(94, 45);
-            this.trackBarPointSize.TabIndex = 17;
+            this.trackBarPointSize.TabIndex = 7;
             this.trackBarPointSize.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBarPointSize.Value = 5;
             // 
@@ -689,7 +689,7 @@
             this.trackBarThickness.Minimum = 10;
             this.trackBarThickness.Name = "trackBarThickness";
             this.trackBarThickness.Size = new System.Drawing.Size(94, 45);
-            this.trackBarThickness.TabIndex = 16;
+            this.trackBarThickness.TabIndex = 6;
             this.trackBarThickness.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBarThickness.Value = 20;
             // 
@@ -821,7 +821,7 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 334F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 336F));
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -840,10 +840,10 @@
             this.panel6.AutoScroll = true;
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Location = new System.Drawing.Point(840, 2);
+            this.panel6.Location = new System.Drawing.Point(838, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(334, 680);
+            this.panel6.Size = new System.Drawing.Size(336, 680);
             this.panel6.TabIndex = 1;
             this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
             // 
@@ -871,7 +871,7 @@
             this.tID.Name = "tID";
             this.tID.ReadOnly = true;
             this.tID.Size = new System.Drawing.Size(100, 20);
-            this.tID.TabIndex = 16;
+            this.tID.TabIndex = 0;
             this.tID.DoubleClick += new System.EventHandler(this.tID_DoubleClick);
             // 
             // tBtemplateName
@@ -879,7 +879,7 @@
             this.tBtemplateName.Location = new System.Drawing.Point(149, 44);
             this.tBtemplateName.Name = "tBtemplateName";
             this.tBtemplateName.Size = new System.Drawing.Size(100, 20);
-            this.tBtemplateName.TabIndex = 14;
+            this.tBtemplateName.TabIndex = 1;
             // 
             // label9
             // 

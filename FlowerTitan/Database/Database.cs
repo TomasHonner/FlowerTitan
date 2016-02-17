@@ -326,18 +326,32 @@ namespace FlowerTitan.Database
         }
 
         /// <summary>
+        /// Gets particular property.
+        /// </summary>
+        /// <param name="property">property name</param>
+        /// <param name="reset">read default or last saved property, default last saved</param>
+        /// <returns>Requested property</returns>
+        public int GetProperty(String property, bool reset = false)
+        {
+            return int.Parse(getProperty(property, reset));
+        }
+
+        /// <summary>
         /// Gets column value from table Properties
         /// </summary>
         /// <param name="column">column name</param>
+        /// <param name="reset">read default or last saved, default last saved</param>
         /// <returns>column value</returns>
-        private string getProperty(string column)
+        private string getProperty(string column, bool reset = false)
         {
             string val = "";
+            int offset = 0;
+            if (reset) offset = 1;
             try
             {
                 SQLiteTransaction transaction = openConnection();
                 SQLiteCommand command = connection.CreateCommand();
-                command.CommandText = String.Format("SELECT {0} FROM Properties LIMIT 1;", column);
+                command.CommandText = String.Format("SELECT {0} FROM Properties LIMIT 1 OFFSET {1};", column, offset);
                 SQLiteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -360,6 +374,16 @@ namespace FlowerTitan.Database
         public void SetSaveFilePath(string path)
         {
             setProperty("save_file_path", path);
+        }
+
+        /// <summary>
+        /// Saves particular property.
+        /// </summary>
+        /// <param name="property">property name</param>
+        /// <param name="value">property value</param>
+        public void SetProperty(string property, int value)
+        {
+            setProperty(property, value.ToString());
         }
 
         /// <summary>

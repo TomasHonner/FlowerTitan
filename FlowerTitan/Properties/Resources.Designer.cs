@@ -98,6 +98,24 @@ namespace FlowerTitan.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured during template processing..
+        /// </summary>
+        internal static string MainWindow_process_error_text {
+            get {
+                return ResourceManager.GetString("MainWindow_process_error_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process error.
+        /// </summary>
+        internal static string MainWindow_process_error_title {
+            get {
+                return ResourceManager.GetString("MainWindow_process_error_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aborted..
         /// </summary>
         internal static string MainWindow_status_abort {
@@ -175,6 +193,15 @@ namespace FlowerTitan.Properties {
         internal static string MainWindow_status_processing {
             get {
                 return ResourceManager.GetString("MainWindow_status_processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing failed..
+        /// </summary>
+        internal static string MainWindow_status_processing_failed {
+            get {
+                return ResourceManager.GetString("MainWindow_status_processing_failed", resourceCulture);
             }
         }
         
