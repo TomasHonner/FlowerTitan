@@ -103,6 +103,7 @@ namespace FlowerTitan
                         counter++;
                     }
 
+                    if (edges) drawEdges();
                     buttonExport.Enabled = true;
                     buttonStart.Enabled = true;
                     exportDataToolStripMenuItem.Enabled = true;
