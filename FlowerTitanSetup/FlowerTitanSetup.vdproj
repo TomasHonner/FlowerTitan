@@ -87,18 +87,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4F0126BFAFB5BFE89B5AF8619F0B4388"
-        "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4F0126BFAFB5BFE89B5AF8619F0B4388"
-        "OwnerKey" = "8:_F4914C741CFB14137E7E4DE7D2F74EA6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_501FC1E0C16D476E97DFBAB99183DBF2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -161,6 +149,18 @@
         {
         "MsmKey" = "8:_8437529346064D7ABA4164CF1B798E90"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8A3CB9AD0EEAFF84CEAA9BDC17C46B6E"
+        "OwnerKey" = "8:_F0AE4160A50C472FB1B4056447C1247F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8A3CB9AD0EEAFF84CEAA9BDC17C46B6E"
+        "OwnerKey" = "8:_F4914C741CFB14137E7E4DE7D2F74EA6"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -526,7 +526,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4F0126BFAFB5BFE89B5AF8619F0B4388"
+        "OwnerKey" = "8:_8A3CB9AD0EEAFF84CEAA9BDC17C46B6E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -947,37 +947,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4F0126BFAFB5BFE89B5AF8619F0B4388"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_4F0126BFAFB5BFE89B5AF8619F0B4388"
-                    {
-                    "Name" = "8:ZedGraph.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ZedGraph.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_501FC1E0C16D476E97DFBAB99183DBF2"
             {
             "SourcePath" = "8:..\\FlowerTitan\\bin\\x86\\Release\\tessdata\\eng.cube.size"
@@ -1196,6 +1165,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8A3CB9AD0EEAFF84CEAA9BDC17C46B6E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8A3CB9AD0EEAFF84CEAA9BDC17C46B6E"
+                    {
+                    "Name" = "8:ZedGraph.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ZedGraph.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5A370373D51447A5B6017FBA00B7DFCE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BDEDFAAFA2A4DA5936B091E9B7FC669"
@@ -1875,6 +1875,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_00267D5E828749E4B3DBD466362E2C6B"
+                    {
+                    "Name" = "8:x64"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_3CE1F8FAAD0349928A4785B6BD900293"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_3972983F56BD4233A2582317187C1B1E"
                     {
                     "Name" = "8:x86"
@@ -1971,7 +1982,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FlowerTitan"
         "ProductCode" = "8:{1192BC63-8F3B-4499-AD46-B6C4FF047A1D}"
-        "PackageCode" = "8:{247BF45F-E1CE-49A7-A71C-F72F779F33CE}"
+        "PackageCode" = "8:{CF28F20D-5BFD-4B0A-83FA-8D126732061E}"
         "UpgradeCode" = "8:{82A08FE3-ED28-42FD-8D53-4D2D86E923A4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

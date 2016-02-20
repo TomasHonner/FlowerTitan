@@ -140,7 +140,6 @@ namespace FlowerTitan.Core
         /// <param name="mainWindow">Instance of MainWindow</param>
         public void loadTemplate(string file, MainWindow mainWindow)
         {
-            Bitmap tmp;
             fc.loadTemplate(file, mainWindow);
             template = fc.STemplate;
         }
